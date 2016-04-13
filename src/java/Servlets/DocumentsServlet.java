@@ -38,7 +38,7 @@ public class DocumentsServlet extends HttpServlet {
             String name = request.getParameter("name");
             if (name != null) {
                 em.getTransaction().begin();
-                em.persist(new Documents());
+                em.persist(new Documents()); 
                 em.getTransaction().commit();
             }
  
