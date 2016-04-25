@@ -34,21 +34,7 @@ public class DocumentsServlet extends HttpServlet {
         EntityManager em = emf.createEntityManager();
  
         try {
-            // Handle a new guest (if any):
-            String name = request.getParameter("name");
-            if (name != null) {
-                em.getTransaction().begin();
-                em.persist(new Documents()); 
-                em.getTransaction().commit();
-            }
- 
-            // Display the list of guests:
-            List<Documents> docList = em.createQuery(
-                "SELECT d FROM Documents d", Documents.class).getResultList();
-            request.setAttribute("guests", docList);
-            request.getRequestDispatcher("/guest.jsp")
-                .forward(request, response);
- 
+            
         } finally {
             // Close the database connection:
             if (em.getTransaction().isActive())

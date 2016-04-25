@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import java.sql.Blob;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -37,7 +38,10 @@ public class Documents implements Serializable {
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Users idUser;
-
+    @Column(name= "file")
+    private Blob file;
+    
+    
     public Documents() {
     }
 
@@ -84,6 +88,20 @@ public class Documents implements Serializable {
     @Override
     public String toString() {
         return "Entity.Documents[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the file
+     */
+    public java.sql.Blob getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(java.sql.Blob file) {
+        this.file = file;
     }
     
 }

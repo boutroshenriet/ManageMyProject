@@ -36,6 +36,8 @@ public class Years implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "yearNumber")
+    private Integer yearNumber;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "year")
     private Collection<Sessions> sessionsCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idYear")
@@ -97,6 +99,20 @@ public class Years implements Serializable {
     @Override
     public String toString() {
         return "Entity.Years[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the yearNumber
+     */
+    public Integer getYearNumber() {
+        return yearNumber;
+    }
+
+    /**
+     * @param yearNumber the yearNumber to set
+     */
+    public void setYearNumber(Integer yearNumber) {
+        this.yearNumber = yearNumber;
     }
     
 }
