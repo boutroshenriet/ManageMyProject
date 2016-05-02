@@ -8,7 +8,7 @@
     <head>
         <title>JPA Guest Book Web Application Tutorial</title>
     </head>
- 
+  
     <body>
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
