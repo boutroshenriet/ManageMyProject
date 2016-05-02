@@ -35,12 +35,8 @@ public class Documents implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Users idUser;
     @Column(name= "file")
     private Blob file;
-    
     
     public Documents() {
     }
@@ -56,15 +52,6 @@ public class Documents implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public Users getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Users idUser) {
-        this.idUser = idUser;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
