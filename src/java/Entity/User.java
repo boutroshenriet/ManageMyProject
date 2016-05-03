@@ -35,16 +35,72 @@ private static final long serialVersionUID = 1L;
         type = null;
     }
  
-    public User(String name, String password, String type) {
+    public User(String name, String password, Integer type) {
         this.name = name;
         this.signingDate = new Date(System.currentTimeMillis());
         this.password = password;
-        this.type = null;
+        this.type = type;
     }
  
     // String Representation:
     @Override
     public String toString() {
-        return name + " (signed on " + signingDate + ")";
+        return getName() + " (signed on " + getSigningDate() + ")";
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the signingDate
+     */
+    public Date getSigningDate() {
+        return signingDate;
+    }
+
+    /**
+     * @param signingDate the signingDate to set
+     */
+    public void setSigningDate(Date signingDate) {
+        this.signingDate = signingDate;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the type
+     */
+    public Integer getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(Integer type) {
+        this.type = type;
     }
 }

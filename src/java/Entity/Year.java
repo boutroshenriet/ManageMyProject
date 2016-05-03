@@ -42,7 +42,7 @@ public class Year implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -53,7 +53,7 @@ public class Year implements Serializable {
             return false;
         }
         Year other = (Year) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -61,7 +61,21 @@ public class Year implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Year[ id=" + id + " ]";
+        return "Entity.Year[ id=" + getId() + " ]";
+    }
+
+    /**
+     * @return the yearNumber
+     */
+    public Integer getYearNumber() {
+        return yearNumber;
+    }
+
+    /**
+     * @param yearNumber the yearNumber to set
+     */
+    public void setYearNumber(Integer yearNumber) {
+        this.yearNumber = yearNumber;
     }
     
 }

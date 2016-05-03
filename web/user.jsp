@@ -13,6 +13,7 @@
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
             Password: <input type="text" name="password" />
+            type: <input type="text" name="type" />
             <input type="submit" value="Add" />
         </form>
  

@@ -47,8 +47,15 @@ private static final long serialVersionUID = 1L;
         
         List<User> usersList = userDao.getAllUsers();
         
-                
-        // Display the list of guests:
+        for (User user : usersList) {
+            if(user.getName().equals(name))
+                if(user.getPassword().equals(password)){
+                    //!!!créer session!!!TODO
+                    request.setAttribute("connected", "1");
+                }
+        }
+        request.setAttribute("connected", "0");
+        // retour à la page de connexion
         doGet(request, response);
     }
 }
