@@ -26,10 +26,38 @@ public class UserDao {
         em.persist(user);
     }
  
-    // Retrieves all the guests:
+    // Retrieves all the users:
     public List<User> getAllUsers() {
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g ORDER BY g.id", User.class);
+        return query.getResultList();
+    }
+    
+    // Retrieves all the teachers (1):
+    public List<User> getAllTeachers() {
+        TypedQuery<User> query = em.createQuery(
+            "SELECT g FROM User g WHERE type = 1 ORDER BY g.id", User.class);
+        return query.getResultList();
+    }
+    
+    // Retrieves all the customers (2):
+    public List<User> getAllClients() {
+        TypedQuery<User> query = em.createQuery(
+            "SELECT g FROM User g WHERE type = 2 ORDER BY g.id", User.class);
+        return query.getResultList();
+    }
+    
+    // Retrieves all the students (3):
+    public List<User> getAllStudents() {
+        TypedQuery<User> query = em.createQuery(
+            "SELECT g FROM User g WHERE type = 3 ORDER BY g.id", User.class);
+        return query.getResultList();
+    }
+    
+    // Retrieves all the tutors (4):
+    public List<User> getAllTutors() {
+        TypedQuery<User> query = em.createQuery(
+            "SELECT g FROM User g WHERE type = 4 ORDER BY g.id", User.class);
         return query.getResultList();
     }
 }

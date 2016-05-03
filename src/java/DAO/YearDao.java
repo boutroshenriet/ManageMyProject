@@ -5,30 +5,32 @@
  */
 package DAO;
 
+import Entity.Year;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import Entity.Documents;
+
 /**
  *
  * @author Pierre
  */
 @Stateless
-public class DocumentsDao {
+public class YearDao {
 // Injected database connection:
-    @PersistenceContext private EntityManager em;
+    @PersistenceContext(unitName="ManageMyProjectPU") 
+    private EntityManager em;
  
     // Stores a new guest: 
-    public void persist(Documents document) {
-        em.persist(document);
+    public void persist(Year year) {
+        em.persist(year);
     }
  
     // Retrieves all the guests:
-    public List<Documents> getAllGuests() {
-        TypedQuery<Documents> query = em.createQuery(
-            "SELECT g FROM Documents g ORDER BY g.id", Documents.class);
+    public List<Year> getAllYears() {
+        TypedQuery<Year> query = em.createQuery(
+            "SELECT g FROM Year g ORDER BY g.id", Year.class);
         return query.getResultList();
     }
 }

@@ -12,6 +12,8 @@
     <body>
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
+            Password: <input type="text" name="password" />
+            type: <input type="text" name="type" />
             <input type="submit" value="Add" />
         </form>
  
@@ -24,8 +26,5 @@
                 }
             } %>
         </ol><hr>
- 
-        <iframe src="http://www.objectdb.com/pw.html?jee-netbeans"
-            frameborder="0" scrolling="no" width="100%" height="30"> </iframe>
      </body>
  </html>
