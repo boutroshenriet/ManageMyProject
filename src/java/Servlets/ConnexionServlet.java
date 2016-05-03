@@ -1,6 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
- 
+
+import DAO.UserDao;
+import Entity.User;
 import java.io.IOException;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,12 +16,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.UserDao;
-import Entity.User;
-
-@WebServlet(name="UserServlet", urlPatterns={"/user"})
-public class UserServlet extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+/**
+ *
+ * @author Pierre
+ */
+@WebServlet(name = "ConnexionServlet", urlPatterns = {"/ConnexionServlet"})
+public class ConnexionServlet extends HttpServlet {
+private static final long serialVersionUID = 1L;
  
     // Injected DAO EJB:
     @EJB UserDao userDao;
@@ -24,8 +33,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
  
         // Display the list of guests:
-        request.setAttribute("users", userDao.getAllUsers());
-        request.getRequestDispatcher("/user.jsp").forward(request, response);
+        request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
     }
  
     @Override
@@ -34,13 +42,12 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
  
         // Handle a new guest:
-        String name = request.getParameter("name");
+        String name = request.getParameter("username");
         String password = request.getParameter("password");
-        String type = request.getParameter("type");
         
-        if (name != null)
-            userDao.persist(new User(name, password, type));
-
+        List<User> usersList = userDao.getAllUsers();
+        
+                
         // Display the list of guests:
         doGet(request, response);
     }

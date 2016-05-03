@@ -25,8 +25,5 @@
                 }
             } %>
         </ol><hr>
- 
-        <iframe src="http://www.objectdb.com/pw.html?jee-netbeans"
-            frameborder="0" scrolling="no" width="100%" height="30"> </iframe>
      </body>
  </html>

@@ -25,18 +25,21 @@ private static final long serialVersionUID = 1L;
     private String name;
     private Date signingDate;
     private String password;
- 
-    // Constructors:
+    private Integer type;
+    
+    // Constructors:    
     public User() {
         name = null;
         signingDate = null;
         password = null;
+        type = null;
     }
  
-    public User(String name, String password) {
+    public User(String name, String password, String type) {
         this.name = name;
         this.signingDate = new Date(System.currentTimeMillis());
         this.password = password;
+        this.type = null;
     }
  
     // String Representation:
