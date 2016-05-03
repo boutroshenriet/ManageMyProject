@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import DAO.UserDao;
 import Entity.User;
 
@@ -23,7 +24,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
  
         // Display the list of guests:
-        //request.setAttribute("users", userDao.getAllUsers());
+        request.setAttribute("users", userDao.getAllUsers());
         request.getRequestDispatcher("/user.jsp").forward(request, response);
     }
  
@@ -34,6 +35,7 @@ public class UserServlet extends HttpServlet {
  
         // Handle a new guest:
         String name = request.getParameter("name");
+
         if (name != null)
             userDao.persist(new User(name));
  

@@ -18,7 +18,8 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class UserDao {
 // Injected database connection:
-    @PersistenceContext private EntityManager em;
+    @PersistenceContext(unitName="ManageMyProjectPU") 
+    private EntityManager em;
  
     // Stores a new guest: 
     public void persist(User user) {
