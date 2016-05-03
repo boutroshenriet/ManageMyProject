@@ -24,14 +24,19 @@ private static final long serialVersionUID = 1L;
     Long id;
     private String name;
     private Date signingDate;
+    private String password;
  
     // Constructors:
     public User() {
+        name = null;
+        signingDate = null;
+        password = null;
     }
  
-    public User(String name) {
+    public User(String name, String password) {
         this.name = name;
         this.signingDate = new Date(System.currentTimeMillis());
+        this.password = password;
     }
  
     // String Representation:

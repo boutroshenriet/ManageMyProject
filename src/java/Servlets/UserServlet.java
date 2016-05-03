@@ -35,10 +35,11 @@ public class UserServlet extends HttpServlet {
  
         // Handle a new guest:
         String name = request.getParameter("name");
-
+        String password = request.getParameter("password");
+        
         if (name != null)
-            userDao.persist(new User(name));
- 
+            userDao.persist(new User(name, password));
+
         // Display the list of guests:
         doGet(request, response);
     }

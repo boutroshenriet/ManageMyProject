@@ -12,6 +12,7 @@
     <body>
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
+            Password: <input type="text" name="password" />
             <input type="submit" value="Add" />
         </form>
  
