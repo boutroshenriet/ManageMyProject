@@ -21,8 +21,7 @@ import javax.persistence.OneToMany;
 public class Year implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     private Long id;
     private Integer yearNumber;
     
