@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,6 +27,9 @@ private static final long serialVersionUID = 1L;
     private Date signingDate;
     private String password;
     private Integer type;
+    
+    @ManyToOne
+    private Year year;
     
     // Constructors:    
     public User() {
