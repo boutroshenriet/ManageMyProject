@@ -11,3 +11,27 @@ and open the template in the editor.
 fieldset{
     width:23%;
 }
+
+.logo{
+    width:17%;
+    float: left;
+    margin-right:63%;
+    margin-top:2%;
+}
+
+.photo{
+    width:7%;
+    float: left;
+    margin-right:1%;
+    margin-top:3%;
+    
+}
+
+.user{
+    margin-top:3%;
+}
+
+header{
+    height: 180px;
+    background-color: #c4e3f3;
+}
