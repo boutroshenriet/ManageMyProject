@@ -30,7 +30,7 @@ public class YearDao {
     // Retrieves all the guests:
     public List<Year> getAllYears() {
         TypedQuery<Year> query = em.createQuery(
-            "SELECT g FROM Year g ORDER BY g.id", Year.class);
+            "SELECT * FROM years ORDER BY id", Year.class);
         return query.getResultList();
     }
 }
