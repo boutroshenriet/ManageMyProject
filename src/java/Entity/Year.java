@@ -6,10 +6,11 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,10 +20,12 @@ import javax.persistence.Id;
 public class Year implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     private Long id;
     private Integer yearNumber;
+    
+    @OneToMany(mappedBy = "user")
+    private Collection<User> users;
     
     public Year(){
         yearNumber = null;
