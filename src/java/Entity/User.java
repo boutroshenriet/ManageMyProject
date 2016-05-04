@@ -22,7 +22,7 @@ private static final long serialVersionUID = 1L;
  
     // Persistent Fields:
     @Id @GeneratedValue
-    Long id;
+    private Long id;
     private String name;
     private Date signingDate;
     private String password;
@@ -106,5 +106,19 @@ private static final long serialVersionUID = 1L;
      */
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 }
