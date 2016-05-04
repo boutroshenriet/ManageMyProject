@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ConnexionServlet", urlPatterns = {"/ConnexionServlet"})
 public class ConnexionServlet extends HttpServlet {
 private static final long serialVersionUID = 1L;
- 
+
     // Injected DAO EJB:
     @EJB UserDao userDao;
  
@@ -47,15 +48,21 @@ private static final long serialVersionUID = 1L;
         
         List<User> usersList = userDao.getAllUsers();
         
+        HttpSession session = null;
+        
         for (User user : usersList) {
-            if(user.getName().equals(name))
+            if(user.getName().equals(name)){
                 if(user.getPassword().equals(password)){
-                    //!!!créer session!!!TODO
-                    request.setAttribute("connected", "1");
+                    /* Récupération de la session depuis la requête */
+                    session = request.getSession();
+                    //Ajout de l'utilisateur dans la session
+                    session.setAttribute( "sessionUser", user.getId());
+                    session.setAttribute( "sessionType", user.getType());
+                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);
                 }
+            }
         }
-        request.setAttribute("connected", "0");
-        // retour à la page de connexion
-        doGet(request, response);
+
+        doGet(request,response);
     }
 }
