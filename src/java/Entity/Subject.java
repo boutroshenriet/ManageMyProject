@@ -6,10 +6,12 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,9 +26,26 @@ private static final long serialVersionUID = 1L;
     Long id;
     private String nameSubject;
     private String Client;
-    private Long id_years;
-    private Long id_customer;
+    private String Description;
 
+    @OneToMany
+    private Year year;
+    
+    //Rajouter le lien de conexion à la table équipe
+    //Rajouter le lien avec la table features 
+    
+    // Constructors:    
+    public Subject() {
+        nameSubject = null;
+        Client = null;
+        Description = null;
+    }
+    // Il faut rajouterr sur ces fonctions les variables ID qui seront présentent dans la session
+     public Subject(String nameSubject, String Client, String Description){
+        this.nameSubject = nameSubject;
+        this.Client = Client;
+        this.Description = Description;
+    }
     public Long getId() {
         return id;
     }
@@ -58,6 +77,48 @@ private static final long serialVersionUID = 1L;
     @Override
     public String toString() {
         return "Entity.Subject[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the nameSubject
+     */
+    public String getNameSubject() {
+        return nameSubject;
+    }
+
+    /**
+     * @param nameSubject the nameSubject to set
+     */
+    public void setNameSubject(String nameSubject) {
+        this.nameSubject = nameSubject;
+    }
+
+    /**
+     * @return the Client
+     */
+    public String getClient() {
+        return Client;
+    }
+
+    /**
+     * @param Client the Client to set
+     */
+    public void setClient(String Client) {
+        this.Client = Client;
+    }
+
+    /**
+     * @return the Description
+     */
+    public String getDescription() {
+        return Description;
+    }
+
+    /**
+     * @param Description the Description to set
+     */
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
     
 }
