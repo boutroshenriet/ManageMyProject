@@ -35,6 +35,7 @@ public class Team implements Serializable {
     //private Collection<Meeting> meetings;
     
     public Team(){
+        attribute = null;
     }
     
     public Team(String attribute){
