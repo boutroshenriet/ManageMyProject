@@ -28,7 +28,7 @@ public class SubjectDao {
     }
  
     // Retrieves all the users:
-    public List<Subject> getAllUsers() {
+    public List<Subject> getAllSubjects() {
         TypedQuery<Subject> query = em.createQuery(
             "SELECT g FROM Subject g ORDER BY g.id", Subject.class);
         return query.getResultList();
