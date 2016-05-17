@@ -96,19 +96,4 @@ public class Group implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-
-    /**
-     * @return the team
-     */
-    public Team getTeam() {
-        return team;
-    }
-
-    /**
-     * @param team the team to set
-     */
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-    
 }
