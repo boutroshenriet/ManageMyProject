@@ -12,30 +12,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.YearDAO;
-import Entity.Year;
+import DAO.FeatureDAO;
+import Entity.Feature;
 import javax.ejb.EJB;
 
 
 
-@WebServlet(name = "YearServlet", urlPatterns = {"/year"})
-public class YearServlet extends HttpServlet {
+@WebServlet(name = "FeatureServlet", urlPatterns = {"/feature"})
+public class FeatureServlet extends HttpServlet {
 
-    @EJB YearDAO yearDao;
+    @EJB FeatureDAO featureDao;
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         // Display the list of year:
-        request.setAttribute("years", yearDao.getAllYears());
-        request.getRequestDispatcher("/year.jsp").forward(request, response);
+         // Display the list of feature:
+        request.setAttribute("features", featureDao.getAllFeatures());
+        request.getRequestDispatcher("/feature.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        yearDao.persist(new Year());
+        featureDao.persist(new Feature());
         
         // Display the list of guests:
         doGet(request, response);

@@ -6,6 +6,7 @@
 package DAO;
 
 import Entity.User;
+
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -22,7 +23,7 @@ import javax.transaction.UserTransaction;
  */
 @Stateless
 
-public class UserDao {
+public class UserDAO {
 // Injected database connection:
     @PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;

@@ -5,7 +5,7 @@
  */
 package Servlets;
 
-import DAO.UserDao;
+import DAO.UserDAO;
 import Entity.User;
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +26,7 @@ public class ConnexionServlet extends HttpServlet {
 private static final long serialVersionUID = 1L;
 
     // Injected DAO EJB:
-    @EJB UserDao userDao;
+    @EJB UserDAO userDao;
  
     @Override
     protected void doGet(

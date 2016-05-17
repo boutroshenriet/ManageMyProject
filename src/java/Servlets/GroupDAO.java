@@ -8,26 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.UserDAO;
-import Entity.User;
+import DAO.GroupDAO;
+import Entity.Group;
 
-@WebServlet(name="UserServlet", urlPatterns={"/user"})
-public class UserServlet extends HttpServlet {
+@WebServlet(name="GroupServlet", urlPatterns={"/group"})
+public class GroupServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
  
     // Injected DAO EJB:
-    @EJB UserDAO userDao;
+    @EJB GroupDAO groupDao;
     
     @Override
     protected void doGet(
         HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        
         // Display the list of guests:
-        request.setAttribute("users", userDao.getAllUsers());
-        request.getRequestDispatcher("/user.jsp").forward(request, response);
+        request.setAttribute("teams", groupDao.getAllGroups());
+        request.getRequestDispatcher("/team.jsp").forward(request, response);
     }
  
     @Override
@@ -36,12 +34,12 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
  
         // Handle a new guest:
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-        Integer type = Integer.parseInt(request.getParameter("type"));
+        //String name = request.getParameter("name");
+        //String password = request.getParameter("password");
+        //Integer type = Integer.parseInt(request.getParameter("type"));
         
         if (name != null)
-            userDao.persist(new User(name, password, type));
+            groupDao.persist(new Group());
 
         // Display the list of guests:
         doGet(request, response);

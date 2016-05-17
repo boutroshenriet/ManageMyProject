@@ -25,8 +25,9 @@ public class Team implements Serializable {
     private Long id;
     private String attribute;
     
-    @OneToMany
+    @OneToMany (mappedBy = "team")
     private Collection<User> users;
+    
     @ManyToOne
     private Subject subject;
     //@ManyToOne(mappedby = "groups")

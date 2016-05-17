@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.SubjectDao;
+import DAO.SubjectDAO;
 import Entity.Subject;
 
 @WebServlet(name = "SubjectServlet", urlPatterns = {"/subject"})
@@ -16,11 +16,12 @@ public class SubjectServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     // Injected DAO EJB:
-    @EJB SubjectDao subjectDao;
+    @EJB SubjectDAO subjectDao;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(
+            HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
         
         //display list of subjects
         request.setAttribute("subjects", subjectDao.getAllSubjects());

@@ -6,7 +6,7 @@
  
 <html>
     <head>
-        <title>JPA Guest Book Web Application Tutorial</title>
+        <title></title>
     </head>
   
     <body>
