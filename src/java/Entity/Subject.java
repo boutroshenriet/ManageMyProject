@@ -40,7 +40,7 @@ private static final long serialVersionUID = 1L;
         client = null;
         Description = null;
     }
-    // Il faut rajouterr sur ces fonctions les variables ID qui seront présentent dans la session
+    // Il faut rajouter sur ces fonctions les variables ID qui seront présentent dans la session
      public Subject(String nameSubject, String Client, String Description){
         this.nameSubject = nameSubject;
         this.client = Client;

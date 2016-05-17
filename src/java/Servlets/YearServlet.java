@@ -18,8 +18,8 @@ import javax.ejb.EJB;
 
 
 
-@WebServlet(name = "yearCreation", urlPatterns = {"/yearCreation"})
-public class YearCreationServlet extends HttpServlet {
+@WebServlet(name = "year", urlPatterns = {"/year"})
+public class YearServlet extends HttpServlet {
 
     @EJB YearDao yearDao;
     
