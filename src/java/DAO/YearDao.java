@@ -19,7 +19,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class YearDao {
 // Injected database connection:
-    @PersistenceContext(unitName="ManageMyProjectPU") 
+    //@PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;
  
     // Stores a new guest: 

@@ -25,9 +25,6 @@ public class Year implements Serializable {
     private Long id;
     private Integer yearNumber;
     
-    @OneToMany(mappedBy = "user")
-    private Collection<User> users;
-    
     public Year(){
         yearNumber = null;
     }

@@ -17,12 +17,14 @@ public class UserServlet extends HttpServlet {
  
     // Injected DAO EJB:
     @EJB UserDao userDao;
- 
+    
     @Override
     protected void doGet(
         HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+        
+        
+        
         // Display the list of guests:
         request.setAttribute("users", userDao.getAllUsers());
         request.getRequestDispatcher("/user.jsp").forward(request, response);
@@ -36,7 +38,7 @@ public class UserServlet extends HttpServlet {
         // Handle a new guest:
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        Integer type = Integer.parseInt(request.getParameter("type"));;
+        Integer type = Integer.parseInt(request.getParameter("type"));
         
         if (name != null)
             userDao.persist(new User(name, password, type));
