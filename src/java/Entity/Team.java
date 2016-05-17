@@ -10,6 +10,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -26,8 +27,15 @@ public class Team implements Serializable {
     
     @OneToMany(mappedBy = "user")
     private Collection<User> users;
+    @ManyToOne
+    private Subject subject;
+    //@ManyToOne(mappedby = "groups")
+    //private Collection<Group> groups;
+    //@OneToMany(mappedby = "meetings")
+    //private Collection<Meeting> meetings;
     
     public Team(){
+        attribute = null;
     }
     
     public Team(String attribute){
