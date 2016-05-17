@@ -8,33 +8,44 @@ package DAO;
 import Entity.User;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.UserTransaction;
 /**
  *
  * @author Pierre
  */
 @Stateless
+
 public class UserDao {
 // Injected database connection:
     @PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;
- 
+    
     // Stores a new guest: 
     public void persist(User user) {
+
         em.persist(user);
+        
     }
  
     // Retrieves all the users:
+   //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public List<User> getAllUsers() {
+      
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g ORDER BY g.id", User.class);
-        return query.getResultList();
+       
+        return query.getResultList();    
     }
     
     // Retrieves all the teachers (1):
-    public List<User> getAllTeachers() {
+   /* public List<User> getAllTeachers() {
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g WHERE type = 1 ORDER BY g.id", User.class);
         return query.getResultList();
@@ -59,5 +70,5 @@ public class UserDao {
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g WHERE type = 4 ORDER BY g.id", User.class);
         return query.getResultList();
-    }
+    }*/
 }

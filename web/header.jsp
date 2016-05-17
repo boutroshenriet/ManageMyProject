@@ -1,16 +1,16 @@
+<%-- 
+    Document   : header
+    Created on : 11 mai 2016, 10:44:18
+    Author     : camille
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Header</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="style.css" rel="stylesheet" type="text/css"/>
+        <script src="angular.js" type="text/javascript"></script>
     </head>
     <body>
         <header>
