@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,7 @@ private static final long serialVersionUID = 1L;
     private Year year;
     
     @OneToMany
-    private Team team;
+    private Collection<Team> teams;
     //Rajouter le lien avec la table features 
     
     // Constructors:    
