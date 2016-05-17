@@ -77,19 +77,4 @@ public class Session implements Serializable {
     public void setYear(Year year) {
         this.year = year;
     }
-
-    /**
-     * @return the group
-     */
-    public Group getGroup() {
-        return group;
-    }
-
-    /**
-     * @param group the group to set
-     */
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-    
 }

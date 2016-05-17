@@ -83,33 +83,4 @@ public class Year implements Serializable {
     public void setYearNumber(Integer yearNumber) {
         this.yearNumber = yearNumber;
     }
-
-    /**
-     * @return the subject
-     */
-    public Subject getSubject() {
-        return subject;
-    }
-
-    /**
-     * @param subject the subject to set
-     */
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-    }
-
-    /**
-     * @return the session
-     */
-    public Session getSession() {
-        return session;
-    }
-
-    /**
-     * @param session the session to set
-     */
-    public void setSession(Session session) {
-        this.session = session;
-    }
-    
 }
