@@ -7,26 +7,29 @@ package Entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Guillaume
  */
 @Entity
-public class Document implements Serializable {
+public class Session implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue
+    @Id@GeneratedValue
     private Long id;
 
-    
     @ManyToOne
-    private User user;
+    private Year year;
+    
+   
+   @OneToMany(mappedBy= "session")
+   private Collection<Group> group;
     
     public Long getId() {
         return id;
@@ -46,10 +49,10 @@ public class Document implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Document)) {
+        if (!(object instanceof Session)) {
             return false;
         }
-        Document other = (Document) object;
+        Session other = (Session) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,21 +61,35 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Document[ id=" + id + " ]";
+        return "Entity.sessions[ id=" + id + " ]";
     }
 
     /**
-     * @return the user
+     * @return the year
      */
-    public User getUser() {
-        return user;
+    public Year getYear() {
+        return year;
     }
 
     /**
-     * @param user the user to set
+     * @param year the year to set
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    /**
+     * @return the group
+     */
+    public Group getGroup() {
+        return group;
+    }
+
+    /**
+     * @param group the group to set
+     */
+    public void setGroup(Group group) {
+        this.group = group;
     }
     
 }

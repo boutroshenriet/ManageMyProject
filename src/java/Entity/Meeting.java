@@ -6,6 +6,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,17 +18,19 @@ import javax.persistence.ManyToOne;
  * @author Guillaume
  */
 @Entity
-public class Document implements Serializable {
+public class Meeting implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
     private Long id;
-
+    private Date start; 
+    private Date end;
+    private String comment;
     
     @ManyToOne
-    private User user;
-    
+    private Team team;
+
     public Long getId() {
         return id;
     }
@@ -46,10 +49,10 @@ public class Document implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Document)) {
+        if (!(object instanceof Meeting)) {
             return false;
         }
-        Document other = (Document) object;
+        Meeting other = (Meeting) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,21 +61,64 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Document[ id=" + id + " ]";
+        return "Entity.Meetings[ id=" + id + " ]";
     }
 
     /**
-     * @return the user
+     * @return the start
      */
-    public User getUser() {
-        return user;
+    public Date getStart() {
+        return start;
     }
 
     /**
-     * @param user the user to set
+     * @param start the start to set
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
+    /**
+     * @return the end
+     */
+    public Date getEnd() {
+        return end;
+    }
+
+    /**
+     * @param end the end to set
+     */
+    public void setEnd(Date end) {
+        this.end = end;
+    }
+
+    /**
+     * @return the comment
+     */
+    public String getComment() {
+        return comment;
+    }
+
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+
+    /**
+     * @return the team
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * @param team the team to set
+     */
+    public void setTeam(Team team) {
+        this.team = team;
     }
     
 }

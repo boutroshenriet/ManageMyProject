@@ -6,8 +6,8 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Entity;
+import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -23,6 +23,12 @@ public class Year implements Serializable {
     @Id @GeneratedValue
     private Long id;
     private Integer yearNumber;
+    
+    @OneToMany(mappedBy="year")
+    private Collection<Subject> subject;
+    
+    @OneToMany(mappedBy="year")
+    private Collection<Session> session; 
     
     public Year(){
         yearNumber = null;
@@ -76,6 +82,34 @@ public class Year implements Serializable {
      */
     public void setYearNumber(Integer yearNumber) {
         this.yearNumber = yearNumber;
+    }
+
+    /**
+     * @return the subject
+     */
+    public Subject getSubject() {
+        return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    /**
+     * @return the session
+     */
+    public Session getSession() {
+        return session;
+    }
+
+    /**
+     * @param session the session to set
+     */
+    public void setSession(Session session) {
+        this.session = session;
     }
     
 }

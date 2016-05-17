@@ -7,27 +7,35 @@ package Entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Guillaume
  */
 @Entity
-public class Document implements Serializable {
+public class Group implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
+    
     private Long id;
 
+    @ManyToOne
+    private Session session; 
     
     @ManyToOne
     private User user;
     
+    @OneToMany(mappedBy="group")
+    private Collection<Team> team;
+    
+            
     public Long getId() {
         return id;
     }
@@ -46,10 +54,10 @@ public class Document implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Document)) {
+        if (!(object instanceof Group)) {
             return false;
         }
-        Document other = (Document) object;
+        Group other = (Group) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,7 +66,21 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Document[ id=" + id + " ]";
+        return "Entity.Groups[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the session
+     */
+    public Session getSession() {
+        return session;
+    }
+
+    /**
+     * @param session the session to set
+     */
+    public void setSessions(Session session) {
+        this.session = session;
     }
 
     /**
@@ -73,6 +95,20 @@ public class Document implements Serializable {
      */
     public void setUser(User user) {
         this.user = user;
+    }
+
+    /**
+     * @return the team
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * @param team the team to set
+     */
+    public void setTeam(Team team) {
+        this.team = team;
     }
     
 }

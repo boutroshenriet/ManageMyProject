@@ -7,10 +7,12 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,6 +37,21 @@ private static final long serialVersionUID = 1L;
     
     @ManyToOne
     private Year year;
+    
+    @OneToMany(mappedBy="user")
+    private Collection<Group> group;
+    
+    @OneToMany(mappedBy="user")
+    private Collection<Document> document;
+    
+    @OneToMany(mappedBy="user")
+    private Collection<Feature> feature;
+    
+    @OneToMany(mappedBy="user")
+    private Collection<Subject> subject;
+    
+    @ManyToOne
+    private Team team;
     
     @ManyToOne
     private Team team;
@@ -128,5 +145,33 @@ private static final long serialVersionUID = 1L;
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the year
+     */
+    public Year getYear() {
+        return year;
+    }
+
+    /**
+     * @param year the year to set
+     */
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    /**
+     * @return the team
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * @param team the team to set
+     */
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
