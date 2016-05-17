@@ -36,6 +36,9 @@ private static final long serialVersionUID = 1L;
     @ManyToOne
     private Year year;
     
+    @ManyToOne
+    private Team team;
+    
     // Constructors:    
     public User() {
         name = null;
