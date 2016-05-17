@@ -6,7 +6,6 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,25 +25,26 @@ private static final long serialVersionUID = 1L;
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     private String nameSubject;
-    private String Client;
+    private String client;
     private String Description;
 
     @ManyToOne
     private Year year;
     
-    //Rajouter le lien de conexion à la table équipe
+    @OneToMany
+    private Team team;
     //Rajouter le lien avec la table features 
     
     // Constructors:    
     public Subject() {
         nameSubject = null;
-        Client = null;
+        client = null;
         Description = null;
     }
     // Il faut rajouterr sur ces fonctions les variables ID qui seront présentent dans la session
      public Subject(String nameSubject, String Client, String Description){
         this.nameSubject = nameSubject;
-        this.Client = Client;
+        this.client = Client;
         this.Description = Description;
     }
     public Long getId() {
@@ -98,14 +98,14 @@ private static final long serialVersionUID = 1L;
      * @return the Client
      */
     public String getClient() {
-        return Client;
+        return client;
     }
 
     /**
      * @param Client the Client to set
      */
     public void setClient(String Client) {
-        this.Client = Client;
+        this.client = Client;
     }
 
     /**
