@@ -14,6 +14,8 @@
         <title>JSP Page</title>
     </head>
 <%@include file="header.jsp" %>
+<br>
+<%@include file="search2.jsp" %>
     <body>
         
         <h2>SUJET 1</h2><br>

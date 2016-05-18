@@ -19,6 +19,8 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
+        <br>
+        <%@include file="search2.jsp" %>
         <h1>2016</h1>
         <HR>
         <div class="panel panel-info">

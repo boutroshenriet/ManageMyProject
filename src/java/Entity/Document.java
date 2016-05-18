@@ -100,6 +100,4 @@ public class Document implements Serializable {
     public void setFilename(String filename) {
         this.filename = filename;
     }
-
-
 }
