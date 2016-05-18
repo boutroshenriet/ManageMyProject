@@ -7,36 +7,27 @@ package Entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
 
 /**
  *
- * @author Pierre
+ * @author Guillaume
  */
 @Entity
-public class Year implements Serializable {
+public class Document implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
-    private Integer yearNumber;
+
     
-    @OneToMany(mappedBy="year")
-    private Collection<Subject> subject;
+    @ManyToOne
+    private User user;
     
-    @OneToMany(mappedBy="year")
-    private Collection<Session> session; 
-    
-    public Year(){
-        yearNumber = null;
-    }
-    
-    public Year(Integer yearNumber){
-        this.yearNumber = yearNumber;
-    }
     public Long getId() {
         return id;
     }
@@ -48,18 +39,18 @@ public class Year implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Year)) {
+        if (!(object instanceof Document)) {
             return false;
         }
-        Year other = (Year) object;
-        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
+        Document other = (Document) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -67,20 +58,21 @@ public class Year implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Year[ id=" + getId() + " ]";
+        return "Entity.Document[ id=" + id + " ]";
     }
 
     /**
-     * @return the yearNumber
+     * @return the user
      */
-    public Integer getYearNumber() {
-        return yearNumber;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param yearNumber the yearNumber to set
+     * @param user the user to set
      */
-    public void setYearNumber(Integer yearNumber) {
-        this.yearNumber = yearNumber;
+    public void setUser(User user) {
+        this.user = user;
     }
+    
 }

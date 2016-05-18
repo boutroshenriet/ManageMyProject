@@ -6,42 +6,31 @@
 package Entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 /**
  *
  * @author Guillaume
  */
 @Entity
-public class Features implements Serializable {
+public class Meeting implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id@GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
-    private int state;
-    private Date date;
+    private Date start; 
+    private Date end;
     private String comment;
-    private String theme;
     
     @ManyToOne
-    private User user;
-    
-    @ManyToOne
-    private Subject subject;
-    
-    public Features(){
-        state = 0;
-        date = null;
-        comment = null;
-        theme = null;
-    }
-    
+    private Team team;
+
     public Long getId() {
         return id;
     }
@@ -60,10 +49,10 @@ public class Features implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Features)) {
+        if (!(object instanceof Meeting)) {
             return false;
         }
-        Features other = (Features) object;
+        Meeting other = (Meeting) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -72,35 +61,35 @@ public class Features implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Features[ id=" + id + " ]";
+        return "Entity.Meetings[ id=" + id + " ]";
     }
 
     /**
-     * @return the state
+     * @return the start
      */
-    public int getState() {
-        return state;
+    public Date getStart() {
+        return start;
     }
 
     /**
-     * @param state the state to set
+     * @param start the start to set
      */
-    public void setState(int state) {
-        this.state = state;
+    public void setStart(Date start) {
+        this.start = start;
     }
 
     /**
-     * @return the date
+     * @return the end
      */
-    public Date getDate() {
-        return date;
+    public Date getEnd() {
+        return end;
     }
 
     /**
-     * @param date the date to set
+     * @param end the end to set
      */
-    public void setDate(Date date) {
-        this.date = date;
+    public void setEnd(Date end) {
+        this.end = end;
     }
 
     /**
@@ -117,46 +106,19 @@ public class Features implements Serializable {
         this.comment = comment;
     }
 
+
     /**
-     * @return the theme
+     * @return the team
      */
-    public String getTheme() {
-        return theme;
+    public Team getTeam() {
+        return team;
     }
 
     /**
-     * @param theme the theme to set
+     * @param team the team to set
      */
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
-     * @return the subject
-     */
-    public Subject getSubject() {
-        return subject;
-    }
-
-    /**
-     * @param subject the subject to set
-     */
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setTeam(Team team) {
+        this.team = team;
     }
     
 }

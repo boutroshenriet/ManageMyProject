@@ -10,33 +10,27 @@ import javax.persistence.Entity;
 import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
  *
- * @author Pierre
+ * @author Guillaume
  */
 @Entity
-public class Year implements Serializable {
+public class Session implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id @GeneratedValue
+    @Id@GeneratedValue
     private Long id;
-    private Integer yearNumber;
+
+    @ManyToOne
+    private Year year;
     
-    @OneToMany(mappedBy="year")
-    private Collection<Subject> subject;
+   
+   @OneToMany(mappedBy= "session")
+   private Collection<Group> group;
     
-    @OneToMany(mappedBy="year")
-    private Collection<Session> session; 
-    
-    public Year(){
-        yearNumber = null;
-    }
-    
-    public Year(Integer yearNumber){
-        this.yearNumber = yearNumber;
-    }
     public Long getId() {
         return id;
     }
@@ -48,18 +42,18 @@ public class Year implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Year)) {
+        if (!(object instanceof Session)) {
             return false;
         }
-        Year other = (Year) object;
-        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
+        Session other = (Session) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -67,20 +61,20 @@ public class Year implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Year[ id=" + getId() + " ]";
+        return "Entity.sessions[ id=" + id + " ]";
     }
 
     /**
-     * @return the yearNumber
+     * @return the year
      */
-    public Integer getYearNumber() {
-        return yearNumber;
+    public Year getYear() {
+        return year;
     }
 
     /**
-     * @param yearNumber the yearNumber to set
+     * @param year the year to set
      */
-    public void setYearNumber(Integer yearNumber) {
-        this.yearNumber = yearNumber;
+    public void setYear(Year year) {
+        this.year = year;
     }
 }

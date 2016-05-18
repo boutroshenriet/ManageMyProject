@@ -32,9 +32,15 @@ private static final long serialVersionUID = 1L;
     @ManyToOne
     private Year year;
     
-    @OneToMany
+    @ManyToOne
+    private User user; 
+    
+   @OneToMany(mappedBy= "subject")
+   private Collection<Feature> feature;
+    
+    @OneToMany(mappedBy="subject")
     private Collection<Team> teams;
-    //Rajouter le lien avec la table features 
+   
     
     // Constructors:    
     public Subject() {
@@ -42,7 +48,7 @@ private static final long serialVersionUID = 1L;
         client = null;
         Description = null;
     }
-    // Il faut rajouterr sur ces fonctions les variables ID qui seront présentent dans la session
+    // Il faut rajouter sur ces fonctions les variables ID qui seront présentent dans la session
      public Subject(String nameSubject, String Client, String Description){
         this.nameSubject = nameSubject;
         this.client = Client;
@@ -122,5 +128,62 @@ private static final long serialVersionUID = 1L;
     public void setDescription(String Description) {
         this.Description = Description;
     }
-    
+
+    /**
+     * @return the year
+     */
+    public Year getYear() {
+        return year;
+    }
+
+    /**
+     * @param year the year to set
+     */
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    /**
+     * @return the teams
+     */
+    public Collection<Team> getTeams() {
+        return teams;
+    }
+
+    /**
+     * @param teams the teams to set
+     */
+    public void setTeams(Collection<Team> teams) {
+        this.teams = teams;
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * @return the feature
+     */
+    public Collection<Feature> getFeature() {
+        return feature;
+    }
+
+    /**
+     * @param feature the feature to set
+     */
+    public void setFeature(Collection<Feature> feature) {
+        this.feature = feature;
+    }
+
+
 }

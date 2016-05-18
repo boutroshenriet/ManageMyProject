@@ -17,7 +17,7 @@ import javax.persistence.TypedQuery;
  * @author Guillaume
  */
 @Stateless
-public class SubjectDao {
+public class SubjectDAO {
     @PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;
  

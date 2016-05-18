@@ -6,31 +6,42 @@
 package DAO;
 
 import Entity.Year;
+
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
+import javax.transaction.UserTransaction;
 /**
  *
  * @author Pierre
  */
 @Stateless
-public class YearDao {
+
+public class YearDAO {
 // Injected database connection:
-    //@PersistenceContext(unitName="ManageMyProjectPU") 
+    @PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;
- 
+    
     // Stores a new guest: 
     public void persist(Year year) {
+
         em.persist(year);
+        
     }
  
-    // Retrieves all the guests:
+    // Retrieves all the users:
+   //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public List<Year> getAllYears() {
+      
         TypedQuery<Year> query = em.createQuery(
-            "SELECT * FROM years ORDER BY id", Year.class);
-        return query.getResultList();
+            "SELECT g FROM Year g ORDER BY g.id", Year.class);
+       
+        return query.getResultList();    
     }
 }
