@@ -29,7 +29,7 @@ public class Document implements Serializable {
 
     
     @ManyToMany
-    private User user;
+    private Collection<User> user;
     
     public Long getId() {
         return id;
@@ -64,18 +64,5 @@ public class Document implements Serializable {
         return "Entity.Document[ id=" + id + " ]";
     }
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 }
