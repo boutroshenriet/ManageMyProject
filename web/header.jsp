@@ -15,7 +15,7 @@
     <body>
         <header>
             <div class="fond">
-                <img class="logo" src="Images/logoISEP.png" alt="logo ISEP"/>
+                <a href="customerHomePage.jsp"><img class="logo" src="Images/logoISEP.png" alt="logo ISEP"/></a>
                 <div class='infos'>
                     <img class="photo" src="Images/Photo_identité.jpg" alt="Photo d'identité"/><br/>
                     <div class="user">
