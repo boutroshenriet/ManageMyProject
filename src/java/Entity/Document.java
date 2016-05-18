@@ -6,10 +6,13 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -25,7 +28,7 @@ public class Document implements Serializable {
     private Long id;
 
     
-    @ManyToOne
+    @ManyToMany
     private User user;
     
     public Long getId() {
@@ -74,5 +77,5 @@ public class Document implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
 }
