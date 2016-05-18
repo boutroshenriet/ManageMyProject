@@ -11,7 +11,7 @@
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <img src="Images/logoISEP.png" alt="Project Icon" width="160" height="128">
-        <form role="form" action="ConnexionServlet"  method="post">
+        <form role="form" action="connexion"  method="post">
             <fieldset>
                     <h2>Sign In</h2>
                     <hr class="colorgraph">
