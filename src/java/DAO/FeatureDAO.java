@@ -26,7 +26,7 @@ public class FeatureDAO {
     }
  
     // Retrieves all the users:
-    public List<Feature> getAllSubjects() {
+    public List<Feature> getAllFeatures() {
         TypedQuery<Feature> query = em.createQuery("SELECT g FROM Subject g ORDER BY g.id", Feature.class);
         return query.getResultList();
     }

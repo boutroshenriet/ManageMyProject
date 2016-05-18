@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -61,9 +62,14 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = null;
+        session = request.getSession();
+        //Ajout de l'utilisateur dans la session
+        if(session.getAttribute("sessionUser") != null)
+            processRequest(request, response);
+        else
+            request.getRequestDispatcher("/ConnexionServlet").forward(request, response);
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *

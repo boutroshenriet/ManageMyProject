@@ -26,7 +26,7 @@ public class TeamDAO {
     }
  
     // Retrieves all the users:
-    public List<Team> getAllSubjects() {
+    public List<Team> getAllTeams() {
         TypedQuery<Team> query = em.createQuery(
             "SELECT g FROM Subject g ORDER BY g.id", Team.class);
         return query.getResultList();

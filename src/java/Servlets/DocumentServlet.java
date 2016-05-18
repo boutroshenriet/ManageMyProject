@@ -34,7 +34,7 @@ public class DocumentServlet extends HttpServlet {
             throws ServletException, IOException {
  
         // Handle a new guest:
-        //String name = request.getParameter("name");
+        String name = request.getParameter("name");
         //String password = request.getParameter("password");
         //Integer type = Integer.parseInt(request.getParameter("type"));
         

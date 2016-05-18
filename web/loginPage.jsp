@@ -16,15 +16,17 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            <fieldset>
-                Identifant : <input type="text" ng-model="username"><br/><br/>
-                Mot de passe : <input type="password" ng-model="password"><br/><br/>
-                <input type="radio" name="radiobutton" id="cust"/> <label for="cust">Client</label>
-                <input type="radio" name="radiobutton" id="teach"/> <label for="teach">Professeur</label>
-                <input type="radio" name="radiobutton" id="stu"/> <label for="stu">Elève</label><br/><br/>
-                <input type="submit" value="Valider"></input>
-            </fieldset>
-        </div>
+        <form method="POST" action="ConnexionServlet">
+            <div ng-app="myApp" ng-controller="myCtrl">
+                <fieldset>
+                    Identifant : <input type="text" ng-model="username" name="username"><br/><br/>
+                    Mot de passe : <input type="password" ng-model="password" name="password"><br/><br/>
+                    <input type="radio" name="radiobutton" id="cust"/> <label for="cust">Client</label>
+                    <input type="radio" name="radiobutton" id="teach"/> <label for="teach">Professeur</label>
+                    <input type="radio" name="radiobutton" id="stu"/> <label for="stu">Elève</label><br/><br/>
+                    <input type="submit" value="Valider"></input>
+                </fieldset>
+            </div>
+        </form>
     </body>
 </html>
