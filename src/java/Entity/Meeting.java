@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 
 /**
@@ -24,7 +25,9 @@ public class Meeting implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date start; 
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date end;
     private String comment;
     

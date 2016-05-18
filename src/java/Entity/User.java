@@ -40,7 +40,7 @@ private static final long serialVersionUID = 1L;
     private Year year;
     
     @ManyToMany
-    private Document document;
+    private Collection<Document> document;
     
     @ManyToOne
     private Group group;
@@ -172,20 +172,6 @@ private static final long serialVersionUID = 1L;
      */
     public void setTeam(Team team) {
         this.team = team;
-    }
-
-    /**
-     * @return the document
-     */
-    public Document getDocument() {
-        return document;
-    }
-
-    /**
-     * @param document the document to set
-     */
-    public void setDocument(Document document) {
-        this.document = document;
     }
 
     /**
