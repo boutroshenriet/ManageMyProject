@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Feature implements Serializable {
     @Id@GeneratedValue
     private Long id;
     private int state;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
     private String comment;
     private String theme;
