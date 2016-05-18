@@ -12,7 +12,7 @@
         <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Résultats de la recherche</title>
     </head>
     <body>
         <%@include file="header.jsp" %>

@@ -5721,12 +5721,14 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #ddd;
 }
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #bce8f1;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .panel-primary > .panel-heading {
-  color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #337ab7;
