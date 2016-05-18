@@ -11,6 +11,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -38,12 +39,13 @@ private static final long serialVersionUID = 1L;
     @ManyToOne
     private Year year;
     
-    @OneToMany(mappedBy="user")
-    private Collection<Group> group;
+    @ManyToMany
+    private Document document;
     
-    @OneToMany(mappedBy="user")
-    private Collection<Document> document;
+    @ManyToOne
+    private Group group;
     
+
     @OneToMany(mappedBy="user")
     private Collection<Feature> feature;
     
@@ -170,5 +172,33 @@ private static final long serialVersionUID = 1L;
      */
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    /**
+     * @return the document
+     */
+    public Document getDocument() {
+        return document;
+    }
+
+    /**
+     * @param document the document to set
+     */
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+    /**
+     * @return the group
+     */
+    public Group getGroup() {
+        return group;
+    }
+
+    /**
+     * @param group the group to set
+     */
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

@@ -29,8 +29,8 @@ public class Group implements Serializable {
     @ManyToOne
     private Session session; 
     
-    @ManyToOne
-    private User user;
+    @OneToMany(mappedBy="group")
+    private Collection<User> user;
     
     @OneToMany(mappedBy="group")
     private Collection<Team> team;
@@ -81,20 +81,6 @@ public class Group implements Serializable {
      */
     public void setSessions(Session session) {
         this.session = session;
-    }
-
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
     }
 
     /**
