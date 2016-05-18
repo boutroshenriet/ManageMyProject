@@ -24,19 +24,19 @@ public class DocumentServlet extends HttpServlet {
             throws ServletException, IOException {
         
         // Display the list of guests:
-        request.setAttribute("documents", documentDao.getAllDocuments());
+        //request.setAttribute("documents", documentDao.getAllDocuments());
         request.getRequestDispatcher("/document.jsp").forward(request, response);
     }
  
     @Override
-    protected void doPost(
-        HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /*if(!ServletFileUpload.isMultipartContent(request)){
+            throw new ServletException("Content type is not multipart/form-data");
+        }*/
  
         // Handle a new guest:
-        String name = request.getParameter("name");
-        //String password = request.getParameter("password");
-        //Integer type = Integer.parseInt(request.getParameter("type"));
+        String name = request.getParameter("filename");
+        //Byte[] file = request.getParameter("file");
         
         if (name != null)
             documentDao.persist(new Document());

@@ -7,12 +7,15 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -27,6 +30,12 @@ public class Document implements Serializable {
     @GeneratedValue
     private Long id;
 
+    private byte[] doc;
+    
+    private String filename;
+    
+    @Temporal(TemporalType.DATE)
+    private Date AddingDate;
     
     @ManyToMany
     private Collection<User> user;
@@ -62,6 +71,34 @@ public class Document implements Serializable {
     @Override
     public String toString() {
         return "Entity.Document[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the doc
+     */
+    public byte[] getDoc() {
+        return doc;
+    }
+
+    /**
+     * @param doc the doc to set
+     */
+    public void setDoc(byte[] doc) {
+        this.doc = doc;
+    }
+
+    /**
+     * @return the filename
+     */
+    public String getFilename() {
+        return filename;
+    }
+
+    /**
+     * @param filename the filename to set
+     */
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
 

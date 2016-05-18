@@ -30,7 +30,7 @@ public class DocumentDAO {
     
     // Stores a new guest: 
     public void persist(Document doc) {
-
+        
         em.persist(doc);
         
     }
