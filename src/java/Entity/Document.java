@@ -26,7 +26,6 @@ public class Document implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-
     
     @ManyToMany
     private Collection<User> user;
@@ -64,5 +63,18 @@ public class Document implements Serializable {
         return "Entity.Document[ id=" + id + " ]";
     }
 
+    /**
+     * @return the user
+     */
+    public Collection<User> getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(Collection<User> user) {
+        this.user = user;
+    }
 
 }

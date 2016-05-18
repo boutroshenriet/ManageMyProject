@@ -172,6 +172,21 @@ private static final long serialVersionUID = 1L;
      */
     public void setTeam(Team team) {
         this.team = team;
+
+    }
+
+    /**
+     * @return the document
+     */
+    public Collection<Document> getDocument() {
+        return document;
+    }
+
+    /**
+     * @param document the document to set
+     */
+    public void setDocument(Collection<Document> document) {
+        this.document = document;
     }
 
     /**
