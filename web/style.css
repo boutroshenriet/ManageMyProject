@@ -52,10 +52,29 @@ header img{
     width: 25px;
 }
 .firstColumn{
-    width: 17%;
+    width: 15%;
 }
 
 table textarea{
     overflow-y: scroll;
     height: 100px;
+}
+
+#textzone{
+    margin-left: 30px;
+    width: 40%;
+}
+
+.theme{
+    float: left;
+}
+
+#text2{
+    height:100px;
+    width:312px;
+}
+
+#text1{
+    height:100px;
+    width:590px;
 }

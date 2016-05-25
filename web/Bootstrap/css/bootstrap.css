@@ -1977,7 +1977,7 @@ pre code {
     width: 41.66666667%;
   }
   .col-md-4 {
-    width: 33.33333333%;
+    width: 16%;
   }
   .col-md-3 {
     width: 25%;
@@ -5029,6 +5029,7 @@ a.badge:focus {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
+  float:right;
   -webkit-transition: border .2s ease-in-out;
        -o-transition: border .2s ease-in-out;
           transition: border .2s ease-in-out;
@@ -5037,6 +5038,7 @@ a.badge:focus {
 .thumbnail a > img {
   margin-right: auto;
   margin-left: auto;
+  height: 120px;
 }
 a.thumbnail:hover,
 a.thumbnail:focus,
