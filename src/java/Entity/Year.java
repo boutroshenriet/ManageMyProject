@@ -67,7 +67,7 @@ public class Year implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Year[ id=" + getId() + " ]";
+        return "année " + getYearNumber();
     }
 
     /**

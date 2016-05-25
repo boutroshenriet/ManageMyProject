@@ -11,7 +11,7 @@
   
     <body>
         <form method="POST" action="year">
-            Name: <input type="text" name="name" />
+            Année: <input type="year" name="year" />
             <input type="submit" value="Add" />
         </form>
  

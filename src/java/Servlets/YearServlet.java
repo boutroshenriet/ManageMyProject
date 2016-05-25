@@ -35,7 +35,9 @@ public class YearServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        yearDao.persist(new Year());
+        Integer annee = Integer.parseInt(request.getParameter("year"));
+        
+        yearDao.persist(new Year(annee));
         
         // Display the list of guests:
         doGet(request, response);

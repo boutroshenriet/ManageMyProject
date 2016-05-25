@@ -74,7 +74,7 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Team[ id=" + getId() + " ]";
+        return "Team" + getAttribute();
     }
 
     /**
