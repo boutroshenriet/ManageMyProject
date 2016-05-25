@@ -46,7 +46,7 @@ public class UserDAO {
     }
     
     // Retrieves all the teachers (1):
-   /* public List<User> getAllTeachers() {
+    public List<User> getAllTeachers() {
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g WHERE type = 1 ORDER BY g.id", User.class);
         return query.getResultList();
@@ -71,5 +71,5 @@ public class UserDAO {
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g WHERE type = 4 ORDER BY g.id", User.class);
         return query.getResultList();
-    }*/
+    }
 }

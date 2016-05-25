@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 13 avr. 2016, 11:35:27
+    Document   : teacherHomePage
+    Created on : 18 mai 2016, 18:06:24
     Author     : Pierre
 --%>
 
@@ -9,10 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="angular.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <a href="year?action=addYear">Ajouter une année</a>
     </body>
 </html>

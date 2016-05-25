@@ -21,35 +21,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "HomePageServlet", urlPatterns = {"/HomePageServlet"})
 public class HomePageServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomePageServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomePageServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -65,10 +36,28 @@ public class HomePageServlet extends HttpServlet {
         HttpSession session = null;
         session = request.getSession();
         //Ajout de l'utilisateur dans la session
-        if(session.getAttribute("sessionUser") != null)
-            processRequest(request, response);
+        if(session.getAttribute("sessionUser") != null){
+            int type = (Integer) session.getAttribute("sessionType");
+            if (type == 1)
+                request.getRequestDispatcher("/teacherHomePage.jsp").forward(request, response);
+            else if (type == 2)
+                request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
+            else if (type == 3)
+                request.getRequestDispatcher("/studentHomePage.jsp").forward(request, response);
+        }
         else
-            request.getRequestDispatcher("/ConnexionServlet").forward(request, response);
+        {
+            request.getRequestDispatcher("/connexion").forward(request, response);
+            //doGet(request,response);
+        }
+        
+        if(request.getParameter("action") != null){
+            String link = request.getParameter("action");
+            if(link.equals("addYear"))
+            {
+                request.getRequestDispatcher("/year").forward(request, response);
+            }
+        }
     }
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -81,7 +70,7 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

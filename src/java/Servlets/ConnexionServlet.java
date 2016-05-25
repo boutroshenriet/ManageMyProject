@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Pierre
  */
-@WebServlet(name = "ConnexionServlet", urlPatterns = {"/ConnexionServlet"})
+@WebServlet(name = "ConnexionServlet", urlPatterns = {"/connexion"})
 public class ConnexionServlet extends HttpServlet {
 private static final long serialVersionUID = 1L;
 
@@ -49,12 +49,12 @@ private static final long serialVersionUID = 1L;
         List<User> usersList = userDao.getAllUsers();
         
         HttpSession session = null;
-        
+        session = request.getSession();
         for (User user : usersList) {
             if(user.getName().equals(name)){
                 if(user.getPassword().equals(password)){
                     /* Récupération de la session depuis la requête */
-                    session = request.getSession();
+                    
                     //Ajout de l'utilisateur dans la session
                     session.setAttribute( "sessionUser", user.getId());
                     session.setAttribute( "sessionType", user.getType());
@@ -62,7 +62,7 @@ private static final long serialVersionUID = 1L;
                 }
             }
         }
-
+        
         doGet(request,response);
     }
 }
