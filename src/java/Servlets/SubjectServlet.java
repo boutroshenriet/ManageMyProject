@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import DAO.YearDAO;
 import DAO.SubjectDAO;
 import Entity.Subject;
 
@@ -18,12 +18,16 @@ public class SubjectServlet extends HttpServlet {
     // Injected DAO EJB:
     @EJB SubjectDAO subjectDao;
 
+    @EJB YearDAO yearDao;
+    
     @Override
     protected void doGet(
             HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         
         //display list of subjects
+        if(request.getSession().getAttribute("year") == null)
+            request.getRequestDispatcher("/year").forward(request, response);
         request.setAttribute("subjects", subjectDao.getAllSubjects());
         request.getRequestDispatcher("/subject.jsp").forward(request, response);
     }
@@ -36,9 +40,11 @@ public class SubjectServlet extends HttpServlet {
         String subjectName = request.getParameter("name");
         String client = request.getParameter("client");
         String description = request.getParameter("description");
+        String year = request.getSession().getAttribute("year").toString();
         
         if (subjectName != null)
-            subjectDao.persist(new Subject(subjectName, client, description));
+            subjectDao.persist(new Subject(subjectName, client, description
+                    , yearDao.getYearById(year).get(0)));
         
         doGet(request, response);
     }

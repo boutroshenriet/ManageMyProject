@@ -10,7 +10,7 @@
     </head>
   
     <body>
-        <form method="POST" action="user">
+        <form method="POST" action="subject">
             Name: <input type="text" name="name" />
            <!-- Password: <input type="text" name="password" /> -->
             Client: <input type="text" name="client" />

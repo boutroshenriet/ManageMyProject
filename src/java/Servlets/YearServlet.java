@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.YearDAO;
 import Entity.Year;
 import javax.ejb.EJB;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -34,10 +35,20 @@ public class YearServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        Integer annee = Integer.parseInt(request.getParameter("year"));
-        
-        yearDao.persist(new Year(annee));
+        if(request.getParameter("action") != null){
+            String link = request.getParameter("action");
+            if(link.equals("add"))
+            {
+                Integer annee = Integer.parseInt(request.getParameter("year"));
+                yearDao.persist(new Year(annee));
+            }
+            else if(link.equals("choose"))
+            {
+                HttpSession session = null;
+                session = request.getSession();
+                session.setAttribute("year", request.getParameter("yearList"));
+            }
+        }
         
         // Display the list of guests:
         doGet(request, response);

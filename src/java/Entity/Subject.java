@@ -49,10 +49,11 @@ private static final long serialVersionUID = 1L;
         Description = null;
     }
     // Il faut rajouter sur ces fonctions les variables ID qui seront présentent dans la session
-     public Subject(String nameSubject, String Client, String Description){
+     public Subject(String nameSubject, String Client, String Description, Year year){
         this.nameSubject = nameSubject;
         this.client = Client;
         this.Description = Description;
+        this.year = year;
     }
     public Long getId() {
         return id;
@@ -84,7 +85,7 @@ private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {
-        return "Entity.Subject[ id=" + id + " ]";
+        return "Sujet " + getNameSubject() + "/Client " + getClient() + "/Description " + getDescription();
     }
 
     /**

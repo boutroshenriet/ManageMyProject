@@ -13,10 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import DAO.SubjectDAO;
+import javax.ejb.EJB;
 /**
  *
  * @author Florian
  */
+
 @Entity
 public class Team implements Serializable {
 
@@ -44,6 +47,7 @@ public class Team implements Serializable {
     public Team(String attribute){
         this.attribute = attribute;
     }
+    
     public Long getId() {
         return id;
     }
@@ -74,7 +78,10 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        return "Team" + getAttribute();
+        if(subject != null)
+            return "Team " + getAttribute() + "/ sujet " + getSubject().getNameSubject();
+        else 
+            return "Team " + getAttribute();
     }
 
     /**
@@ -89,6 +96,20 @@ public class Team implements Serializable {
      */
     public void setAttribute(String attribute) {
         this.attribute = attribute;
+    }
+
+    /**
+     * @return the subject
+     */
+    public Subject getSubject() {
+        return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     
