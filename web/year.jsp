@@ -32,12 +32,12 @@
             if (years != null) {
                 for (Year year : years) { 
                     if(year.getId().toString().equals(currentYear)){
-                    %> <option value="<% year.getId().toString(); %>" selected> 
+                    %> <option value="<% out.print(year.getId().toString()); %>" selected> 
                            <b> <%= year %> </b> 
                        </option> <%
                     }else{
-                        %> <option value="<% year.getId().toString(); %>"> 
-                           <b> <%= year %> </b> 
+                        %> <option value="<% out.print(year.getId().toString()); %>"> 
+                            <%= year %>
                         </option> <%
                     }
                 }

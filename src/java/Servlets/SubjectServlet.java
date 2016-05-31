@@ -26,8 +26,11 @@ public class SubjectServlet extends HttpServlet {
                 throws ServletException, IOException {
         
         //display list of subjects
-        if(request.getSession().getAttribute("year") == null)
+        if(request.getSession().getAttribute("year") == null){
+            request.getSession().setAttribute("redirect", "subject");
             request.getRequestDispatcher("/year").forward(request, response);
+        }
+            
         request.setAttribute("subjects", subjectDao.getAllSubjects());
         request.getRequestDispatcher("/subject.jsp").forward(request, response);
     }

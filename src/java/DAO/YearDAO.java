@@ -38,9 +38,9 @@ public class YearDAO {
     // Retrieves all the users:
    //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public List<Year> getAllYears() {
-      
+
         TypedQuery<Year> query = em.createQuery(
-            "SELECT g FROM Year g ORDER BY g.id", Year.class);
+            "SELECT g FROM Year g ORDER BY g.yearNumber", Year.class);
        
         return query.getResultList();    
     }

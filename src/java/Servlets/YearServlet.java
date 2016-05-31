@@ -49,7 +49,10 @@ public class YearServlet extends HttpServlet {
                 session.setAttribute("year", request.getParameter("yearList"));
             }
         }
-        
+        if(request.getSession().getAttribute("redirect") != null){
+            //Renvoi vers la page si redirection
+            request.getRequestDispatcher("/" + request.getSession().getAttribute("redirect")).forward(request, response);
+        }
         // Display the list of guests:
         doGet(request, response);
     }
