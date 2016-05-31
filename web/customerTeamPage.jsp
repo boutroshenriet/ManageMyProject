@@ -45,15 +45,16 @@ Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel mas
                 </thead>
                 <tr>
                     <td><input class="tableau" type="date" name="date"></td>
-                    <td><div id="timer">00 : 00</div></td>
+                    <td><span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span></td>
                     <td><textarea id="text1" class="tableau" name="dcomm"></textarea></td>
-                    <td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="play" class="btn btn-success">Début</button></td>
+                    <td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start" class="btn btn-success">Début</button></td>
                     <td class="tableButton"><button id="remove" class="btn btn-primary">Supprimer</button><button style="margin-top:20px" id="pause" class="btn btn-danger">Fin</button></td>
                 </tr>
             </table>
         </div>
 
         <script src="addMeeting.js" type="text/javascript"></script>
+        
         <h3 style="margin-left: 30px">Fonctionnalités attendues par le professeur :</h3>
 
         <button id="add2" class="btn btn-primary" style="margin-left: 30px">Ajouter une fonctionnalité</button>
@@ -76,7 +77,7 @@ Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel mas
           <input type="text" class="tableau" id="textzone">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Ajouter</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Ajouter</button>
         </div>
       </div>
       
@@ -121,30 +122,6 @@ Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel mas
         
         <!-- Trigger the modal with a button -->
   <button class="btn btn-primary" style="margin-left: 30px" data-toggle="modal" data-target="#myModal">Ajouter un thème</button>
-  <div class="container">
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Ajouter un thème</h4>
-        </div>
-        <div class="modal-body">
-          <p class="theme">Thème :</p>
-          <input type="text" class="tableau" id="textzone">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Ajouter</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
         
         <div class="container">
             <table class="table table-striped" id="fonctstudent">
@@ -234,80 +211,70 @@ Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel mas
         </div>
 <h3 style="margin-left: 30px">Documents :</h3>
 
-
-
-  <div id="reset">reset</div> 
-
-
     </body>
 </html>
 
-
 <script>
-    $(document).ready(function(){ 
-  var secondes = 0; 
-  var minutes = 0; 
-  var on = false; 
-  var reset = false; 
-  
-  $("#play").click(function(){ 
-    Start(); 
-  }); 
-  $("#pause").click(function(){ 
-    Stop(); 
-  }); 
-  $("#reset").click(function(){ 
-    Reset(); 
-  }); 
-  
-  function chrono(){ 
-    secondes += 1; 
-    
-    if(secondes>59){ 
-      minutes += 1; 
-      secondes = 0; 
-    } 
-    
-    if(minutes<10 && secondes<10){ 
-      $("#timer").html("0"+minutes+" : 0"+secondes); 
-    } 
-      else if(minutes<10 && secondes>=10){ 
-        $("#timer").html("0"+minutes+" : "+secondes); 
-    } 
-    else if(minutes>=10 && secondes<10){ 
-        $("#timer").html(+minutes+" : 0"+secondes); 
-    } 
-    else if(minutes>=10 && secondes>10){ 
-        $("#timer").html(+minutes+" : "+secondes); 
-    } 
-  } 
-  
-  function Start(){ 
-    if(on===false){ 
-      timerID = setInterval(chrono, 1000); 
-      on = true; 
-      reset = false; 
-    } 
-  } 
-  
-  function Stop(){ 
-    if(on===true){ 
-      on = false; 
-      clearTimeout(timerID); 
-    } 
-  } 
-  
-  function Reset(){ 
-    if(reset===false) 
-    { 
-      clearInterval(timerID); 
-      secondes = 0; 
-      minutes = 0; 
-      $("#timer").html("00 : 00"); 
-      reset = true; 
-    } 
-  } 
-  
-}); 
-    
-</script>
+var h = 0; // Heure
+var m = 0; // Minute
+var s = 0; // Seconde
+ 
+var temps; // Contiendra l'exécution de notre code 
+var bo = true; // Permettra de contrôler l'exécution du code
+
+function dchiffre(nb)
+{
+    if(nb < 10) // si le chiffre indiqué est inférieurs à dix ...
+    {
+        nb = "0"+nb; // .. on ajoute un zéro devant avant affichage
+    }
+     
+    return nb;
+}
+
+$("#start").click(function()
+{
+    if(bo) // On controle bo pour savoir si un autre Intervalle est lancé
+    {
+        temps = setInterval(function()
+        {
+            s++;
+             
+            if(s > 59)
+            {
+                m++;
+                s = 0;
+            }
+             
+            if(m > 59)
+            {
+                h++;
+                m = 0;
+            }
+             
+            $("#s").html(dchiffre(s));
+            $("#m").html(dchiffre(m));
+            $("#h").html(dchiffre(h));
+             
+             
+        },1000);
+         
+                // On affecte false à bo pour empécher un second Intervalle de se lancer
+        bo = false; 
+    }
+});
+
+$("#pause").click(function()
+{
+     
+    clearInterval(temps); // On stop l'intervalle lancer
+     
+       // On affiche les variable dans les conteneur dédié
+    $("#s").html(dchiffre(s));
+    $("#m").html(dchiffre(m));
+    $("#h").html(dchiffre(h));
+     
+       // Affecter true a bo pour indiquer qu'il n'y a plus d'Intervalle actif
+    bo = true
+});
+    </script>

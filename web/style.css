@@ -78,3 +78,9 @@ table textarea{
     height:100px;
     width:590px;
 }
+
+#popup{
+    background-color: green;
+    height: 80px;
+    vertical-align: middle;
+}
