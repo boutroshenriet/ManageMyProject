@@ -4,37 +4,45 @@
  * and open the template in the editor.
  */
 
-$('#add').on('click', function() {    
+
+/*function  getId(element) {
+    var r = element.parentNode.parentNode.rowIndex;
+    console.log(r);
+}*/
+    var nextRow = 2;
+
+$('#add').on('click', function() {   
+
     $('#reu').append( 
         [
             '<tr>',
                 '<td><input class="tableau" type="date" name="date"></td>',
-                '<td><span id="h1">00</span>:<span id="m1">00</span>:<span id="s1">00</span></td>',
+                '<td><span id="h1'+nextRow+'">00</span>:<span id="m1'+nextRow+'">00</span>:<span id="s1'+nextRow+'">00</span></td>',
                 '<td><textarea id="text1" class="tableau" name="dcomm"></textarea></td>',
-                '<td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start1" class="btn btn-success">Début</button></td>',
-                '<td class="tableButton"><button id="remove" class="btn btn-primary">Supprimer</button><button style="margin-top:20px" id="pause1" class="btn btn-danger">Fin</button></td>',
+                '<td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start1'+nextRow+'" class="btn btn-success">Début</button></td>',
+                '<td class="tableButton"><button id="remove" class="btn btn-primary">Supprimer</button><button style="margin-top:20px" id="pause1'+nextRow+'" class="btn btn-danger">Fin</button></td>',
             '</tr>'
             
         ].join('') //un seul append pour limiter les manipulations directes du DOM
+        
     );  
-});
- 
-$('table').on('click', '#remove', function() {
-   var $this = $(this);
-   
-   $this.closest('tr').remove();
-});
 
-var h1 = 0; // Heure
-var m1 = 0; // Minute
-var s1 = 0; // Seconde
- 
-var temps1; // Contiendra l'exécution de notre code 
-var bo1 = true; // Permettra de contrôler l'exécution du code
+
+window['h1' + nextRow] = 0;
+
+window['m1' + nextRow] = 0;
+
+window['s1' + nextRow] = 0;
+
+window['temps1' + nextRow] = 0;
+
+window['bo1' + nextRow] = true;
+
+
 
 function dchiffre1(nb1)
 {
-    if(nb1 < 10) // si le chiffre indiqué est inférieurs à dix ...
+    if(nb1 < 10) // si le chiffre indiqué est inférieur à dix ...
     {
         nb1 = "0"+nb1; // .. on ajoute un zéro devant avant affichage
     }
@@ -42,48 +50,68 @@ function dchiffre1(nb1)
     return nb1;
 }
 
-$("#start1").click(function()
+$('[id="start1'+nextRow+'"]').click(function()
 {
-    if(bo1) // On controle bo pour savoir si un autre Intervalle est lancé
+    if(window['bo1' + nextRow]) // On controle bo pour savoir si un autre Intervalle est lancé
     {
-        temps1 = setInterval(function()
+        window['temps1' + nextRow] = setInterval(function()
         {
-            s1++;
+            window['s1' + nextRow]++;
              
-            if(s1 > 59)
+            if(window['s1' + nextRow] > 59)
             {
-                m1++;
-                s1 = 0;
+                window['m1' + nextRow]++;
+                window['s1' + nextRow] = 0;
             }
              
-            if(m1 > 59)
+            if(window['m1' + nextRow] > 59)
             {
-                h1++;
-                m1 = 0;
+                window['1' + nextRow]++;
+                window['m1' + nextRow] = 0;
             }
              
-            $("#s1").html(dchiffre1(s1));
-            $("#m1").html(dchiffre1(m1));
-            $("#h1").html(dchiffre1(h1));
+            $('[id="s1'+nextRow+'"]').html(dchiffre1(window['s1' + nextRow]));
+            $('[id="m1'+nextRow+'"]').html(dchiffre1(window['m1' + nextRow]));
+            $('[id="h1'+nextRow+'"]').html(dchiffre1(window['h1' + nextRow]));
              
              
         },1000);
          
                 // On affecte false à bo pour empécher un second Intervalle de se lancer
-        bo1 = false; 
+        window['bo1' + nextRow] = false; 
     }
 });
 
-$("#pause1").click(function()
+$('[id="pause1'+nextRow+'"]').click(function()
 {
      
-    clearInterval(temps1); // On stop l'intervalle lancer
+    clearInterval(window['temps1' + nextRow]); // On stop l'intervalle lancer
      
        // On affiche les variable dans les conteneur dédié
-    $("#s1").html(dchiffre1(s1));
-    $("#m1").html(dchiffre1(m1));
-    $("#h1").html(dchiffre1(h1));
+    $('[id="s1'+nextRow+'"]').html(dchiffre1(window['s1' + nextRow]));
+    $('[id="m1'+nextRow+'"]').html(dchiffre1(window['m1' + nextRow]));
+    $('[id="h1'+nextRow+'"]').html(dchiffre1(window['h1' + nextRow]));
      
        // Affecter true a bo pour indiquer qu'il n'y a plus d'Intervalle actif
-    bo1 = true
+    window['bo1' + nextRow] = true
+    
+        nextRow ++;
+        
+       // window['da' + nextRow] = 'window['h1' + nextRow]','window['h1' + nextRow]';
+
 });
+});
+
+ 
+$('table').on('click', '#remove', function() {
+   var $this = $(this);
+   
+   $this.closest('tr').remove();
+   
+   
+
+   
+});
+
+
+
