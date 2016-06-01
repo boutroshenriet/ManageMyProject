@@ -52,6 +52,9 @@ private static final long serialVersionUID = 1L;
     @OneToMany(mappedBy="user")
     private Collection<Subject> subject;
     
+    @OneToMany(mappedBy="client")
+    private Collection<Subject> clientSubject;
+    
     @ManyToOne
     private Team team;
     

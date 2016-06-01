@@ -51,8 +51,9 @@ public class YearServlet extends HttpServlet {
         }
         if(request.getSession().getAttribute("redirect") != null){
             //Renvoi vers la page si redirection
+            String redirect = request.getSession().getAttribute("redirect").toString();
             request.getSession().removeAttribute("redirect");
-            request.getRequestDispatcher("/" + request.getSession().getAttribute("redirect")).forward(request, response);
+            request.getRequestDispatcher("/" + redirect).forward(request, response);
         }
         // Display the list of guests:
         doGet(request, response);

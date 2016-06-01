@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*,Entity.Subject"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +25,17 @@
         <%@include file="search2.jsp" %>
         <h1>2016</h1>
         <HR>
+        <%
+            @SuppressWarnings("unchecked") 
+            List<Subject> sujets = (List<Subject>)request.getAttribute("sujets");
+            sujets.sort(c);
+            List<String> années = null;
+            if (sujets != null) {
+                for (Subject sujet : sujets) { %>
+                    if(années.conte
+                }
+            }
+        %>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">SUJET 1</h3>

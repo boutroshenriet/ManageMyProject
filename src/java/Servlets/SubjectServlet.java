@@ -50,7 +50,7 @@ public class SubjectServlet extends HttpServlet {
         String user = request.getSession().getAttribute("sessionUser").toString();
         
         if (subjectName != null)
-            subjectDao.persist(new Subject(subjectName, client, description
+            subjectDao.persist(new Subject(subjectName, userDao.getUserById(client).get(0), description
                     , yearDao.getYearById(year).get(0)
                     , userDao.getUserById(user).get(0)));
         

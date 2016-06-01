@@ -26,7 +26,7 @@ private static final long serialVersionUID = 1L;
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     private String nameSubject;
-    private String client;
+    
     private String Description;
 
     @ManyToOne
@@ -35,12 +35,15 @@ private static final long serialVersionUID = 1L;
     @ManyToOne
     private User user; 
     
-   @OneToMany(mappedBy= "subject")
-   private Collection<Feature> feature;
+    @OneToMany(mappedBy="subject")
+    private Collection<Feature> feature;
     
     @OneToMany(mappedBy="subject")
     private Collection<Team> teams;
-   
+    
+    @ManyToOne
+    private User client;
+    
     
     // Constructors:    
     public Subject() {
@@ -49,9 +52,9 @@ private static final long serialVersionUID = 1L;
         Description = null;
     }
     // Il faut rajouter sur ces fonctions les variables ID qui seront présentent dans la session
-     public Subject(String nameSubject, String Client, String Description, Year year, User user){
+     public Subject(String nameSubject, User client, String Description, Year year, User user){
         this.nameSubject = nameSubject;
-        this.client = Client;
+        this.client = client;
         this.Description = Description;
         this.year = year;
         this.user = user;
@@ -101,20 +104,6 @@ private static final long serialVersionUID = 1L;
      */
     public void setNameSubject(String nameSubject) {
         this.nameSubject = nameSubject;
-    }
-
-    /**
-     * @return the Client
-     */
-    public String getClient() {
-        return client;
-    }
-
-    /**
-     * @param Client the Client to set
-     */
-    public void setClient(String Client) {
-        this.client = Client;
     }
 
     /**
@@ -185,6 +174,20 @@ private static final long serialVersionUID = 1L;
      */
     public void setFeature(Collection<Feature> feature) {
         this.feature = feature;
+    }
+
+    /**
+     * @return the client
+     */
+    public User getClient() {
+        return client;
+    }
+
+    /**
+     * @param client the client to set
+     */
+    public void setClient(User client) {
+        this.client = client;
     }
 
 

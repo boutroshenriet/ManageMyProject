@@ -14,6 +14,7 @@ import DAO.DocumentDAO;
 import DAO.UserDAO;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import javax.servlet.annotation.MultipartConfig;
 
 @WebServlet(name="DocumentServlet", urlPatterns={"/document"})
@@ -45,10 +46,12 @@ public class DocumentServlet extends HttpServlet {
                 String file = request.getParameter("file");
 
                 Document doc = documentDao.getDocumentById(file).get(0);
-               
-                response.setContentType(doc.getContentType());
-                response.setHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
-                response.getOutputStream().write(doc.getDoc());
+                
+                //response.setContentType(doc.getContentType());
+               //response.setHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
+                //response.getOutputStream().write(doc.getDoc());
+                //response.getOutputStream().flush();
+                //response.getOutputStream().close();
             }
         }
     }

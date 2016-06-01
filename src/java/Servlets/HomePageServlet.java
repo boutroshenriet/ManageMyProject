@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import DAO.SubjectDAO;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "HomePageServlet", urlPatterns = {"/HomePageServlet"})
 public class HomePageServlet extends HttpServlet {
 
+    
+    @EJB SubjectDAO subjectDao;
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -60,8 +64,11 @@ public class HomePageServlet extends HttpServlet {
                     }
                 }
             }   
-            else if (type == 2)
+            else if (type == 2){
+                request.setAttribute("sujets", subjectDao.getSubjectsByClient(
+                        request.getSession().getAttribute("sessionUser").toString()));
                 request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
+            }
             else if (type == 3)
                 request.getRequestDispatcher("/studentHomePage.jsp").forward(request, response);
         }

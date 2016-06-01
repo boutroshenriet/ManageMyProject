@@ -38,6 +38,12 @@ public class SubjectDAO {
             "SELECT g FROM Subject g WHERE g.id = " + id, Subject.class);
         return query.getResultList();
     }
+    
+    public List<Subject> getSubjectsByClient(String id) {
+        TypedQuery<Subject> query = em.createQuery(
+            "SELECT s FROM Subject s WHERE s.client = " + id, Subject.class);
+        return query.getResultList();
+    }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
