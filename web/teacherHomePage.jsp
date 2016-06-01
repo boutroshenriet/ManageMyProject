@@ -14,6 +14,7 @@
     <body>
         <a href="year?action=addYear">Années</a>
         <a href="subject?action=addSuject">Sujets</a>
-        <a href="user?action=addSuject">Utilisateurs</a>
+        <a href="user?action=addUsers">Utilisateurs</a>
+        <a href="document?action=documents">Documents</a>
     </body>
 </html>

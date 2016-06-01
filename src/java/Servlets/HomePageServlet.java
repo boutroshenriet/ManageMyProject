@@ -54,6 +54,10 @@ public class HomePageServlet extends HttpServlet {
                     {
                         request.getRequestDispatcher("/user").forward(request, response);
                     }
+                    else if(link.equals("documents"))
+                    {
+                        request.getRequestDispatcher("/document").forward(request, response);
+                    }
                 }
             }   
             else if (type == 2)

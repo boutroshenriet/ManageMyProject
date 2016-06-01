@@ -13,7 +13,13 @@
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
             Password: <input type="text" name="password" />
-            type: <input type="text" name="type" />
+            type: 
+            <select name="type">
+                <option value=1>Professeur</option>
+                <option value=2>Client</option>
+                <option value=3>Elève</option>
+                <option value=4>Tuteur</option>
+            </select>
             <input type="submit" value="Add" />
         </form>
  

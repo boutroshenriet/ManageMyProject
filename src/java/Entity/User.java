@@ -73,7 +73,8 @@ private static final long serialVersionUID = 1L;
     // String Representation:
     @Override
     public String toString() {
-        return getName() + " (signed on " + getSigningDate() + ")";
+        String[] tab = {"Professeur", "Client", "Elève", "Tuteur"};
+        return getName() + " de type " + tab[getType() - 1] + " (signed on " + getSigningDate() + ")";
     }
 
     /**

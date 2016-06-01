@@ -37,18 +37,19 @@ public class Document implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date AddingDate;
     
-    @ManyToMany
-    private Collection<User> user;
+    private User user;
     
     public Document()
     {
         
     }
     
-    public Document(String fileName, byte[] doc)
+    public Document(String fileName, byte[] doc, User user)
     {
         this.fileName = fileName;
         this.doc = doc;
+        this.user = user;
+        this.AddingDate = new Date(System.currentTimeMillis());
     }
     
     public Long getId() {
@@ -81,7 +82,7 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Document[ id=" + id + " ]";
+        return getFileName();
     }
 
     /**
