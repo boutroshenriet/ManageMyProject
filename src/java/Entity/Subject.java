@@ -49,11 +49,12 @@ private static final long serialVersionUID = 1L;
         Description = null;
     }
     // Il faut rajouter sur ces fonctions les variables ID qui seront présentent dans la session
-     public Subject(String nameSubject, String Client, String Description, Year year){
+     public Subject(String nameSubject, String Client, String Description, Year year, User user){
         this.nameSubject = nameSubject;
         this.client = Client;
         this.Description = Description;
         this.year = year;
+        this.user = user;
     }
     public Long getId() {
         return id;

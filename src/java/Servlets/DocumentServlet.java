@@ -28,18 +28,20 @@ public class DocumentServlet extends HttpServlet {
         request.getRequestDispatcher("/document.jsp").forward(request, response);
     }
  
+    //private string filePath
+    
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /*if(!ServletFileUpload.isMultipartContent(request)){
             throw new ServletException("Content type is not multipart/form-data");
         }*/
- 
         // Handle a new guest:
         String name = request.getParameter("filename");
-        //Byte[] file = request.getParameter("file");
+        byte[] file = null;
         
         if (name != null)
-            documentDao.persist(new Document());
+            documentDao.persist(new Document(name, file));
 
         // Display the list of guests:
         doGet(request, response);

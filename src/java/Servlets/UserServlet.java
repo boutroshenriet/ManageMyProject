@@ -23,8 +23,6 @@ public class UserServlet extends HttpServlet {
         HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        
         // Display the list of guests:
         request.setAttribute("users", userDao.getAllUsers());
         request.getRequestDispatcher("/user.jsp").forward(request, response);

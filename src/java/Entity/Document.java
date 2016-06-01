@@ -32,13 +32,24 @@ public class Document implements Serializable {
 
     private byte[] doc;
     
-    private String filename;
+    private String fileName;
     
     @Temporal(TemporalType.DATE)
     private Date AddingDate;
     
     @ManyToMany
     private Collection<User> user;
+    
+    public Document()
+    {
+        
+    }
+    
+    public Document(String fileName, byte[] doc)
+    {
+        this.fileName = fileName;
+        this.doc = doc;
+    }
     
     public Long getId() {
         return id;
@@ -88,16 +99,17 @@ public class Document implements Serializable {
     }
 
     /**
-     * @return the filename
+     * @return the fileName
      */
-    public String getFilename() {
-        return filename;
+    public String getFileName() {
+        return fileName;
     }
 
     /**
-     * @param filename the filename to set
+     * @param fileName the fileName to set
      */
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
+
 }

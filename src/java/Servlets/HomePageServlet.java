@@ -6,7 +6,6 @@
 package Servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +36,26 @@ public class HomePageServlet extends HttpServlet {
         session = request.getSession();
         //Ajout de l'utilisateur dans la session
         if(session.getAttribute("sessionUser") != null){
+            
             int type = (Integer) session.getAttribute("sessionType");
-            if (type == 1)
+            if (type == 1){
                 request.getRequestDispatcher("/teacherHomePage.jsp").forward(request, response);
+                if(request.getParameter("action") != null){
+                    String link = request.getParameter("action");
+                    if(link.equals("addYear"))
+                    {
+                        request.getRequestDispatcher("/year").forward(request, response);
+                    }
+                    else if(link.equals("addSubject"))
+                    {
+                        request.getRequestDispatcher("/subject").forward(request, response);
+                    }
+                    else if(link.equals("createUser"))
+                    {
+                        request.getRequestDispatcher("/user").forward(request, response);
+                    }
+                }
+            }   
             else if (type == 2)
                 request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
             else if (type == 3)
@@ -51,13 +67,7 @@ public class HomePageServlet extends HttpServlet {
             //doGet(request,response);
         }
         
-        if(request.getParameter("action") != null){
-            String link = request.getParameter("action");
-            if(link.equals("addYear"))
-            {
-                request.getRequestDispatcher("/year").forward(request, response);
-            }
-        }
+        
     }
     /**
      * Handles the HTTP <code>POST</code> method.

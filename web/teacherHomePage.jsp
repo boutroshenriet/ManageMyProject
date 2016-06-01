@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="year?action=addYear">Ajouter une année</a>
+        <a href="year?action=addYear">Années</a>
+        <a href="subject?action=addSuject">Sujets</a>
+        <a href="user?action=addSuject">Utilisateurs</a>
     </body>
 </html>

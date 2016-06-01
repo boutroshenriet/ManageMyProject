@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DAO.YearDAO;
 import DAO.SubjectDAO;
+import DAO.UserDAO;
 import Entity.Subject;
 
 @WebServlet(name = "SubjectServlet", urlPatterns = {"/subject"})
@@ -19,6 +20,8 @@ public class SubjectServlet extends HttpServlet {
     @EJB SubjectDAO subjectDao;
 
     @EJB YearDAO yearDao;
+    
+    @EJB UserDAO userDao;
     
     @Override
     protected void doGet(
@@ -44,10 +47,12 @@ public class SubjectServlet extends HttpServlet {
         String client = request.getParameter("client");
         String description = request.getParameter("description");
         String year = request.getSession().getAttribute("year").toString();
+        String user = request.getSession().getAttribute("sessionUser").toString();
         
         if (subjectName != null)
             subjectDao.persist(new Subject(subjectName, client, description
-                    , yearDao.getYearById(year).get(0)));
+                    , yearDao.getYearById(year).get(0)
+                    , userDao.getUserById(user).get(0)));
         
         doGet(request, response);
     }

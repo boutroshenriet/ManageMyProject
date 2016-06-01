@@ -9,14 +9,10 @@ import Entity.User;
 
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.naming.InitialContext;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.UserTransaction;
 /**
  *
  * @author Pierre
@@ -41,6 +37,14 @@ public class UserDAO {
       
         TypedQuery<User> query = em.createQuery(
             "SELECT g FROM User g ORDER BY g.id", User.class);
+       
+        return query.getResultList();    
+    }
+    
+    public List<User> getUserById(String id) {
+      
+        TypedQuery<User> query = em.createQuery(
+            "SELECT g FROM User g WHERE g.id = " + id, User.class);
        
         return query.getResultList();    
     }

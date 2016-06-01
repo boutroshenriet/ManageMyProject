@@ -45,7 +45,7 @@ public class YearDAO {
         return query.getResultList();    
     }
     
-     public List<Year> getYearById(String id) {
+    public List<Year> getYearById(String id) {
       
         TypedQuery<Year> query = em.createQuery(
             "SELECT g FROM Year g WHERE g.id = " + id, Year.class);
