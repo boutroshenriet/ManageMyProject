@@ -33,6 +33,10 @@ public class Meeting implements Serializable {
     @ManyToOne
     private Team team;
 
+    public Meeting(){
+
+    }
+    
     public Meeting(Date date, String comment){
         this.date = date;
         this.comment = comment;

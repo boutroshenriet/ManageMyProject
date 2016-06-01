@@ -12,10 +12,7 @@ import javax.servlet.http.Part;
 import Entity.Document;
 import DAO.DocumentDAO;
 import DAO.UserDAO;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import javax.servlet.annotation.MultipartConfig;
 
@@ -45,12 +42,13 @@ public class DocumentServlet extends HttpServlet {
             String link = request.getParameter("action");
             if(link.equals("download"))
             {
-               String file = request.getParameter("file");
-               Document doc = documentDao.getDocumentById(file).get(0);
-               
-               BufferedOutputStream sortie = new BufferedOutputStream( response.getOutputStream(), doc.getDoc().length );
+                String file = request.getParameter("file");
 
-               sortie.write( doc.getDoc(), 0, doc.getDoc().length );
+                Document doc = documentDao.getDocumentById(file).get(0);
+               
+                response.setContentType(doc.getContentType());
+                response.setHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
+                response.getOutputStream().write(doc.getDoc());
             }
         }
     }
@@ -76,6 +74,7 @@ public class DocumentServlet extends HttpServlet {
                 }
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
                 int size = (int)filePart.getSize();
+                String contentType = filePart.getContentType();
                 byte[] file = new byte[size];
                 for (int length = 0; (length = inputStream.read(file)) > 0;) 
                     output.write(file, 0, length);
@@ -87,7 +86,7 @@ public class DocumentServlet extends HttpServlet {
                 
                 String userId = request.getSession().getAttribute("sessionUser").toString();
                         
-                documentDao.persist(new Document(name, file, userDao.getUserById(userId).get(0)));
+                documentDao.persist(new Document(name, file, userDao.getUserById(userId).get(0), contentType));
             }
         }
         

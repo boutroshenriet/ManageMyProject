@@ -40,7 +40,7 @@ public class DocumentDAO {
     public List<Document> getAllDocuments() {
         
         TypedQuery<Document> query = em.createQuery(
-            "SELECT g FROM Document g ORDER BY g.id", Document.class);
+            "SELECT g FROM Document g ORDER BY g.fileName", Document.class);
        
         return query.getResultList();    
     }
@@ -48,7 +48,7 @@ public class DocumentDAO {
     public List<Document> getDocumentById(String id) {
         
         TypedQuery<Document> query = em.createQuery(
-            "SELECT g FROM Document g WHERE g.id = " + id + "ORDER BY g.id", Document.class);
+            "SELECT g FROM Document g WHERE g.id = " + id, Document.class);
        
         return query.getResultList();    
     }

@@ -34,6 +34,8 @@ public class Document implements Serializable {
     
     private String fileName;
     
+    private String contentType;
+    
     @Temporal(TemporalType.DATE)
     private Date AddingDate;
     
@@ -44,12 +46,13 @@ public class Document implements Serializable {
         
     }
     
-    public Document(String fileName, byte[] doc, User user)
+    public Document(String fileName, byte[] doc, User user, String contentType)
     {
         this.fileName = fileName;
         this.doc = doc;
         this.user = user;
         this.AddingDate = new Date(System.currentTimeMillis());
+        this.contentType = contentType;
     }
     
     public Long getId() {
@@ -111,6 +114,20 @@ public class Document implements Serializable {
      */
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    /**
+     * @return the contentType
+     */
+    public String getContentType() {
+        return contentType;
+    }
+
+    /**
+     * @param contentType the contentType to set
+     */
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
 }
