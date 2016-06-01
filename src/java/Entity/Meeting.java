@@ -26,14 +26,18 @@ public class Meeting implements Serializable {
     @GeneratedValue
     private Long id;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date start; 
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date end;
+    private Date date; 
+    private int duree ;
     private String comment;
     
     @ManyToOne
     private Team team;
 
+    public Meeting(Date date, String comment){
+        this.date = date;
+        this.comment = comment;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -67,33 +71,7 @@ public class Meeting implements Serializable {
         return "Entity.Meetings[ id=" + id + " ]";
     }
 
-    /**
-     * @return the start
-     */
-    public Date getStart() {
-        return start;
-    }
 
-    /**
-     * @param start the start to set
-     */
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    /**
-     * @return the end
-     */
-    public Date getEnd() {
-        return end;
-    }
-
-    /**
-     * @param end the end to set
-     */
-    public void setEnd(Date end) {
-        this.end = end;
-    }
 
     /**
      * @return the comment
@@ -123,5 +101,20 @@ public class Meeting implements Serializable {
     public void setTeam(Team team) {
         this.team = team;
     }
-    
+
+    /**
+     * @return the date
+     */
+    public Date getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+
 }
