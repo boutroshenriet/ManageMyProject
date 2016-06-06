@@ -21,14 +21,16 @@
         <form method="post" action="document?action=add" enctype="multipart/form-data">
             <br>
             <h3 style="margin-left: 30px">Télécharger un document disponible pour tous les élèves :</h3>
-            Pick file #1: <input type="file" name="file" size="50" />
+            <input type="file" name="file" size="50" />
             Nom du fichier à afficher : 
+                    <div class="form-group" style="width: 30%">
             <div class="input-group input-group-md icon-addon addon-md">
-                <input type="text" placeholder="Saisir le nom d'une équipe" name="" id="schbox" class="form-control">
+                <input type="text" name="filename" size="50" placeholder="Saisir le nom d'une équipe" id="schbox" class="form-control">
                 <span class="input-group-btn">
-            <input type="text" name="filename" size="50" />
             <input type="submit" value="Valider" class="btn btn-primary"/>
                 </span>
+            </div>
+                    </div>
         </form>
         
         <ol> <%
