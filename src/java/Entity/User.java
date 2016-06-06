@@ -249,8 +249,10 @@ private static final long serialVersionUID = 1L;
      */
     public void setName(String name) {
         this.name = name;
-     * @return the session
+    }
+     /* return the session
      */
+     
     public Session getSession() {
         return session;
     }
