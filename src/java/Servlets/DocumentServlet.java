@@ -46,12 +46,36 @@ public class DocumentServlet extends HttpServlet {
                 String file = request.getParameter("file");
 
                 Document doc = documentDao.getDocumentById(file).get(0);
+                OutputStream out = response.getOutputStream();
+                response.setHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
+                response.setContentType(doc.getContentType());
+                response.setContentLength(doc.getDoc().length);
+               /* InputStream inputStream = new ByteArrayInputStream(doc.getDoc());
+                int fileLength = inputStream.available();
+                 
+                System.out.println("fileLength = " + fileLength);          
+                 
+                // set content properties and header attributes for the response
+                response.setContentType(doc.getContentType());
+                response.setContentLength(fileLength);
+                String headerKey = "Content-Disposition";
+                String headerValue = String.format("attachment; filename=\"%s\"", doc.getFileName());
+                response.setHeader(headerKey, headerValue);
+ 
+                // writes the file to the client
+                OutputStream outStream = response.getOutputStream();
+                 
+                byte[] buffer = new byte[4096];
+                int bytesRead = -1;
+                 
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outStream.write(buffer, 0, bytesRead);
+                }
+                 
+                inputStream.close();
+                outStream.close(); */
                 
-                //response.setContentType(doc.getContentType());
-               //response.setHeader("Content-Disposition", "attachment;filename=" + doc.getFileName());
-                //response.getOutputStream().write(doc.getDoc());
-                //response.getOutputStream().flush();
-                //response.getOutputStream().close();
+                
             }
         }
     }

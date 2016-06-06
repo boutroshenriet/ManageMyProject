@@ -42,7 +42,7 @@ public class HomePageServlet extends HttpServlet {
         if(session.getAttribute("sessionUser") != null){
             
             int type = (Integer) session.getAttribute("sessionType");
-            if (type == 1){
+            if (type == 1){//Professeur
                 request.getRequestDispatcher("/teacherHomePage.jsp").forward(request, response);
                 if(request.getParameter("action") != null){
                     String link = request.getParameter("action");
@@ -64,12 +64,12 @@ public class HomePageServlet extends HttpServlet {
                     }
                 }
             }   
-            else if (type == 2){
+            else if (type == 2){//Client
                 request.setAttribute("sujets", subjectDao.getSubjectsByClient(
                         request.getSession().getAttribute("sessionUser").toString()));
                 request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
             }
-            else if (type == 3)
+            else if (type == 3)//Etudiant
                 request.getRequestDispatcher("/studentHomePage.jsp").forward(request, response);
         }
         else
