@@ -45,7 +45,7 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
         <h3 style="margin-left: 50px">Documents: </h3> <br/>
           
      <h5 style="margin-left: 30px">   Catégorie: <strong>Dépot du professeur</strong> &nbsp
-    <input type="submit" value="Déposer un fichier" id="boutton"/> </h5><br/>
+     </h5><br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Enoncé detaillé du sujet</a> 
     <script type="text/javascript"> 
         d = new Date();
@@ -68,7 +68,7 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
     <a style="width: 94%; margin-left: 30px" href="#"> Compte rendu réunion1 </a> <br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Blablabla</a> <br/><br/>
     <h5 style="margin-left: 30px"> Catégorie: <strong>Dépot du client</strong> &nbsp
-    <input type="submit" value="Déposer un fichier" id="boutton" /> </h5><br/>
+    </h5><br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Enoncé detaillé du sujet</a> <br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Compte rendu 1ere réunion</a> <br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Interview </a> <br/>

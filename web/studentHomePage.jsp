@@ -25,9 +25,8 @@
             <li class="active"><a data-toggle="tab" href="#menu1">Création d'une équipe</a></li>
             <li><a data-toggle="tab" href="#menu2">Mon Projet</a></li>
             <li class="dropdown">
-
-
         </ul>
+        
         <div class="tab-content" id="myTabContent">
             <div id="menu1" class="tab-pane fade active in">
                 <p><br><%@include file="studentTeamCreation.jsp" %></p>
@@ -35,7 +34,6 @@
             <div id="menu2" class="tab-pane fade">
                 <p><br><%@include file="studentMyProject.jsp" %></p>
             </div>
-
         </div>
     </div>
 </body>
