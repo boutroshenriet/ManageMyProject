@@ -29,7 +29,7 @@ public class Session implements Serializable {
     
    
    @OneToMany(mappedBy= "session")
-   private Collection<Group> group;
+   private Collection<User> users;
     
     public Long getId() {
         return id;

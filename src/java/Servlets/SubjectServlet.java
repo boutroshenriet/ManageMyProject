@@ -35,6 +35,7 @@ public class SubjectServlet extends HttpServlet {
         }
             
         request.setAttribute("subjects", subjectDao.getAllSubjects());
+        request.setAttribute("clients", userDao.getAllClients());
         request.getRequestDispatcher("/subject.jsp").forward(request, response);
     }
 

@@ -16,7 +16,7 @@
         <script src="angular.js" type="text/javascript"></script>
         <title>JSP Page</title>
     </head>
-    <body>
+    <body>   
         <%@include file="header.jsp" %>
         <br>
         <div class="form-group" style="width: 30%; margin-left: 68%">
@@ -32,6 +32,7 @@
         <a class="btn btn-primary" style="margin: 30px" href="subject?action=addSuject">Sujets</a>
         <a class="btn btn-primary" style="margin: 30px" href="user?action=addUsers">Utilisateurs</a>
         <a class="btn btn-primary" style="margin: 30px" href="document?action=documents">Documents</a>
+        <a class="btn btn-primary" style="margin: 30px" href="session?action=sessions">Documents</a>
         </div>
     </body>
 </html>

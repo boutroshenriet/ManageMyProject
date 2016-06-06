@@ -45,6 +45,8 @@ private static final long serialVersionUID = 1L;
     @ManyToOne
     private Group group;
     
+    @ManyToOne
+    private Session session;
 
     @OneToMany(mappedBy="user")
     private Collection<Feature> feature;
@@ -77,7 +79,7 @@ private static final long serialVersionUID = 1L;
     @Override
     public String toString() {
         String[] tab = {"Professeur", "Client", "Elève", "Tuteur"};
-        return getName() + " de type " + tab[getType() - 1] + " (signed on " + getSigningDate() + ")";
+        return getName() + " de type " + tab[getType() - 1];
     }
 
     /**

@@ -25,9 +25,6 @@ public class Group implements Serializable {
     @GeneratedValue
     
     private Long id;
-
-    @ManyToOne
-    private Session session; 
     
     @OneToMany(mappedBy="group")
     private Collection<User> user;
@@ -68,21 +65,7 @@ public class Group implements Serializable {
     public String toString() {
         return "Entity.Groups[ id=" + id + " ]";
     }
-
-    /**
-     * @return the session
-     */
-    public Session getSession() {
-        return session;
-    }
-
-    /**
-     * @param session the session to set
-     */
-    public void setSessions(Session session) {
-        this.session = session;
-    }
-
+    
     /**
      * @return the team
      */

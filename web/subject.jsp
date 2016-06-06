@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,Entity.Subject"%>
- 
+ <%@page import="java.util.*,Entity.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
  
@@ -13,7 +13,18 @@
         <form method="POST" action="subject">
             Name: <input type="text" name="name" />
            <!-- Password: <input type="text" name="password" /> -->
-            Client: <input type="text" name="client" />
+           Client: <select name="client">
+            <%
+             @SuppressWarnings("unchecked") 
+             List<User> clients = (List<User>)request.getAttribute("clients");
+             if (clients != null) {
+                 for (User client : clients) { %>
+                    <option value="<% out.print(client.getId().toString()); %>"> 
+                            <%= client %>
+                    </option> <%
+                 }
+             } %>
+           </select>
             Description: <input type="text" name="description" />
             <input type="submit" value="Add" />
         </form>

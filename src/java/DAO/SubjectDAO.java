@@ -33,6 +33,15 @@ public class SubjectDAO {
         return query.getResultList();
     }
     
+    // Retrieves all the users:
+    public List<Subject> getAllSubjectsByYear(String year) {
+        TypedQuery<Subject> query = em.createQuery(
+            "SELECT g FROM Year y JOIN Subject g " +
+            "WHERE y = " + year, Subject.class);
+        
+        return query.getResultList();
+    }
+    
     public List<Subject> getSubId(String id){
         TypedQuery<Subject> query = em.createQuery(
             "SELECT g FROM Subject g WHERE g.id = " + id, Subject.class);

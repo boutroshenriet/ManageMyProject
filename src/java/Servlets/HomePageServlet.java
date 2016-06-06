@@ -62,6 +62,10 @@ public class HomePageServlet extends HttpServlet {
                     {
                         request.getRequestDispatcher("/document").forward(request, response);
                     }
+                    else if(link.equals("sessions"))
+                    {
+                        request.getRequestDispatcher("/session?action=createSession").forward(request, response);
+                    }
                 }
             }   
             else if (type == 2){//Client
