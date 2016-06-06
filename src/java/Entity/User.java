@@ -216,4 +216,32 @@ private static final long serialVersionUID = 1L;
     public void setGroup(Group group) {
         this.group = group;
     }
+
+    /**
+     * @return the session
+     */
+    public Session getSession() {
+        return session;
+    }
+
+    /**
+     * @param session the session to set
+     */
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    /**
+     * @return the feature
+     */
+    public Collection<Feature> getFeature() {
+        return feature;
+    }
+
+    /**
+     * @param feature the feature to set
+     */
+    public void setFeature(Collection<Feature> feature) {
+        this.feature = feature;
+    }
 }

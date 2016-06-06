@@ -41,25 +41,43 @@ private static final long serialVersionUID = 1L;
     protected void doPost(
         HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
-        // Handle a new guest:
-        String name = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        List<User> usersList = userDao.getAllUsers();
-        
-        HttpSession session = null;
-        session = request.getSession();
-        for (User user : usersList) {
-            if(user.getName().equals(name)){
-                if(user.getPassword().equals(password)){
-                    /* Récupération de la session depuis la requête */
-                    
-                    //Ajout de l'utilisateur dans la session
-                    session.setAttribute( "sessionUser", user.getId());
-                    session.setAttribute( "sessionType", user.getType());
-                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+        if(request.getParameter("actionConnexion") != null){
+            String link = request.getParameter("actionConnexion");
+            if(link.equals("connecter"))
+            {
+                String name = request.getParameter("username");
+                String password = request.getParameter("password");
+
+                List<User> usersList = userDao.getAllUsers();
+
+                HttpSession session = null;
+                session = request.getSession();
+                for (User user : usersList) {
+                    if(user.getName().equals(name)){
+                        if(user.getPassword().equals(password)){
+                            /* Récupération de la session depuis la requête */
+
+                            //Ajout de l'utilisateur dans la session
+                            session.setAttribute( "sessionUser", user.getId());
+                            session.setAttribute( "sessionType", user.getType());
+                            if(user.getType() == 3)
+                                if(user.getTeam() != null)
+                                    session.setAttribute( "sessionStudentTeam", user.getTeam().getId());
+                            request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+                        }
+                    }
                 }
+            }
+            else if(link.equals("deconnecter"))
+            {
+                HttpSession session = request.getSession();
+                session.removeAttribute( "sessionUser");
+                session.removeAttribute( "sessionType");
+                if(session.getAttribute("sessionStudentTeam") != null)
+                    session.removeAttribute( "sessionStudentTeam");
+                if(session.getAttribute("year") != null)
+                    session.removeAttribute("year");
+                request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
             }
         }
         

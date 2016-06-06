@@ -75,6 +75,13 @@ public class HomePageServlet extends HttpServlet {
             }
             else if (type == 3)//Etudiant
                 request.getRequestDispatcher("/studentHomePage.jsp").forward(request, response);
+            if(request.getParameter("action") != null){
+                String link = request.getParameter("action");
+                if(link.equals("team"))
+                {
+                    request.getRequestDispatcher("/team").forward(request, response);
+                }
+            }
         }
         else
         {

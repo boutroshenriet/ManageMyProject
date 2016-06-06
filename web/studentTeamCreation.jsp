@@ -3,7 +3,7 @@
     Created on : 6 juin 2016, 10:24:14
     Author     : domitilledubern
 --%>
-
+<%@page import="java.util.*,Entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,38 +21,14 @@
                     <h3 class="panel-title"> SESSION 1</h3>
                 </div>  
                 <textarea name="textarea" rows="33" cols="23" style="background-color: #d9edf7">
-
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-    NOM Prénom
-   
-  
+<%
+                    @SuppressWarnings("unchecked") 
+                    List<User> students = (List<User>)request.getAttribute("studentsToAdd");
+                    if (students != null) {
+                        for (User student : students) { %>
+                            <li> <%= student %> </li> <%
+                        }
+                    } %>
                 </textarea> 
             </div>
             <div class="panel panel-info" style="width:17%; height:30%">
@@ -68,14 +44,15 @@
                             </tr>
                             <tr>
                                 <td id=td1 name="stu11"> Elève 1: </td>
-                                <td id=td2><select class="tableau2">
-                                        <option value="élève1">élève1</option>
-                                        <option value="élève2">élève2</option>
-                                        <option value="élève3">élève3</option>
-                                        <option value="élève4">élève4</option>
-                                        <option value="élève5">élève4</option>
-                                        <option value="élève6">élève6</option>
-                                    
+                                <td id=td2>
+                                    <select class="tableau2" name="el1">
+                                        <%
+                                        if (students != null) {
+                                            for (User student : students) { %>
+                                                <option value="<% out.print(student.getId().toString()); %>"><%= student %></option>
+                                                <li> student </li> <%
+                                            }
+                                        } %>                                    
                                     </select></td>
                             </tr>
                             <tr>

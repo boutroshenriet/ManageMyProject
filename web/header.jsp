@@ -20,7 +20,7 @@
                     <img class="photo" src="Images/Photo_identité.jpg" alt="Photo d'identité"/><br/>
                     <div class="user">
                         <p>Florian CHARRIEAU</p>
-                        <a href="#">Déconnexion</a> <!-- ng-onclick -->
+                        <a href="connexion?actionConnexion=deconnecter">Déconnexion</a> <!-- ng-onclick -->
                     </div>
                 </div>
             </div>
