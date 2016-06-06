@@ -1,3 +1,9 @@
+<%-- 
+    Document   : studentHomePage
+    Created on : 6 juin 2016, 10:24:50
+    Author     : domitilledubern
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,23 +21,23 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search2.jsp" %>
-       <ul class="nav nav-tabs" id="myTab">
-    <li class="active"><a data-toggle="tab" href="#menu1">Création d'une équipe</a></li>
-    <li><a data-toggle="tab" href="#menu2">Mon Projet</a></li>
-    <li class="dropdown">
-   
- 
-</ul>
-<div class="tab-content" id="myTabContent">
-    <div id="menu1" class="tab-pane fade active in">
-        <p><br><%@include file="studentTeamCreation.jsp" %></p>
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#menu1">Création d'une équipe</a></li>
+            <li><a data-toggle="tab" href="#menu2">Mon Projet</a></li>
+            <li class="dropdown">
+
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div id="menu1" class="tab-pane fade active in">
+                <p><br><%@include file="studentTeamCreation.jsp" %></p>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <p><br><%@include file="studentMyProject.jsp" %></p>
+            </div>
+
+        </div>
     </div>
-    <div id="menu2" class="tab-pane fade">
-        <p><br><%@include file="studentMyProject.jsp" %></p>
-    </div>
-    
-    </div>
-</div>
-    </body>
+</body>
 </html>
 

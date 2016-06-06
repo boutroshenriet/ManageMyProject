@@ -55,6 +55,10 @@ header img{
     width: 15%;
 }
 
+.firstColumn2{
+    width: 17%;
+}
+
 table textarea{
     overflow-y: scroll;
     height: 100px;
@@ -84,3 +88,14 @@ table textarea{
     height: 80px;
     vertical-align: middle;
 }
+
+tr {
+    height:25px; overflow:hidden
+}
+td {
+    height:30px; text-align:left
+}
+.tableau2 {
+    width: 130px;
+}
+

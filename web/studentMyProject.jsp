@@ -1,3 +1,9 @@
+<%-- 
+    Document   : studentMyProject
+    Created on : 6 juin 2016, 10:22:39
+    Author     : Domitilledubern
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +17,13 @@
         <script src="angular.js" type="text/javascript"></script>
         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
         <title>studentMyProject</title>
+    </head>
+    <body>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>Sujet</title>
     </head>
 
     <body>
@@ -33,18 +46,18 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
           
      <h5 style="margin-left: 30px">   Catégorie: <strong>Dépot du professeur</strong> &nbsp
     <input type="submit" value="Déposer un fichier" id="boutton"/> </h5><br/>
-    <a style="margin-left: 30px"; href="PDF/tpicha5.pdf"> Enoncé detaillé du sujet</a> 
+    <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Enoncé detaillé du sujet</a> 
     <script type="text/javascript"> 
         d = new Date();
       document.write(d.toLocaleDateString()); 
       document.write("</span></p>"); 
     </script>
-    <a style="margin-left: 30px"; href="PDF/tpicha5.pdf"> Planning soutenance </a><script type="text/javascript"> 
+    <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Planning soutenance </a><script type="text/javascript"> 
         d = new Date();
       document.write(d.toLocaleDateString()); 
       document.write("</span></p>"); 
     </script> <br/>
-    <a style="margin-left: 30px"; href="PDF/tpicha5.pdf"> Information sur votre client </a> <script type="text/javascript"> 
+    <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Information sur votre client </a> <script type="text/javascript"> 
         d = new Date();
       document.write(d.toLocaleDateString()); 
       document.write("</span></p>"); 
@@ -52,7 +65,7 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
     <h5 style="margin-left: 30px">   Catégorie: <strong>Dépot des élèves</strong> &nbsp
     <input type="submit" value="Déposer un fichier" id="boutton" /> </h5><br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> SFD</a> <br/>
-    <a style="width: 94%; margin-left:30px" href="PDF/tpicha5.pdf"> Compte rendu réunion1 </a> <br/>
+    <a style="width: 94%; margin-left: 30px" href="#"> Compte rendu réunion1 </a> <br/>
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Blablabla</a> <br/><br/>
     <h5 style="margin-left: 30px"> Catégorie: <strong>Dépot du client</strong> &nbsp
     <input type="submit" value="Déposer un fichier" id="boutton" /> </h5><br/>
@@ -64,3 +77,4 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
 
     </body>
 </html>
+
