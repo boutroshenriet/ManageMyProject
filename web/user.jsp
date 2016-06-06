@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.*,Entity.User"%>
- 
+<%@page import="java.util.*,Entity.Session"%>
+ <%@page import="java.util.*,Entity.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
  
@@ -20,6 +20,18 @@
                 <option value=3>Elève</option>
                 <option value=4>Tuteur</option>
             </select>
+            Session: <select name="session">
+                <%
+            @SuppressWarnings("unchecked") 
+            List<Session> sessions = (List<Session>)request.getAttribute("sessions");
+            if (sessions != null) {
+                for (Session ses : sessions) { %>
+                    <option value="<% out.print(ses.getId().toString()); %>"> 
+                            <%= ses %>
+                    </option> <%
+                }
+            } %>
+           </select>
             <input type="submit" value="Add" />
         </form>
  

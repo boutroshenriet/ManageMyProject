@@ -32,7 +32,7 @@
         <a class="btn btn-primary" style="margin: 30px" href="subject?action=addSuject">Sujets</a>
         <a class="btn btn-primary" style="margin: 30px" href="user?action=addUsers">Utilisateurs</a>
         <a class="btn btn-primary" style="margin: 30px" href="document?action=documents">Documents</a>
-        <a class="btn btn-primary" style="margin: 30px" href="session?action=sessions">Documents</a>
+        <a class="btn btn-primary" style="margin: 30px" href="session?action=sessions">Sessions</a>
         </div>
     </body>
 </html>

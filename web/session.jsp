@@ -10,32 +10,20 @@
     </head>
   
     <body>
-        <form method="POST" action="year?action=add">
-            Année: <input type="year" name="sessionName" />
+        <form method="POST" action="session?actionSession=add">
+            Session: <input type="text" name="sessionName" />
             <input type="submit" value="Add" />
         </form>
- 
-        <hr><ol>
-           <form method="POST" action="year?action=choose">
-                Années disponibles: 
-                <select name="yearList">
-            <%
-           
+        
+        <hr><ol> <%
             @SuppressWarnings("unchecked") 
             List<Session> sessions = (List<Session>)request.getAttribute("sessions");
-            
-             HttpSession sessionCurrent = null;
-            sessionCurrent = request.getSession();
             if (sessions != null) {
-                for (Session ses : sessions) { 
-                    %> <option value="<% out.print(ses.getId().toString()); %>"> 
-                           <b> <%= session %> </b> 
-                       </option> <%
-                    }
+                for (Session ses : sessions) { %>
+                    <li> <%= ses %> </li> <%
+                }
             } %>
-            </select>
-           <input type="submit" value="Selectionner" />
-            </form>
         </ol><hr>
+        
      </body>
  </html>

@@ -75,6 +75,14 @@ private static final long serialVersionUID = 1L;
         this.type = type;
     }
  
+    public User(String name, String password, Integer type, Session session) {
+        this.name = name;
+        this.signingDate = new Date(System.currentTimeMillis());
+        this.password = password;
+        this.type = type;
+        this.session = session;
+    }
+    
     // String Representation:
     @Override
     public String toString() {

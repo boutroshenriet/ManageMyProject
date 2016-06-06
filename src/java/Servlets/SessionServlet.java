@@ -6,6 +6,7 @@
 package Servlets;
 
 import DAO.SessionDAO;
+import DAO.UserDAO;
 import Entity.Session;
 import java.io.IOException;
 import javax.ejb.EJB;
@@ -26,6 +27,8 @@ public class SessionServlet extends HttpServlet {
 
     @EJB SessionDAO sessionDao;
     
+    @EJB UserDAO userDao;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,31 +38,18 @@ public class SessionServlet extends HttpServlet {
             request.getSession().setAttribute("redirect", "session");
             request.getRequestDispatcher("/year").forward(request, response);
         }
-            
+
         request.setAttribute("sessions", sessionDao.getAllSessions());
-        request.getRequestDispatcher("/subject.jsp").forward(request, response);
-        
-        if(request.getParameter("action") != null){
-            String link = request.getParameter("action");
-            if(link.equals("add"))
-            {
-                Integer sessionName = Integer.parseInt(request.getParameter("year"));
-                sessionDao.persist(new Session());
-            }
-            else if(link.equals("choose"))
-            {
-                HttpSession session = null;
-                session = request.getSession();
-                session.setAttribute("year", request.getParameter("yearList"));
-            }
-        }
+        request.getRequestDispatcher("session.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+        if(request.getParameter("sessionName") != null){
+            String sessionName = request.getParameter("sessionName").toString();
+            sessionDao.persist(new Session(sessionName));
+        }
         doGet(request, response);
     }
 }

@@ -10,13 +10,13 @@
     </head>
   
     <body>
-        <form method="POST" action="year?action=add">
+        <form method="POST" action="year?actionYear=add">
             Année: <input type="year" name="year" />
             <input type="submit" value="Add" />
         </form>
  
         <hr><ol>
-           <form method="POST" action="year?action=choose">
+           <form method="POST" action="year?actionYear=choose">
                 Années disponibles: 
                 <select name="yearList">
             <%

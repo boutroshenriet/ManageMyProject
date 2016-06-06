@@ -9,14 +9,9 @@ import Entity.Session;
 
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.UserTransaction;
 /**
  *
  * @author Pierre
@@ -41,6 +36,14 @@ public class SessionDAO {
       
         TypedQuery<Session> query = em.createQuery(
             "SELECT g FROM Session g ORDER BY g.id", Session.class);
+       
+        return query.getResultList();    
+    }
+    
+    public List<Session> getSessionById(String id) {
+      
+        TypedQuery<Session> query = em.createQuery(
+            "SELECT g FROM Session g WHERE g.id = " + id, Session.class);
        
         return query.getResultList();    
     }

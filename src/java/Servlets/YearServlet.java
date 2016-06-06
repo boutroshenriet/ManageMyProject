@@ -35,8 +35,8 @@ public class YearServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("action") != null){
-            String link = request.getParameter("action");
+        if(request.getParameter("actionYear") != null){
+            String link = request.getParameter("actionYear");
             if(link.equals("add"))
             {
                 Integer annee = Integer.parseInt(request.getParameter("year"));

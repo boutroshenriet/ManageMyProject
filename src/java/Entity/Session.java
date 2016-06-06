@@ -24,12 +24,23 @@ public class Session implements Serializable {
     @Id@GeneratedValue
     private Long id;
 
+    private String sessionName;
+    
     @ManyToOne
     private Year year;
     
    
    @OneToMany(mappedBy= "session")
    private Collection<User> users;
+    
+   
+    public Session(){
+        
+    }
+    
+    public Session(String sessionName){
+        this.sessionName = sessionName;
+    }
     
     public Long getId() {
         return id;
@@ -61,7 +72,7 @@ public class Session implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.sessions[ id=" + id + " ]";
+        return getSessionName() ;
     }
 
     /**
@@ -76,5 +87,19 @@ public class Session implements Serializable {
      */
     public void setYear(Year year) {
         this.year = year;
+    }
+
+    /**
+     * @return the sessionName
+     */
+    public String getSessionName() {
+        return sessionName;
+    }
+
+    /**
+     * @param sessionName the sessionName to set
+     */
+    public void setSessionName(String sessionName) {
+        this.sessionName = sessionName;
     }
 }
