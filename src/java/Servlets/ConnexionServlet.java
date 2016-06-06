@@ -5,7 +5,9 @@
  */
 package Servlets;
 
+import DAO.ParametresDAO;
 import DAO.UserDAO;
+import Entity.Parametres;
 import Entity.User;
 import java.io.IOException;
 import java.util.List;
@@ -27,6 +29,8 @@ private static final long serialVersionUID = 1L;
 
     // Injected DAO EJB:
     @EJB UserDAO userDao;
+    
+    @EJB ParametresDAO parametresDao;
  
     @Override
     protected void doGet(
@@ -56,7 +60,8 @@ private static final long serialVersionUID = 1L;
                     if(user.getName().equals(name)){
                         if(user.getPassword().equals(password)){
                             /* Récupération de la session depuis la requête */
-
+                            if(parametresDao.getNbParam() == 0)
+                                initParamTable();
                             //Ajout de l'utilisateur dans la session
                             session.setAttribute( "sessionUser", user.getId());
                             session.setAttribute( "sessionType", user.getType());
@@ -82,5 +87,10 @@ private static final long serialVersionUID = 1L;
         }
         
         doGet(request,response);
+    }
+    
+    public void initParamTable(){
+        //Table paramètres
+        parametresDao.persist(new Parametres("TeamSize", "6"));
     }
 }

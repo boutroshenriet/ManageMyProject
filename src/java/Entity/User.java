@@ -92,6 +92,10 @@ private static final long serialVersionUID = 1L;
     // String Representation:
     @Override
     public String toString() {
+        return getName();
+    }
+    
+    public String toString2() {
         String[] tab = {"Professeur", "Client", "Elève", "Tuteur"};
         return getName() + " de type " + tab[getType() - 1];
     }

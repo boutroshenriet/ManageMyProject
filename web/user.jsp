@@ -40,7 +40,7 @@
             List<User> guests = (List<User>)request.getAttribute("users");
             if (guests != null) {
                 for (User guest : guests) { %>
-                    <li> <%= guest %> </li> <%
+                <li> <% out.print(guest.toString2()); %> </li> <%
                 }
             } %>
         </ol><hr>

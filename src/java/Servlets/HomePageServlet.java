@@ -40,7 +40,6 @@ public class HomePageServlet extends HttpServlet {
         session = request.getSession();
         //Ajout de l'utilisateur dans la session
         if(session.getAttribute("sessionUser") != null){
-            
             int type = (Integer) session.getAttribute("sessionType");
             if (type == 1){//Professeur
                 request.getRequestDispatcher("/teacherHomePage.jsp").forward(request, response);
@@ -73,14 +72,16 @@ public class HomePageServlet extends HttpServlet {
                         request.getSession().getAttribute("sessionUser").toString()));
                 request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
             }
-            else if (type == 3)//Etudiant
-                request.getRequestDispatcher("/studentHomePage.jsp").forward(request, response);
-            if(request.getParameter("action") != null){
-                String link = request.getParameter("action");
-                if(link.equals("team"))
-                {
-                    request.getRequestDispatcher("/team").forward(request, response);
-                }
+            else if (type == 3){//Etudiant
+                request.getRequestDispatcher("/team").forward(request, response);
+                //TODO remplacer avec student homePage
+               /* if(request.getParameter("action") != null){
+                    String link = request.getParameter("action");
+                    if(link.equals("team"))
+                    {
+                        request.getRequestDispatcher("/team").forward(request, response);
+                    }
+                }*/
             }
         }
         else
