@@ -28,7 +28,9 @@ private static final long serialVersionUID = 1L;
     // Persistent Fields:
     @Id @GeneratedValue
     private Long id;
+    private String pseudo;
     private String name;
+    private String lastname;
     
     @Temporal(TemporalType.DATE)
     private Date signingDate;
@@ -62,14 +64,18 @@ private static final long serialVersionUID = 1L;
     
     // Constructors:    
     public User() {
+        pseudo = null;
         name = null;
+        lastname = null;
         signingDate = null;
         password = null;
         type = null;
     }
  
-    public User(String name, String password, Integer type) {
+    public User(String pseudo, String password, Integer type) {
+        this.pseudo = pseudo;
         this.name = name;
+        this.lastname = lastname;
         this.signingDate = new Date(System.currentTimeMillis());
         this.password = password;
         this.type = type;
@@ -86,22 +92,26 @@ private static final long serialVersionUID = 1L;
     // String Representation:
     @Override
     public String toString() {
+        return getName();
+    }
+    
+    public String toString2() {
         String[] tab = {"Professeur", "Client", "Elève", "Tuteur"};
         return getName() + " de type " + tab[getType() - 1];
     }
 
     /**
-     * @return the name
+     * @return the pseudo
      */
-    public String getName() {
-        return name;
+    public String getPseudo() {
+        return pseudo;
     }
 
     /**
-     * @param name the name to set
+     * @param pseudo the pseudo to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     /**
@@ -218,8 +228,35 @@ private static final long serialVersionUID = 1L;
     }
 
     /**
-     * @return the session
+     * @return the lastname
      */
+    public String getLastname() {
+        return lastname;
+    }
+
+    /**
+     * @param lastname the lastname to set
+     */
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+     /* return the session
+     */
+     
     public Session getSession() {
         return session;
     }

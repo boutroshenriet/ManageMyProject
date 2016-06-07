@@ -17,10 +17,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="header.jsp" %>
-        <br>
-        <%@include file="search4.jsp" %>
-        <form name="myForm" onsubmit="return validateMyForm()" method="post">
+        <form name="myForm" onsubmit="return validateMyForm()" method="post" action="team?actionTeam=create">
+
+
+
 
             <h2>EQUIPE BORDEAUX</h2><br><br>
 
@@ -31,104 +31,116 @@
                 <textarea name="textarea" rows="33" cols="23" style="background-color: #d9edf7">
                     <%
                         @SuppressWarnings(  "unchecked")
+                        int teamSize = (Integer)request.getAttribute("teamSize");
                         List<User> students = (List<User>) request.getAttribute("studentsToAdd");
+                        User me = (User) request.getAttribute("me");
                         if (students != null) {
-        for (User student : students) {%>
-                            <li> <%= student%> </li> <%
-                                    }
-                                } %>
+                            for (User student : students) {%>
+                                <%= student%><%
+                            }
+                        } %>
                 </textarea> 
             </div>
-             
-                
+            <div class="panel panel-info" style="width:17%; height:30%">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> EQUIPE 1</h3>
+                </div>  
+                <div class="panel-body">
 
-                        <center><table>
+                    <fieldset>
+
+                        <table>
+
                             <tr>
                                 <td id=td1> Nom de l'équipe: </td>
-                                <td id=td2> <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1"></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" name="fName">
-  </div></td>
+                                <td id=td2> <input class="tableau2" type="text" name="teamName"/> </td>
+
+
+
+
                             </tr>
                             <tr>
                                 <td id=td1 name="stu11"> Elève 1: </td>
                                 <td id=td2>
-                                    <select class="tableau2" name="el1">
-                                        <%
-                                            if (students != null) {
-                                                for (User student : students) { %>
-                                        <option value="<% out.print(student.getId().toString());%>"><%= student%></option>
-                                        <li> student </li> <%
-                                                        }
-                                                    }%>                                    
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <td id=td1 name="stu12"> Elève 2: </td>
-                                <td id=td2><select class="selectpicker" data-live-search="true">
-                                        <option>Elève1</option>
-                                        <option>Elève2</option>
-                                        <option>Elève3</option>
-                                        <option>Elève4</option>
-                                        <option>Elève5</option>
-                                        <option>Elève6</option>
-                                    </select>
+                                    <% out.print(me); %>
+                                </td>
 
-                                   </td>
+
+
+
+
+
+
                             </tr>
-                            <tr>
-                                <td id=td1 name="stu13"> Elève  3: </td>
-                                <td id=td2> <select class="selectpicker" data-live-search="true">
-                                        <option>Elève1</option>
-                                        <option>Elève2</option>
-                                        <option>Elève3</option>
-                                        <option>Elève4</option>
-                                        <option>Elève5</option>
-                                        <option>Elève6</option>
-                                    </select> </td>
-                            </tr>
-                            <tr>
-                                <td id=td1 name="stu14"> Elève 4: </td>
-                                <td id=td2> <select class="selectpicker" data-live-search="true">
-                                        <option>Elève1</option>
-                                        <option>Elève2</option>
-                                        <option>Elève3</option>
-                                        <option>Elève4</option>
-                                        <option>Elève5</option>
-                                        <option>Elève6</option>
-                                    </select> </td>
-                            </tr>
-                            <tr>
-                                <td id=td1 name="stu15"> Elève 5: </td>
-                                <td id=td2> <select class="selectpicker" data-live-search="true">
-                                        <option>Elève1</option>
-                                        <option>Elève2</option>
-                                        <option>Elève3</option>
-                                        <option>Elève4</option>
-                                        <option>Elève5</option>
-                                        <option>Elève6</option>
-                                    </select> </td>
-                            </tr>
-                            <tr>
-                                <td id=td1 name="stu16"> Elève 6: </td>
-                                <td id=td2> <select class="selectpicker" data-live-search="true">
-                                        <option>Elève1</option>
-                                        <option>Elève2</option>
-                                        <option>Elève3</option>
-                                        <option>Elève4</option>
-                                        <option>Elève5</option>
-                                        <option>Elève6</option>
-                                    </select> </td>
-                            </tr>
+                            <% for(int i = 2; i <= teamSize; i++){ %>
+                                <tr>
+                                    <td id=td1 name="stu1<%= i %>"> Elève <%= i %>: </td>
+                                    <td id=td2> 
+                                        <select class="tableau2" name="el<%= i %>">
+                                            <% if (students != null) {
+                                                    for (User student : students) { %>
+                                            <option value="
+                                                    <% out.print(student.getId().toString());
+                                                    %>"><%= student%></option>
+                                            <li> student </li> <%
+                                                            }
+                                                        } %>                                    
+                                        </select> 
+                                    </td>
+                                </tr>
+                            <% }%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                             <tr>
                                 <td></td>
-                                <td id=td3><a href="#" class="btn btn-primary">Valider</a> </td>
+                                <td id=td2><input type="submit" class="btn btn-primary" value="Valider"/> </td>
                             </tr>
-                        </table></center>
 
-                   
+
+                        </table> 
+
+                    </fieldset>
+
+                </div>
             </div>
 
 

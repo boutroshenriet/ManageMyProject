@@ -19,7 +19,7 @@
         <br>
         <%@include file="search3.jsp" %>
         <ol>
-            <form method="POST" action="year?action=choose">
+            <form method="POST" action="year?actionYear=choose">
                 <br>      
             <h3>Séléctionner une année :</h3>
             <br>
@@ -56,7 +56,7 @@
                 
             </form>
         </ol>
-                <form method="POST" action="year?action=add">
+                <form method="POST" action="year?actionYear=addYear">
             <br>
             <h3 style="margin-left: 30px">Ajouter une année :</h3>
             <br>

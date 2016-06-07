@@ -26,6 +26,7 @@ public class Team implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue
     private Long id;
+    
     private String attribute;
     
     @OneToMany(mappedBy = "team")
@@ -42,6 +43,11 @@ public class Team implements Serializable {
     
     public Team(){
         attribute = null;
+    }
+    
+    public Team(String attribute, Collection<User> users){
+        this.attribute = attribute;
+        this.users = users;
     }
     
     public Team(String attribute){
@@ -79,23 +85,9 @@ public class Team implements Serializable {
     @Override
     public String toString() {
         if(subject != null)
-            return "Team " + getAttribute() + "/ sujet " + getSubject().getNameSubject();
+            return "Team " + getAttribute()+ "/ sujet " + getSubject().getNameSubject();
         else 
             return "Team " + getAttribute();
-    }
-
-    /**
-     * @return the attribute
-     */
-    public String getAttribute() {
-        return attribute;
-    }
-
-    /**
-     * @param attribute the attribute to set
-     */
-    public void setAttribute(String attribute) {
-        this.attribute = attribute;
     }
 
     /**
@@ -110,6 +102,20 @@ public class Team implements Serializable {
      */
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    /**
+     * @return the attribute
+     */
+    public String getAttribute() {
+        return attribute;
+    }
+
+    /**
+     * @param attribute the attribute to set
+     */
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
     }
 
     
