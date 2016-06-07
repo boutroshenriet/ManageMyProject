@@ -28,6 +28,10 @@
 
     <body>
         
+        <%@include file="header.jsp" %>
+        <br>
+        <%@include file="search4.jsp" %>
+        
         <h2>EQUIPE BORDEAUX</h2><br><br>
         <div class="alert alert-danger alert-dismissable fade in" style="width: 94%; margin-left: 30px">
             <h4 align="center"><i class="icon icon-times-circle icon-lg"></i>Amélioration de la gestion des projets de spécification de Génie Logiciel</h4><br>

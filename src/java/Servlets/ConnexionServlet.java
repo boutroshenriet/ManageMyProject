@@ -63,10 +63,11 @@ private static final long serialVersionUID = 1L;
                             if(user.getType() == 3)
                                 if(user.getTeam() != null)
                                     session.setAttribute( "sessionStudentTeam", user.getTeam().getId());
-                            request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+                            
                         }
                     }
                 }
+                request.getRequestDispatcher("/HomePageServlet").forward(request, response);
             }
             else if(link.equals("deconnecter"))
             {
@@ -80,7 +81,5 @@ private static final long serialVersionUID = 1L;
                 request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
             }
         }
-        
-        doGet(request,response);
     }
 }

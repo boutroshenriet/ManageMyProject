@@ -13,11 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-<div style="float:left">
-        <a class="btn btn-primary" style="margin-left: 50px" href="year?action=addYear">Années</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="subject?action=addSuject">Sujets</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="user?action=addUsers">Utilisateurs</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="document?action=documents">Documents</a>
+                            <div style="float:left">
+                                <a class="btn btn-primary" style="margin-left: 50px" href="studentMyProject.jsp">Mon projet</a>
+        <a class="btn btn-primary" style="margin-left: 50px" href="studentTeamCreation.jsp">Création d'une équipe</a>
+        
         </div>
         <div class="form-group" style="width: 30%; margin-left: 68%">
             <div class="input-group input-group-md icon-addon addon-md">

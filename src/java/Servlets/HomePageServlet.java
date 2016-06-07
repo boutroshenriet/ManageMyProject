@@ -43,7 +43,7 @@ public class HomePageServlet extends HttpServlet {
             
             int type = (Integer) session.getAttribute("sessionType");
             if (type == 1){//Professeur
-                request.getRequestDispatcher("/teacherHomePage.jsp").forward(request, response);
+                request.getRequestDispatcher("/year?action=addYear").forward(request, response);
                 if(request.getParameter("action") != null){
                     String link = request.getParameter("action");
                     if(link.equals("addYear"))

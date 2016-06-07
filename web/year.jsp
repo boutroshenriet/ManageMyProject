@@ -15,13 +15,9 @@
     </head>
 
     <body>
-
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>
-
-        
-
         <ol>
             <form method="POST" action="year?action=choose">
                 <br>      
@@ -30,7 +26,6 @@
                 Années disponibles: 
                 <select name="yearList" class="selectpicker">
                     <%
-
                         @SuppressWarnings(  "unchecked")
                         List<Year> years = (List<Year>) request.getAttribute("years");
 
@@ -71,7 +66,7 @@
             <div class="input-group input-group-md icon-addon addon-md">
                 <input placeholder="Saisir une année" type="year" name="year" id="schbox" class="form-control">
                 <span class="input-group-btn">
-            <input type="submit" value="Ajouter" class="btn btn-primary" id="clic" />
+            <input type="submit" value="Ajouter" class="btn btn-primary" />
             
             </div>
                 </div>
@@ -91,18 +86,6 @@ $('#test').append('<div class="alert alert-success alert-dismissable fade in">',
                 
  
         </form>
-<%@include file="header.jsp" %>
-        <br>
-        <%@include file="search3.jsp" %>
-        <%@include file="header.jsp" %>
-        <br>
-        <%@include file="search3.jsp" %>
+
     </body>
 </html>
-
-<script>
-    $('.selectpicker').selectpicker({
-  size: 4
-});
-
-</script>
