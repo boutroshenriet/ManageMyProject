@@ -1,4 +1,3 @@
-<%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,Entity.Session"%>
  <%@page import="java.util.*,Entity.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -10,6 +9,9 @@
     </head>
   
     <body>
+        <%@include file="header.jsp" %>
+        <br>
+        <%@include file="search3.jsp" %>
         <form method="POST" action="user">
             Name: <input type="text" name="name" />
             Password: <input type="text" name="password" />
