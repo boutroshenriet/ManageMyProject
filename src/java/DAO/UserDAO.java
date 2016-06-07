@@ -28,9 +28,13 @@ public class UserDAO {
     public void persist(User user) {
 
         em.persist(user);
-        
     }
- 
+    
+    // Stores a new guest: 
+    public void merge(User user) {
+
+        em.merge(user);
+    }
     // Retrieves all the users:
    //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public List<User> getAllUsers() {

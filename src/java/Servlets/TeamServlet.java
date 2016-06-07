@@ -99,10 +99,14 @@ public class TeamServlet extends HttpServlet {
                         }
 
                         Team newTeam = new Team(name, teamUsers);
-
+                        
                         if (name != null) {
                             teamDao.persist(newTeam);
-                        }
+                            for(User user : teamUsers){
+                                user.setTeam(newTeam);
+                                userDao.merge(user);
+                            }
+                        }  
                     }
                 }
             }

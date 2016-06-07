@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import DAO.SubjectDAO;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 /**
  *
@@ -43,17 +44,19 @@ public class Team implements Serializable {
     
     public Team(){
         attribute = null;
-    }
-    
-    public Team(String attribute, Collection<User> users){
-        this.attribute = attribute;
-        this.users = users;
+        users = new ArrayList<User>();
     }
     
     public Team(String attribute){
         this.attribute = attribute;
+        users = new ArrayList<User>();
     }
     
+     public Team(String attribute, Collection<User> users){
+        this.attribute = attribute;
+        this.users = users;
+    }
+     
     public Long getId() {
         return id;
     }
@@ -118,5 +121,18 @@ public class Team implements Serializable {
         this.attribute = attribute;
     }
 
+    public void addUser(User user) {
+        if (!getUsers().contains(user)) {
+            getUsers().add(user);
+            if (user.getTeam() != null) {
+                user.getTeam().getUsers().remove(user);
+            }
+            user.setTeam(this);
+        }
+    }
+    
+    public Collection<User> getUsers() {
+        return users;
+    }
     
 }
