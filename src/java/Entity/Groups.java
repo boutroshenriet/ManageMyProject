@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import java.util.Collection;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -18,21 +17,25 @@ import javax.persistence.OneToMany;
  * @author Guillaume
  */
 @Entity
-public class Group implements Serializable {
+public class Groups implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue
-    
     private Long id;
     
-    @OneToMany(mappedBy="group")
-    private Collection<User> user;
+    private String name;
     
     @OneToMany(mappedBy="group")
     private Collection<Team> team;
     
-            
+    public Groups(String name){
+        this.name = name;
+    }
+    
+    public Groups(){
+    }
+    
     public Long getId() {
         return id;
     }
@@ -51,10 +54,10 @@ public class Group implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Group)) {
+        if (!(object instanceof Groups)) {
             return false;
         }
-        Group other = (Group) object;
+        Groups other = (Groups) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -63,7 +66,7 @@ public class Group implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Groups[ id=" + id + " ]";
+        return getName();
     }
     
     /**
@@ -78,5 +81,19 @@ public class Group implements Serializable {
      */
     public void setTeam(Collection<Team> team) {
         this.team = team;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }

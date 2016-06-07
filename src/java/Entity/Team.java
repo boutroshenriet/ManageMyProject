@@ -37,7 +37,7 @@ public class Team implements Serializable {
     private Subject subject;
     
     @ManyToOne
-    private Group group;
+    private Groups group;
     
     @OneToMany(mappedBy = "team")
     private Collection<Meeting> meeting;
@@ -87,10 +87,7 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        if(subject != null)
-            return "Team " + getAttribute()+ "/ sujet " + getSubject().getNameSubject();
-        else 
-            return "Team " + getAttribute();
+        return getAttribute();
     }
 
     /**
@@ -133,6 +130,27 @@ public class Team implements Serializable {
     
     public Collection<User> getUsers() {
         return users;
+    }
+
+    /**
+     * @param users the users to set
+     */
+    public void setUsers(Collection<User> users) {
+        this.users = users;
+    }
+
+    /**
+     * @return the group
+     */
+    public Groups getGroup() {
+        return group;
+    }
+
+    /**
+     * @param group the group to set
+     */
+    public void setGroup(Groups group) {
+        this.group = group;
     }
     
 }

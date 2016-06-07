@@ -89,7 +89,7 @@ private static final long serialVersionUID = 1L;
 
     @Override
     public String toString() {
-        return "Sujet " + getNameSubject() + "/Client " + getClient() + "/Description " + getDescription();
+        return getNameSubject();
     }
 
     /**

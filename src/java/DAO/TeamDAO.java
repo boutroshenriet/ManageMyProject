@@ -25,6 +25,11 @@ public class TeamDAO {
         em.persist(team);
     }
  
+    // Stores a new guest: 
+    public void merge(Team team) {
+        em.merge(team);
+    }
+    
     // Retrieves all the users:
     public List<Team> getAllTeams() {
         TypedQuery<Team> query = em.createQuery(

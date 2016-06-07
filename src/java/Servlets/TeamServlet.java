@@ -1,5 +1,6 @@
 package Servlets;
 
+import DAO.GroupDAO;
 import DAO.ParametresDAO;
 import DAO.SessionDAO;
 import java.io.IOException;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.TeamDAO;
 import DAO.UserDAO;
 import DAO.SubjectDAO;
+import Entity.Groups;
+import Entity.Subject;
 import Entity.Team;
 import Entity.User;
 import java.util.ArrayList;
@@ -26,7 +29,6 @@ public class TeamServlet extends HttpServlet {
     // Injected DAO EJB:
     @EJB
     TeamDAO teamDao;
-
     // Injected DAO EJB:
     @EJB
     UserDAO userDao;
@@ -39,7 +41,10 @@ public class TeamServlet extends HttpServlet {
 
     @EJB
     ParametresDAO parametresDao;
-
+    
+    @EJB
+    GroupDAO groupsDao;
+    
     @Override
     protected void doGet(
             HttpServletRequest request, HttpServletResponse response)
@@ -70,8 +75,11 @@ public class TeamServlet extends HttpServlet {
                     request.setAttribute("teamSize", teamSize);
                     request.getRequestDispatcher("/studentTeamCreation.jsp").forward(request, response);
                 }
-            } else {
+            } else if ((Integer) request.getSession().getAttribute("sessionType") == 1){
                 request.setAttribute("teams", teamDao.getAllTeams());
+                request.setAttribute("groups", groupsDao.getAllGroups());
+                request.setAttribute("subjects", subjectDao.getAllSubjects());
+                request.getRequestDispatcher("/team.jsp").forward(request, response);
             }
         }
     }
@@ -83,30 +91,57 @@ public class TeamServlet extends HttpServlet {
         if (request.getParameter("actionTeam") != null) {
             String link = request.getParameter("actionTeam");
             if (link.equals("create")) {
-                if (request.getSession().getAttribute("sessionType") != null) {
-                    if ((Integer) request.getSession().getAttribute("sessionType") == 3) {
-                        String name = request.getParameter("teamName");
-                        int teamSize = Integer.parseInt(parametresDao.getParametresByName("teamSize")
-                                .get(0).getValeur().toString());
-                        List<User> teamUsers = new ArrayList<User>();
-                        String userId = request.getSession().getAttribute("sessionUser").toString();
-                        User newUser = userDao.getUserById(userId).get(0);
-                        teamUsers.add(newUser);
-                        for (int i = 2; i <= teamSize; i++) {
-                            userId = request.getParameter("el" + i);
-                            newUser = userDao.getUserById(userId).get(0);
-                            teamUsers.add(newUser);
-                        }
+                String name = request.getParameter("teamName");
+                int teamSize = Integer.parseInt(parametresDao.getParametresByName("teamSize")
+                        .get(0).getValeur().toString());
+                List<User> teamUsers = new ArrayList<User>();
+                String userId = request.getSession().getAttribute("sessionUser").toString();
+                User newUser = userDao.getUserById(userId).get(0);
+                teamUsers.add(newUser);
+                for (int i = 2; i <= teamSize; i++) {
+                    userId = request.getParameter("el" + i);
+                    newUser = userDao.getUserById(userId).get(0);
+                    teamUsers.add(newUser);
+                }
 
-                        Team newTeam = new Team(name, teamUsers);
-                        
-                        if (name != null) {
-                            teamDao.persist(newTeam);
-                            for(User user : teamUsers){
-                                user.setTeam(newTeam);
-                                userDao.merge(user);
-                            }
-                        }  
+                Team newTeam = new Team(name, teamUsers);
+
+                if (name != null) {
+                    teamDao.persist(newTeam);
+                    for (User user : teamUsers) {
+                        user.setTeam(newTeam);
+                        userDao.merge(user);
+                    }
+                }
+            }
+            else if (link.equals("chooseTeamGroup")) {
+                List<Team> teams = teamDao.getAllTeams();
+                String group = "0";
+                String subject = "0";
+                boolean ajout = false;
+                for(Team team : teams){
+                    ajout = false;
+                    group = request.getParameter("group_" + team.getId());
+                    subject = request.getParameter("subject_" + team.getId());
+                    
+                    if(!group.equals("0")){
+                        if(team.getGroup() == null || !team.getGroup().getId().toString().equals(group)){
+                            Groups newGroup = groupsDao.getGroupById(group).get(0);
+                            team.setGroup(newGroup);
+                            ajout = true;
+                        }
+                    }    
+                            
+                    if(!subject.equals("0")){
+                        if(team.getSubject() == null || !team.getSubject().getId().toString().equals(subject)){
+                            Subject newSub = subjectDao.getSubId(subject).get(0);
+                            team.setSubject(newSub);
+                            ajout = true;
+                        }
+                    }    
+
+                    if(ajout){
+                        teamDao.merge(team);
                     }
                 }
             }

@@ -65,6 +65,14 @@ public class HomePageServlet extends HttpServlet {
                     {
                         request.getRequestDispatcher("/session?action=createSession").forward(request, response);
                     }
+                    else if(link.equals("team"))
+                    {
+                        request.getRequestDispatcher("/team").forward(request, response);
+                    }
+                    else if(link.equals("group"))
+                    {
+                        request.getRequestDispatcher("/group").forward(request, response);
+                    }
                 }
             }   
             else if (type == 2){//Client
@@ -74,14 +82,17 @@ public class HomePageServlet extends HttpServlet {
             }
             else if (type == 3){//Etudiant
                 request.getRequestDispatcher("/team").forward(request, response);
-                //TODO remplacer avec student homePage
-               /* if(request.getParameter("action") != null){
+                if(request.getParameter("action") != null){
                     String link = request.getParameter("action");
                     if(link.equals("team"))
                     {
                         request.getRequestDispatcher("/team").forward(request, response);
                     }
-                }*/
+                    else if(link.equals("team"))
+                    {
+                        request.getRequestDispatcher("/team").forward(request, response);
+                    }
+                }
             }
         }
         else

@@ -18,6 +18,8 @@
         <a class="btn btn-primary" style="margin-left: 50px" href="subject?action=addSuject">Sujets</a>
         <a class="btn btn-primary" style="margin-left: 50px" href="user?action=addUsers">Utilisateurs</a>
         <a class="btn btn-primary" style="margin-left: 50px" href="document?action=documents">Documents</a>
+        <a class="btn btn-primary" style="margin-left: 50px" href="group">Groupes</a>
+        <a class="btn btn-primary" style="margin-left: 50px" href="team">Equipes</a>
         </div>
         <div class="form-group" style="width: 30%; margin-left: 68%">
             <div class="input-group input-group-md icon-addon addon-md">

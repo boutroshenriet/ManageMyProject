@@ -45,7 +45,7 @@ private static final long serialVersionUID = 1L;
     private Collection<Document> document;
     
     @ManyToOne
-    private Group group;
+    private Groups group;
     
     @ManyToOne
     private Session session;
@@ -216,14 +216,14 @@ private static final long serialVersionUID = 1L;
     /**
      * @return the group
      */
-    public Group getGroup() {
+    public Groups getGroup() {
         return group;
     }
 
     /**
      * @param group the group to set
      */
-    public void setGroup(Group group) {
+    public void setGroup(Groups group) {
         this.group = group;
     }
 
