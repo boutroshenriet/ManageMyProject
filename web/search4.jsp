@@ -15,7 +15,6 @@
     <body>
                             <div style="float:left">
         <a class="btn btn-primary" style="margin-left: 50px" href="studentMyProject.jsp">Mon projet</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="/team?actionTeam=addYear">Création d'une équipe</a>
         
         </div>
         <div class="form-group" style="width: 30%; margin-left: 68%">

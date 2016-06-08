@@ -1,4 +1,3 @@
-<%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*,Entity.Session"%>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -10,6 +9,9 @@
     </head>
   
     <body>
+        <%@include file="header.jsp" %>
+        <br>
+        <%@include file="search3.jsp" %>
         <form method="POST" action="session?actionSession=add">
             Session: <input type="text" name="sessionName" />
             <input type="submit" value="Add" />

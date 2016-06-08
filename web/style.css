@@ -31,7 +31,6 @@ fieldset{
     margin-right: 5%;
 }
 
-
 .searchButton{
     float: left;
 }
@@ -82,12 +81,12 @@ table textarea{
     vertical-align: middle;
 }
 
-tr {
+/*tr {
     height:25px; overflow:hidden
 }
 td {
     height:30px; text-align:left
-}
+}*/
 .tableau2 {
     width: 130px;
 }

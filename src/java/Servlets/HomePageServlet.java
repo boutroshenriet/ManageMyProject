@@ -6,6 +6,7 @@
 package Servlets;
 
 import DAO.SubjectDAO;
+import Entity.User;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -22,8 +23,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "HomePageServlet", urlPatterns = {"/HomePageServlet"})
 public class HomePageServlet extends HttpServlet {
 
-    
-    @EJB SubjectDAO subjectDao;
+    @EJB
+    SubjectDAO subjectDao;
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -39,70 +41,49 @@ public class HomePageServlet extends HttpServlet {
         HttpSession session = null;
         session = request.getSession();
         //Ajout de l'utilisateur dans la session
-        if(session.getAttribute("sessionUser") != null){
+        if (session.getAttribute("sessionUser") != null) {
             int type = (Integer) session.getAttribute("sessionType");
-            if (type == 1){//Professeur
+            if (type == 1) {//Professeur
                 request.getRequestDispatcher("/year?actionYear=addYear").forward(request, response);
-                if(request.getParameter("action") != null){
+                if (request.getParameter("action") != null) {
                     String link = request.getParameter("action");
-                    if(link.equals("addYear"))
-                    {
+                    if (link.equals("addYear")) {
                         request.getRequestDispatcher("/year").forward(request, response);
-                    }
-                    else if(link.equals("addSubject"))
-                    {
+                    } else if (link.equals("addSubject")) {
                         request.getRequestDispatcher("/subject").forward(request, response);
-                    }
-                    else if(link.equals("createUser"))
-                    {
+                    } else if (link.equals("createUser")) {
                         request.getRequestDispatcher("/user").forward(request, response);
-                    }
-                    else if(link.equals("documents"))
-                    {
+                    } else if (link.equals("documents")) {
                         request.getRequestDispatcher("/document").forward(request, response);
-                    }
-                    else if(link.equals("sessions"))
-                    {
+                    } else if (link.equals("session")) {
                         request.getRequestDispatcher("/session?action=createSession").forward(request, response);
-                    }
-                    else if(link.equals("team"))
-                    {
+                    } else if (link.equals("team")) {
                         request.getRequestDispatcher("/team").forward(request, response);
-                    }
-                    else if(link.equals("group"))
-                    {
+                    } else if (link.equals("group")) {
                         request.getRequestDispatcher("/group").forward(request, response);
                     }
                 }
-            }   
-            else if (type == 2){//Client
+            } else if (type == 2) {//Client
                 request.setAttribute("sujets", subjectDao.getSubjectsByClient(
                         request.getSession().getAttribute("sessionUser").toString()));
                 request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
-            }
-            else if (type == 3){//Etudiant
-                request.getRequestDispatcher("/team").forward(request, response);
-                if(request.getParameter("action") != null){
-                    String link = request.getParameter("action");
-                    if(link.equals("team"))
-                    {
-                        request.getRequestDispatcher("/team").forward(request, response);
-                    }
-                    else if(link.equals("team"))
-                    {
+            } else if (type == 3) {//Etudiant
+                User currentUser = (User) request.getSession().getAttribute("currentUser");
+                if (currentUser != null) {
+                    if (currentUser.getTeam() != null) {
+                        request.getRequestDispatcher("/studentMyProject.jsp").forward(request, response);
+                    } else {
                         request.getRequestDispatcher("/team").forward(request, response);
                     }
                 }
             }
-        }
-        else
-        {
+        } else {
             request.getRequestDispatcher("/connexion").forward(request, response);
             //doGet(request,response);
         }
-        
-        
+
     }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *

@@ -65,10 +65,7 @@ private static final long serialVersionUID = 1L;
                             //Ajout de l'utilisateur dans la session
                             session.setAttribute( "sessionUser", user.getId());
                             session.setAttribute( "sessionType", user.getType());
-                            if(user.getType() == 3)
-                                if(user.getTeam() != null)
-                                    session.setAttribute( "sessionStudentTeam", user.getTeam().getId());
-                            
+                            session.setAttribute( "currentUser", user);
                         }
                     }
                 }
