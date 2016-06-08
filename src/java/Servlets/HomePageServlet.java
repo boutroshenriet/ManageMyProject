@@ -6,8 +6,10 @@
 package Servlets;
 
 import DAO.SubjectDAO;
+import Entity.Subject;
 import Entity.User;
 import java.io.IOException;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,28 +47,8 @@ public class HomePageServlet extends HttpServlet {
             int type = (Integer) session.getAttribute("sessionType");
             if (type == 1) {//Professeur
                 request.getRequestDispatcher("/year?actionYear=addYear").forward(request, response);
-                if (request.getParameter("action") != null) {
-                    String link = request.getParameter("action");
-                    if (link.equals("addYear")) {
-                        request.getRequestDispatcher("/year").forward(request, response);
-                    } else if (link.equals("addSubject")) {
-                        request.getRequestDispatcher("/subject").forward(request, response);
-                    } else if (link.equals("createUser")) {
-                        request.getRequestDispatcher("/user").forward(request, response);
-                    } else if (link.equals("documents")) {
-                        request.getRequestDispatcher("/document").forward(request, response);
-                    } else if (link.equals("session")) {
-                        request.getRequestDispatcher("/session?action=createSession").forward(request, response);
-                    } else if (link.equals("team")) {
-                        request.getRequestDispatcher("/team").forward(request, response);
-                    } else if (link.equals("group")) {
-                        request.getRequestDispatcher("/group").forward(request, response);
-                    }
-                }
             } else if (type == 2) {//Client
-                request.setAttribute("sujets", subjectDao.getSubjectsByClient(
-                        request.getSession().getAttribute("sessionUser").toString()));
-                request.getRequestDispatcher("/customerHomePage.jsp").forward(request, response);
+                request.getRequestDispatcher("/subject").forward(request, response);
             } else if (type == 3) {//Etudiant
                 User currentUser = (User) request.getSession().getAttribute("currentUser");
                 if (currentUser != null) {

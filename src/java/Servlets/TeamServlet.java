@@ -75,6 +75,21 @@ public class TeamServlet extends HttpServlet {
                 request.setAttribute("groups", groupsDao.getAllGroups());
                 request.setAttribute("subjects", subjectDao.getAllSubjects());
                 request.getRequestDispatcher("/team.jsp").forward(request, response);
+            } else if ((Integer) request.getSession().getAttribute("sessionType") == 2) {
+                long subjectId = 0;
+                if(request.getParameter("subject") != null){
+                    subjectId = Integer.parseInt(request.getParameter("subject"));
+                }
+                List<Team> custTeam = teamDao.getAllTeams();
+                List<Team> newCustTeam = new ArrayList<Team>();
+                for(Team team : custTeam){
+                    if(team.getSubject() != null && team.getSubject().getId().equals(subjectId)){
+                        newCustTeam.add(team);
+                    }
+                }
+                request.setAttribute("teams", newCustTeam);
+                request.setAttribute("sujet", subjectId);
+                request.getRequestDispatcher("/teamListCustomer.jsp").forward(request, response);
             }
         }
     }

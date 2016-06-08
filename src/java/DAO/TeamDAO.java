@@ -36,6 +36,13 @@ public class TeamDAO {
             "SELECT g FROM Team g ORDER BY g.id", Team.class);
         return query.getResultList();
     }
-    
-    
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
+    public List<Team> getTeamById(String id) {
+      
+        TypedQuery<Team> query = em.createQuery(
+            "SELECT g FROM Team g WHERE g.id = " + id, Team.class);
+       
+        return query.getResultList();    
+    }
 }

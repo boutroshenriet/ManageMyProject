@@ -28,93 +28,16 @@
         <%
             @SuppressWarnings("unchecked") 
             List<Subject> sujets = (List<Subject>)request.getAttribute("sujets");
-            sujets.sort(c);
-            List<String> années = null;
             if (sujets != null) {
                 for (Subject sujet : sujets) { %>
-                    if(années.conte
-                }
-            }
-        %>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 1</h3>
-            </div>
-            <div class="panel-body">Amélioration de la gestion des projets de spécification en Génie Logiciel</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 2</h3>
-            </div>
-            <div class="panel-body">Système de gestion de relations Elèves / Professeurs / Responsables de parcours</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 3</h3>
-            </div>
-            <div class="panel-body">Amélioration de la gestion d'APP en A1</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 4</h3>
-            </div>
-            <div class="panel-body">Application QCM</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 5</h3>
-            </div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 6</h3>
-            </div>
-            <div class="panel-body">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</div>
-            <p><a href="subjectPage.jsp" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <HR class="line">
-        <h1>2015</h1>
-        <HR>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 1</h3>
-            </div>
-            <div class="panel-body">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</div>
-            <p><a href="#" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 2</h3>
-            </div>
-            <div class="panel-body">Amélioration de la gestion d'APP en A1</div>
-            <p><a href="#" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 3</h3>
-            </div>
-            <div class="panel-body">Application QCM</div>
-            <p><a href="#" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 4</h3>
-            </div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</div>
-            <p><a href="#" class="btn btn-primary">Accéder</a></p>
-        </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">SUJET 5</h3>
-            </div>
-            <div class="panel-body">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</div>
-            <p><a href="#" class="btn btn-primary">Accéder</a></p>
-        </div>
+                    <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> <%= sujet.getNameSubject() %></h3>
+                    </div>
+                    <div class="panel-body"><%= sujet.getDescription()%></div>
+                    <p><a href="team?subject=<%= sujet.getId() %>" class="btn btn-primary">Accéder</a></p>
+                    </div>
+            <%}
+            }%>
     </body>
 </html>
