@@ -160,9 +160,15 @@ td {
 #tdsession1{
      vertical-align: middle;
      width:25%;
+     
 }
 
 #tdsession2{
      vertical-align: middle;
      width:55%;
+}
+
+#tdgroup2{
+     vertical-align: middle;
+     width:500px;
 }

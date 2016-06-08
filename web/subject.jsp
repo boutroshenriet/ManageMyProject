@@ -28,10 +28,15 @@
 			%>
         
         <form method="POST" action="subject" style="margin-left: 30px">
-
-            <p>Intitulé du sujet :</p><input type="text" class="form-control" id="exampleInputEmail1" name="name" /><br><br>
+            <h3 id="formarg">Ajouter un sujet :</h3>
+                    <center><table style="height:400px; vertical-align: middle">
+                
+                            <tr><td id="tdsession1">Intitulé du sujet :</td>
+                                <td id="tdgroup2"><input type="text" class="form-control" name="name" /></td></tr>
+                        
            <!-- Password: <input type="text" name="password" /> -->
-           Client: <select name="client" class="selectpicker" data-live-search="true">
+           <tr><td id="tdsession1">Client:</td>
+               <td id="tdgroup2"> <select name="client" class="selectpicker" data-live-search="true"></td></tr>
             <%
              @SuppressWarnings("unchecked") 
              List<User> clients = (List<User>)request.getAttribute("clients");
@@ -43,19 +48,27 @@
                  }
              } %>
            </select>
-           <br><br>
-            Description: <input type="text" name="description" />
-            <input type="submit" value="Ajouter" class="btn btn-primary" />
+           
+           <tr>
+               <td id="tdsession1"> Description:</td>
+               
+               <td id="tdgroup2"> <textarea class="form-control" rows="10" name="description"/></textarea></td>
+           </tr>
+           <tr>
+               <td></td>
+               <td id="td3"><input type="submit" value="Ajouter" class="btn btn-primary"/></td>
+            </tr>
         </form>
- 
-        <hr><ol> <%
+           </table></center>
+ <h3 id="formarg">Sujets déjà existants :</h3>
+       <ol> <%
             @SuppressWarnings("unchecked") 
             List<Subject> subjects = (List<Subject>)request.getAttribute("subjects");
             if (subjects != null) {
                 for (Subject subject : subjects) { %>
-                    <li> <%= subject %> </li> <%
+                <li> <%= subject %> </li><br> <%
                 }
             } %>
-        </ol><hr>
+        </ol>
      </body>
  </html>
