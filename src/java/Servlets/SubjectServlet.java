@@ -29,13 +29,7 @@ public class SubjectServlet extends HttpServlet {
     protected void doGet(
             HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-        
-        //display list of subjects
-        if(request.getSession().getAttribute("year") == null){
-            //String yearmessage = ("Vous devez d'abord séléctionner une année pour accéder aux sujets correspondants");
-            //request.setAttribute("yearmessage", yearmessage);
-            request.getSession().setAttribute("redirect", "subject");
-            request.getRequestDispatcher("/year").forward(request, response);
+       
         if((Integer) request.getSession().getAttribute("sessionType") == 2){
             List<Subject> custSub = subjectDao.getAllSubjects();
             List<Subject> newCustSub = new ArrayList<Subject>();
