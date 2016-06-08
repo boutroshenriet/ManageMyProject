@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 fieldset{
-    width:23%;
+    width:95%;
 }
 
 .logo2 {
@@ -138,4 +138,12 @@ td {
 
 #head{
     background-color: #c4e3f3;
+}
+
+#navbtn{
+    margin-left: 35px;
+}
+
+#connectlogo{
+    width: 40%;
 }

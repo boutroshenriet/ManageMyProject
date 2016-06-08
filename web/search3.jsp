@@ -14,13 +14,13 @@
     </head>
     <body>
 <div style="float:left">
-        <a class="btn btn-primary" style="margin-left: 50px" href="year?action=addYear">Années</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="subject?action=addSuject">Sujets</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="user?action=addUsers">Utilisateurs</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="document?action=documents">Documents</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="session">Sessions</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="group">Groupes</a>
-        <a class="btn btn-primary" style="margin-left: 50px" href="team">Equipes</a>
+        <a class="btn btn-primary" id="navbtn" href="year?action=addYear">Années</a>
+        <a class="btn btn-primary" id="navbtn" href="subject?action=addSuject">Sujets</a>
+        <a class="btn btn-primary" id="navbtn" href="user?action=addUsers">Utilisateurs</a>
+        <a class="btn btn-primary" id="navbtn" href="document?action=documents">Documents</a>
+        <a class="btn btn-primary" id="navbtn" href="session">Sessions</a>
+        <a class="btn btn-primary" id="navbtn" href="group">Groupes</a>
+        <a class="btn btn-primary" id="navbtn" href="team">Equipes</a>
         
         </div>
         <div class="form-group" style="width: 30%; margin-left: 68%">
