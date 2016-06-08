@@ -23,7 +23,7 @@
 			if(request.getSession().getAttribute("year") != null)
 			{
 				String yearNumber23 = request.getSession().getAttribute("year").toString();
-				out.println("Vous avez séléctionné l'année " + yearNumber23);
+				out.println("Vous avez sélectionné l'année " + yearNumber23);
 			}
 			%>
         
