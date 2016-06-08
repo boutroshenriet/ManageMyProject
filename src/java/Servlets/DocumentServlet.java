@@ -39,8 +39,8 @@ public class DocumentServlet extends HttpServlet {
                 documentDao.getDocumentsByUserId(id, type));
         request.getRequestDispatcher("/document.jsp").forward(request, response);
         
-        if(request.getParameter("action") != null){
-            String link = request.getParameter("action");
+        if(request.getParameter("actionDoc") != null){
+            String link = request.getParameter("actionDoc");
             if(link.equals("download"))
             {
                 String file = request.getParameter("file");
@@ -74,8 +74,6 @@ public class DocumentServlet extends HttpServlet {
                  
                 inputStream.close();
                 outStream.close(); */
-                
-                
             }
         }
     }
@@ -85,8 +83,8 @@ public class DocumentServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getParameter("action") != null){
-            String link = request.getParameter("action");
+        if(request.getParameter("actionDoc") != null){
+            String link = request.getParameter("actionDoc");
             if(link.equals("add"))
             {
                 String fileName = request.getParameter("filename");

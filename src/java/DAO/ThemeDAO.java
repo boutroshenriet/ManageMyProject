@@ -16,7 +16,7 @@ import javax.persistence.TypedQuery;
  * @author Guillaume
  */
 @Stateless
-public class FeatureDAO {
+public class ThemeDAO {
 @PersistenceContext(unitName="ManageMyProjectPU") 
     private EntityManager em;
  
@@ -27,7 +27,7 @@ public class FeatureDAO {
  
     // Retrieves all the users:
     public List<Feature> getAllFeatures() {
-        TypedQuery<Feature> query = em.createQuery("SELECT g FROM Feature g ORDER BY g.id", Feature.class);
+        TypedQuery<Feature> query = em.createQuery("SELECT g FROM Theme g ORDER BY g.id", Feature.class);
         return query.getResultList();
     }
     // Add business logic below. (Right-click in editor and choose

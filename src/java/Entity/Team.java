@@ -42,6 +42,9 @@ public class Team implements Serializable {
     @OneToMany(mappedBy = "team")
     private Collection<Meeting> meeting;
     
+    @OneToMany(mappedBy = "team")
+    private Collection<Feature> feature;
+    
     public Team(){
         attribute = null;
         users = new ArrayList<User>();

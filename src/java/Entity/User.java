@@ -49,9 +49,6 @@ private static final long serialVersionUID = 1L;
     
     @ManyToOne
     private Session session;
-
-    @OneToMany(mappedBy="user")
-    private Collection<Feature> feature;
     
     @OneToMany(mappedBy="user")
     private Collection<Subject> subject;
@@ -273,19 +270,5 @@ private static final long serialVersionUID = 1L;
      */
     public void setSession(Session session) {
         this.session = session;
-    }
-
-    /**
-     * @return the feature
-     */
-    public Collection<Feature> getFeature() {
-        return feature;
-    }
-
-    /**
-     * @param feature the feature to set
-     */
-    public void setFeature(Collection<Feature> feature) {
-        this.feature = feature;
     }
 }

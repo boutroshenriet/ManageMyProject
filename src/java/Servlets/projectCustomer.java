@@ -5,12 +5,15 @@
  */
 package Servlets;
 
+import DAO.FeatureDAO;
 import DAO.ParametresDAO;
 import DAO.SubjectDAO;
 import DAO.TeamDAO;
+import Entity.Feature;
 import Entity.Subject;
 import Entity.Team;
 import java.io.IOException;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,6 +36,7 @@ public class projectCustomer extends HttpServlet {
     
     @EJB
     ParametresDAO paramDao;
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -64,6 +68,7 @@ public class projectCustomer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         doGet(request,response);
     }
 

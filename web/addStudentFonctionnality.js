@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+var nextRow = 2;
+
 $('#add3').on('click', function () {
     $('#fonctstudent').append(
             [
@@ -20,11 +22,13 @@ $('#add3').on('click', function () {
 
             ].join('') //un seul append pour limiter les manipulations directes du DOM
             );
+    nextRow ++;
+    console.log(nextRow);
 });
 
 $('table').on('click', '#remove3', function () {
     var $this = $(this);
-
+    
     $this.closest('tr').remove();
 });
 
