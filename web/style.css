@@ -147,3 +147,22 @@ td {
 #connectlogo{
     width: 40%;
 }
+
+#exampleInputEmail1 {
+    width: 15%;
+    
+}
+
+#formarg{
+    margin-left: 30px;
+}
+
+#tdsession1{
+     vertical-align: middle;
+     width:25%;
+}
+
+#tdsession2{
+     vertical-align: middle;
+     width:55%;
+}

@@ -6,10 +6,17 @@
 <html>
     <head>
         <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
+        <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
   
     <body>
-                <%@include file="header.jsp" %>
+        <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>
                     <% 
@@ -20,11 +27,11 @@
 			}
 			%>
         
-        <form method="POST" action="subject">
+        <form method="POST" action="subject" style="margin-left: 30px">
 
-            Name: <input type="text" name="name" />
+            <p>Intitulé du sujet :</p><input type="text" class="form-control" id="exampleInputEmail1" name="name" /><br><br>
            <!-- Password: <input type="text" name="password" /> -->
-           Client: <select name="client">
+           Client: <select name="client" class="selectpicker" data-live-search="true">
             <%
              @SuppressWarnings("unchecked") 
              List<User> clients = (List<User>)request.getAttribute("clients");
@@ -36,8 +43,9 @@
                  }
              } %>
            </select>
+           <br><br>
             Description: <input type="text" name="description" />
-            <input type="submit" value="Add" />
+            <input type="submit" value="Ajouter" class="btn btn-primary" />
         </form>
  
         <hr><ol> <%

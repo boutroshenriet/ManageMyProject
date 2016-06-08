@@ -30,6 +30,8 @@ public class SubjectServlet extends HttpServlet {
         
         //display list of subjects
         if(request.getSession().getAttribute("year") == null){
+            //String yearmessage = ("Vous devez d'abord séléctionner une année pour accéder aux sujets correspondants");
+            //request.setAttribute("yearmessage", yearmessage);
             request.getSession().setAttribute("redirect", "subject");
             request.getRequestDispatcher("/year").forward(request, response);
         }

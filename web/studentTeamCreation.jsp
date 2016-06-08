@@ -52,7 +52,7 @@
                         <td id=tdc2>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="teamName">
+                                <input type="text" class="form-control" name="teamName">
                             </div></td>
 
                     </tr>

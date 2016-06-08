@@ -27,6 +27,14 @@
                 <select name="yearList" class="selectpicker">
                     <%
                         @SuppressWarnings(  "unchecked")
+                        //if(request.getAttribute("yearmessage")){
+                        //    String yearmessage = request.getAttribute("yearmessage").toString();
+                        //    if( yearmessage != null){
+                        //        out.print(yearmessage);
+                        //    }  
+                        //}
+                        
+                        
                         List<Year> years = (List<Year>) request.getAttribute("years");
 
                         HttpSession sessionCurrent = null;
