@@ -56,12 +56,17 @@ public class TeamServlet extends HttpServlet {
                 User me = userDao.getUserById(request.getSession().
                         getAttribute("sessionUser").toString()).get(0);
                 for (User student : students) {
-                    if (student.getSession().getId().equals(me.getSession().getId())) {
-                        if (!student.getId().equals(me.getId())) {
-                            if (student.getTeam() == null) {
-                                sameSessionStudents.add(student);
+                    if(me.getSession() != null) {
+                        if (student.getSession().getId().equals(me.getSession().getId())) {
+                            if (!student.getId().equals(me.getId())) {
+                                if (student.getTeam() == null) {
+                                    sameSessionStudents.add(student);
+                                }
                             }
                         }
+                    }
+                    else {
+                        request.getRequestDispatcher("/noSessionPage.jsp").forward(request, response);
                     }
                 }
                 request.setAttribute("studentsToAdd", sameSessionStudents);

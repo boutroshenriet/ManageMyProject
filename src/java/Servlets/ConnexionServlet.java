@@ -115,7 +115,7 @@ private static final long serialVersionUID = 1L;
                     session = request.getSession();
                     boolean userExists = false;
                     for (User user : usersList) {
-                        if(user.getName().equals(pseudo)){ //C1 == A1 ?
+                        if(user.getPseudo().equals(pseudo)){ //C1 == A1 ?
                             //if(user.getPassword().equals(password)){ //C2 == A2 ?
                                 /* Récupération de la session depuis la requête */
                                 if(parametresDao.getNbParam() == 0)
@@ -132,6 +132,9 @@ private static final long serialVersionUID = 1L;
                     {
                         User newUser = new User(pseudo, lastname, firstname, userType);
                         userDao.persist(newUser);
+                        session.setAttribute("sessionUser", newUser.getId());
+                        session.setAttribute("sessionType", newUser.getType());
+                        session.setAttribute("currentUser", newUser);
                     }
                     request.getRequestDispatcher("/HomePageServlet").forward(request, response);        
                     //request.getRequestDispatcher("/user.jsp").forward(request, response);
@@ -145,7 +148,7 @@ private static final long serialVersionUID = 1L;
                     HttpSession session = null;
                     session = request.getSession();
                     for (User user : usersList) {
-                        if(user.getName().equals(pseudo)){
+                        if(user.getPseudo().equals(pseudo)){
                             if(user.getPassword().equals(password)){
                                 /* Récupération de la session depuis la requête */
                                 if(parametresDao.getNbParam() == 0)
