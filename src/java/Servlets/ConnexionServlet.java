@@ -60,76 +60,77 @@ private static final long serialVersionUID = 1L;
             {
                 String name = request.getParameter("username");
                 String password = request.getParameter("password");
-				String serverLogin = "uid=" + name + ", " + "ou=People, dc=isep.fr";
- 
-
-        try {
-            //On remplit un tableau avec les paramètres d'environnement et de connexion au LDAP
-            @SuppressWarnings("UseOfObsoleteCollectionType")
-            Hashtable<String, String> environnement = new Hashtable<String, String>();
-            environnement.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-            environnement.put(Context.PROVIDER_URL, "ldap://"+serverIP+":"+serverPort);
-            environnement.put(Context.SECURITY_AUTHENTICATION, "simple");
-            environnement.put(Context.SECURITY_PRINCIPAL, serverLogin);
-            environnement.put(Context.SECURITY_CREDENTIALS, password);
-            //On appelle le contexte à partir de l'environnement
-            DirContext contexte = new InitialDirContext(environnement);
-            //Si ça ne plante pas c'est que la connexion est faite
-            System.out.println("Connexion au serveur : SUCCES");
-            try {
-                //On recupere l'attribut de DUPONT JEAN
-                Attributes attrs = contexte.getAttributes(serverLogin);
+                String serverLogin = "uid=" + name + ", " + "ou=People, dc=isep.fr";
                 
-                String emp = attrs.get("employeeType").toString().replaceAll("^(employeeType: )", "");
-                String lastname = attrs.get("sn").toString().replaceAll("^(sn: )", "");
-                String firstname = attrs.get("givenname").toString().replaceAll("^(givenName: )", "");
-                
-                System.out.println(emp);
-                System.out.println(lastname);
-                System.out.println(firstname);
-                
- 
-            } catch (NamingException e) {
-                System.out.println("Recuperation de "+ name + " : ECHEC");
-                System.err.println(e.getMessage());
-                e.printStackTrace();
-            }
-            
-            
-            List<User> usersList = userDao.getAllUsers();
+                try {
+                    //On remplit un tableau avec les paramètres d'environnement et de connexion au LDAP
+                    @SuppressWarnings("UseOfObsoleteCollectionType")
+                    Hashtable<String, String> environnement = new Hashtable<String, String>();
+                    environnement.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+                    environnement.put(Context.PROVIDER_URL, "ldap://"+serverIP+":"+serverPort);
+                    environnement.put(Context.SECURITY_AUTHENTICATION, "simple");
+                    environnement.put(Context.SECURITY_PRINCIPAL, serverLogin);
+                    environnement.put(Context.SECURITY_CREDENTIALS, password);
+                    //On appelle le contexte à partir de l'environnement
+                    DirContext contexte = new InitialDirContext(environnement);
+                    //Si ça ne plante pas c'est que la connexion est faite
+                    System.out.println("Connexion au serveur : SUCCES");
+                    
+                    try {
+                        //On recupere l'attribut de DUPONT JEAN
+                        Attributes attrs = contexte.getAttributes(serverLogin);
 
-            HttpSession session = null;
-            session = request.getSession();
-            for (User user : usersList) {
-                if(user.getName().equals(name)){
-                    if(user.getPassword().equals(password)){
-                        /* Récupération de la session depuis la requête */
+                        String emp = attrs.get("employeeType").toString().replaceAll("^(employeeType: )", "");
+                        String lastname = attrs.get("sn").toString().replaceAll("^(sn: )", "");
+                        String firstname = attrs.get("givenname").toString().replaceAll("^(givenName: )", "");
 
-                        //Ajout de l'utilisateur dans la session
-                        session.setAttribute("sessionUser", user.getId());
-                        session.setAttribute("sessionType", user.getType());
-                        session.setAttribute("user", user);
+                        System.out.println(emp);
+                        System.out.println(lastname);
+                        System.out.println(firstname);
+                    } catch (NamingException e) {
+                        System.out.println("Recuperation de "+ name + " : ECHEC");
+                        System.err.println(e.getMessage());
+                        e.printStackTrace();
                     }
-                }
-                request.getRequestDispatcher("/HomePageServlet").forward(request, response);
-            }
-} catch (NamingException e) {
-            System.out.println("Connexion au serveur : ECHEC");
-            System.err.println(e.getMessage());
-            e.printStackTrace();            else if(link.equals("deconnecter"))
-            {
-                HttpSession session = request.getSession();
-                session.removeAttribute( "sessionUser");
-                session.removeAttribute( "sessionType");
-                if(session.getAttribute("sessionStudentTeam") != null)
-                    session.removeAttribute( "sessionStudentTeam");
-                if(session.getAttribute("year") != null)
-                    session.removeAttribute("year");
-                request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
-            }
+                    
+                    List<User> usersList = userDao.getAllUsers();
+
+                    HttpSession session = null;
+                    session = request.getSession();
+                    for (User user : usersList) {
+                        if(user.getName().equals(name)){
+                            if(user.getPassword().equals(password)){
+                                /* Récupération de la session depuis la requête */
+
+                                //Ajout de l'utilisateur dans la session
+                                session.setAttribute("sessionUser", user.getId());
+                                session.setAttribute("sessionType", user.getType());
+                                session.setAttribute("user", user);
+                            }
+                        }
+                    }
+                } catch (NamingException e) {
+                    System.out.println("Connexion au serveur : ECHEC");
+                    System.err.println(e.getMessage());
+                    e.printStackTrace();
+                } 
+        }
+        else if(link.equals("deconnecter"))
+        {
+            HttpSession session = request.getSession();
+            session.removeAttribute( "sessionUser");
+            session.removeAttribute( "sessionType");
+            if(session.getAttribute("sessionStudentTeam") != null)
+                session.removeAttribute( "sessionStudentTeam");
+            if(session.getAttribute("year") != null)
+                session.removeAttribute("year");
+            request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
         }
         
-        request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+        //request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+        request.getRequestDispatcher("/user.jsp").forward(request, response);
+        
+        }
     }
     
     public void initParamTable(){
