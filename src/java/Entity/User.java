@@ -72,10 +72,17 @@ private static final long serialVersionUID = 1L;
         type = null;
     }
  
+    public User(String pseudo, String lastname, String name, Integer type) {
+        this.pseudo = pseudo;
+        this.lastname = lastname;
+        this.name = name;
+        this.signingDate = new Date(System.currentTimeMillis());
+        //this.password = password;
+        this.type = type;
+    }
+    
     public User(String pseudo, String password, Integer type) {
         this.pseudo = pseudo;
-        this.name = name;
-        this.lastname = lastname;
         this.signingDate = new Date(System.currentTimeMillis());
         this.password = password;
         this.type = type;

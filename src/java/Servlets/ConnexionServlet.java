@@ -58,9 +58,9 @@ private static final long serialVersionUID = 1L;
             String link = request.getParameter("actionConnexion");
             if(link.equals("connecter"))
             {
-                String name = request.getParameter("username");
-                String password = request.getParameter("password");
-                String serverLogin = "uid=" + name + ", " + "ou=People, dc=isep.fr";
+                String pseudo = request.getParameter("username"); //A1
+                String password = request.getParameter("password"); //A2
+                String serverLogin = "uid=" + pseudo + ", " + "ou=People, dc=isep.fr";
                 
                 try {
                     //On remplit un tableau avec les paramètres d'environnement et de connexion au LDAP
@@ -77,7 +77,7 @@ private static final long serialVersionUID = 1L;
                     System.out.println("Connexion au serveur : SUCCES");
                     
                     try {
-                        //On recupere l'attribut de DUPONT JEAN
+                        //On recupere l'attribut de l'utilisateur
                         Attributes attrs = contexte.getAttributes(serverLogin);
 
                         String emp = attrs.get("employeeType").toString().replaceAll("^(employeeType: )", "");
@@ -87,31 +87,78 @@ private static final long serialVersionUID = 1L;
                         System.out.println(emp);
                         System.out.println(lastname);
                         System.out.println(firstname);
+                        // A1 == B1
+                        // A2 == B2
+                        
                     } catch (NamingException e) {
-                        System.out.println("Recuperation de "+ name + " : ECHEC");
+                        System.out.println("Recuperation de "+ pseudo + " : ECHEC");
                         System.err.println(e.getMessage());
                         e.printStackTrace();
                     }
+                    
+                    int userType;
+                    Attributes attrs = contexte.getAttributes(serverLogin);
+                    String emp = attrs.get("employeeType").toString().replaceAll("^(employeeType: )", "");
+                    String lastname = attrs.get("sn").toString().replaceAll("^(sn: )", "");
+                    String firstname = attrs.get("givenname").toString().replaceAll("^(givenName: )", "");
+                    if(emp.equals("eleve")) {
+                        userType = 3;
+                    }
+                    else {
+                        userType = 1;
+                    }
+                        
+     
+                    List<User> usersList = userDao.getAllUsers(); //C
+
+                    HttpSession session = null;
+                    session = request.getSession();
+                    boolean userExists = false;
+                    for (User user : usersList) {
+                        if(user.getName().equals(pseudo)){ //C1 == A1 ?
+                            //if(user.getPassword().equals(password)){ //C2 == A2 ?
+                                /* Récupération de la session depuis la requête */
+                                if(parametresDao.getNbParam() == 0)
+                                    initParamTable();
+                                //Ajout de l'utilisateur dans la session
+                                session.setAttribute("sessionUser", user.getId());
+                                session.setAttribute("sessionType", user.getType());
+                                session.setAttribute("currentUser", user);
+                                userExists = true;
+                            //}
+                        }
+                    }
+                    if(userExists == false)
+                    {
+                        User newUser = new User(pseudo, lastname, firstname, userType);
+                        userDao.persist(newUser);
+                    }
+                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);        
+                    //request.getRequestDispatcher("/user.jsp").forward(request, response);
+                } catch (NamingException e) {
+                    System.out.println("Connexion au serveur : ECHEC DE L'IDENTIFICATION LDAP");
+                    System.out.println("Identification sans LDAP");
+                    System.err.println(e.getMessage());
                     
                     List<User> usersList = userDao.getAllUsers();
 
                     HttpSession session = null;
                     session = request.getSession();
                     for (User user : usersList) {
-                        if(user.getName().equals(name)){
+                        if(user.getName().equals(pseudo)){
                             if(user.getPassword().equals(password)){
                                 /* Récupération de la session depuis la requête */
-
+                                if(parametresDao.getNbParam() == 0)
+                                    initParamTable();
                                 //Ajout de l'utilisateur dans la session
                                 session.setAttribute("sessionUser", user.getId());
                                 session.setAttribute("sessionType", user.getType());
-                                session.setAttribute("user", user);
+                                session.setAttribute("currentUser", user);
                             }
                         }
                     }
-                } catch (NamingException e) {
-                    System.out.println("Connexion au serveur : ECHEC");
-                    System.err.println(e.getMessage());
+                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+                    
                     e.printStackTrace();
                 } 
         }
@@ -126,10 +173,6 @@ private static final long serialVersionUID = 1L;
                 session.removeAttribute("year");
             request.getRequestDispatcher("/loginPage.jsp").forward(request, response);
         }
-        
-        //request.getRequestDispatcher("/HomePageServlet").forward(request, response);
-        request.getRequestDispatcher("/user.jsp").forward(request, response);
-        
         }
     }
     
