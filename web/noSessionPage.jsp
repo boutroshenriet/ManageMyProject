@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Vous ne faites actuellement pas parti d'une session. Veuillez Attendre que le professeur vous en attribu une!</h1>
+        <h1>Vous ne faites actuellement pas partie d'une session. Veuillez attendre que le professeur vous en attribue une!</h1>
     </body>
 </html>

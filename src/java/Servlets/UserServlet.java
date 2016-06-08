@@ -43,23 +43,23 @@ public class UserServlet extends HttpServlet {
         if(type == 3)
         {
             // Handle a new guest:
-            String name = request.getParameter("name");
+            String pseudo = request.getParameter("pseudo");
             String password = request.getParameter("password");
             String sessionId = request.getParameter("session");
 
             Session session = sessionDao.getSessionById(sessionId).get(0);
             
-            if (name != null)
-                userDao.persist(new User(name, password, type, session));
+            if (pseudo != null)
+                userDao.persist(new User(pseudo, password, type, session));
         }
         else{
             // Handle a new guest:
-            String name = request.getParameter("name");
+            String pseudo = request.getParameter("pseudo");
             String password = request.getParameter("password");
 
 
-            if (name != null)
-                userDao.persist(new User(name, password, type));
+            if (pseudo != null)
+                userDao.persist(new User(pseudo, password, type));
         }
         // Display the list of guests:
         doGet(request, response);

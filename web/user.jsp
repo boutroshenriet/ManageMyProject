@@ -14,7 +14,7 @@
         <br>
         <%@include file="search3.jsp" %>
         <form method="POST" action="user">
-            Name: <input type="text" name="name" />
+            Pseudo: <input type="text" name="pseudo" />
             Password: <input type="text" name="password" />
             type: 
             <select name="type">
