@@ -109,7 +109,7 @@ private static final long serialVersionUID = 1L;
                     }
                         
      
-                    List<User> usersList = userDao.getAllUsers(); //C
+                    List<User> usersList = userDao.getAllUsers();
 
                     HttpSession session = null;
                     session = request.getSession();

@@ -49,12 +49,12 @@ public class projectCustomer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String param = request.getParameter("teamSujet").toString();
+        String param = request.getParameter("teamSujet");
         Subject sujet = subjectDao.getSubId(param.split("_")[1]).get(0);
         Team team = teamDao.getTeamById(param.split("_")[0]).get(0);
         request.setAttribute("sujet", sujet);
         request.setAttribute("team", team);
-        request.getRequestDispatcher("/customerTeamPage.jsp").forward(request, response);
+        request.getRequestDispatcher("/customerTeamPage.jsp?teamSujet=" + param).forward(request, response);
     }
 
     /**

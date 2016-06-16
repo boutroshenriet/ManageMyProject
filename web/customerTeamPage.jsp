@@ -34,6 +34,7 @@
             <textarea name="textarea" rows="10" cols="160"><%= sujet.getDescription() %></textarea>  
             <br>
         </div><br>
+        <form method="POST" action="projectCustomer?teamSujet=<%= request.getParameter("teamSujet") %>">
         <h3 style="margin-left: 30px">Réunions :</h3>
         <button id="add" class="btn btn-primary" style="margin-left: 30px">Ajouter une réunion</button>
 
@@ -173,6 +174,7 @@
            <% }%>
 <h3 style="margin-left: 30px">Documents :</h3>
 
+    </form>
     </body>
 </html>
 
