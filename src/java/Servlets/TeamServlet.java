@@ -55,10 +55,11 @@ public class TeamServlet extends HttpServlet {
                 List<User> sameSessionStudents = new ArrayList<User>();
                 User me = userDao.getUserById(request.getSession().
                         getAttribute("sessionUser").toString()).get(0);
-                for (User student : students) {
-                    if(me.getSession() != null) {
-                        if(student.getSession() != null){
+                if(me.getSession() != null) {
+                    for (User student : students) {
+                        if(student.getSession() != null) {
                             if (student.getSession().getId().equals(me.getSession().getId())) {
+                                System.out.println("student name : " + student.getName());
                                 if (!student.getId().equals(me.getId())) {
                                     if (student.getTeam() == null) {
                                         sameSessionStudents.add(student);
@@ -67,9 +68,9 @@ public class TeamServlet extends HttpServlet {
                             }
                         }
                     }
-                    else {
-                        request.getRequestDispatcher("/noSessionPage.jsp").forward(request, response);
-                    }
+                }
+                else {
+                    request.getRequestDispatcher("/noSessionPage.jsp").forward(request, response);
                 }
                 request.setAttribute("studentsToAdd", sameSessionStudents);
                 request.setAttribute("me", me);
