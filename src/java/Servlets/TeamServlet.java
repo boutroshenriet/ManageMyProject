@@ -57,10 +57,12 @@ public class TeamServlet extends HttpServlet {
                         getAttribute("sessionUser").toString()).get(0);
                 for (User student : students) {
                     if(me.getSession() != null) {
-                        if (student.getSession().getId().equals(me.getSession().getId())) {
-                            if (!student.getId().equals(me.getId())) {
-                                if (student.getTeam() == null) {
-                                    sameSessionStudents.add(student);
+                        if(student.getSession() != null){
+                            if (student.getSession().getId().equals(me.getSession().getId())) {
+                                if (!student.getId().equals(me.getId())) {
+                                    if (student.getTeam() == null) {
+                                        sameSessionStudents.add(student);
+                                    }
                                 }
                             }
                         }

@@ -85,8 +85,8 @@ private static final long serialVersionUID = 1L;
         this.type = type;
     }
  
-    public User(String name, String password, Integer type, Session session) {
-        this.name = name;
+    public User(String pseudo, String password, Integer type, Session session) {
+        this.pseudo = pseudo;
         this.signingDate = new Date(System.currentTimeMillis());
         this.password = password;
         this.type = type;
@@ -96,12 +96,12 @@ private static final long serialVersionUID = 1L;
     // String Representation:
     @Override
     public String toString() {
-        return getName();
+        return getPseudo();
     }
     
     public String toString2() {
         String[] tab = {"Professeur", "Client", "Elève", "Tuteur"};
-        return getName() + " de type " + tab[getType() - 1];
+        return getPseudo() + " de type " + tab[getType() - 1];
     }
 
     /**

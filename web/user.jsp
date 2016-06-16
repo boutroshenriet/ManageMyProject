@@ -13,7 +13,7 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>
-        <form method="POST" action="user">
+        <form method="POST" action="user?actionUser=ajouter">
             Pseudo: <input type="text" name="pseudo" />
             Password: <input type="text" name="password" />
             type: 
@@ -28,6 +28,7 @@
             @SuppressWarnings("unchecked") 
             List<Session> sessions = (List<Session>)request.getAttribute("sessions");
             if (sessions != null) {
+                %> <option value="0">...</option> <%
                 for (Session ses : sessions) { %>
                     <option value="<% out.print(ses.getId().toString()); %>"> 
                             <%= ses %>
@@ -35,17 +36,52 @@
                 }
             } %>
            </select>
-            <input type="submit" value="Add" />
+            <input type="submit" value="Ajouter" />
         </form>
- 
-        <hr><ol> <%
-            @SuppressWarnings("unchecked") 
-            List<User> guests = (List<User>)request.getAttribute("users");
-            if (guests != null) {
-                for (User guest : guests) { %>
-                <li> <% out.print(guest.toString2()); %> </li> <%
-                }
-            } %>
-        </ol><hr>
+        <form method="POST" action="user?actionUser=modifier">   
+            <table> <%
+                @SuppressWarnings("unchecked") 
+                List<User> guests = (List<User>)request.getAttribute("users");
+                if (guests != null) {
+                    for (User guest : guests) { %>
+                    <tr>
+                        <td>
+                            <% out.print(guest.toString2()); %>
+                        </td>   
+                        <% if(guest.getType() == 3){ %>
+                            <td> Session: <select name="session_<% out.print(guest.getId().toString()); %>">
+                                    %> <option value="0">...</option> <% 
+                                if (sessions != null) {
+                                    for (Session ses : sessions) { 
+                                        if(guest.getSession() != null){
+                                            if(guest.getSession().getId().equals(ses.getId())){
+                                                %> 
+                                                <option value="<% out.print(ses.getId().toString()); %>" selected> 
+                                                    <%= ses %>
+                                                </option> 
+                                                <%
+                                            }
+                                            else{%>
+                                                <option value="<% out.print(ses.getId().toString()); %>"> 
+                                                        <%= ses %>
+                                                </option> <%
+                                            }
+                                        }
+                                        else{%>
+                                            <option value="<% out.print(ses.getId().toString()); %>"> 
+                                                    <%= ses %>
+                                            </option> <%
+                                        }
+                                    }
+                                } %>
+                               </select>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } 
+                } %>
+            </table>
+            <input type="submit" value="Modifier" />
+        </form>
      </body>
  </html>
