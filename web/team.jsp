@@ -14,17 +14,18 @@
         <br>
         <%@include file="search3.jsp" %>
         <form method="POST" action="team?actionTeam=chooseTeamGroup">
-            <table> <%
+            <center><table> <%
                 @SuppressWarnings("unchecked") 
                 List<Team> teams = (List<Team>)request.getAttribute("teams");
                 List<Groups> groups = (List<Groups>)request.getAttribute("groups");
                 List<Subject> subjects = (List<Subject>)request.getAttribute("subjects");
                 if (teams != null) {
                     for (Team team : teams) { %>
-                    <td>
+                    <td class="tdteam">
                         <%= team %>
                     </td>   
-                    <td>Groupe: <select name="group_<%= team.getId()%>">
+                    <td class="tdteam">Groupe : </td>
+                    <td class="tdteam"><select class="form-control" name="group_<%= team.getId()%>">
                             <option value="0">...</option>
                         <% for (Groups group : groups) {%>
                             <option value="<%= group.getId()%>"
@@ -34,7 +35,8 @@
                             </option>
                         <%} %>
                     </select></td>
-                    <td>Sujet: <select name="subject_<%= team.getId()%>">
+                    <td class="tdteam">Sujet :</td>
+                    <td class="tdteam"><select class="form-control" name="subject_<%= team.getId()%>">
                         <option value="0">...</option>
                         <% for (Subject sub : subjects) {%>
                             <option value="<%= sub.getId()%>"
@@ -46,10 +48,10 @@
                     </select></td>
                     <%}%>
                 <%}%>
-            </table>
-            <input type="submit" value="Add" />
+                <td>
+                    <input class="btn btn-primary" type="submit" value="Ajouter"/>
+                </td>
+            </table></center>           
         </form>
-         
-        
      </body>
  </html>

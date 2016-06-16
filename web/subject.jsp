@@ -36,7 +36,7 @@
                         
            <!-- Password: <input type="text" name="password" /> -->
            <tr><td id="tdsession1">Client:</td>
-               <td id="tdgroup2"> <select name="client" class="selectpicker" data-live-search="true"></td></tr>
+               <td id="tdgroup2"> <select name="client" class="selectpicker" data-live-search="true">
             <%
              @SuppressWarnings("unchecked") 
              List<User> clients = (List<User>)request.getAttribute("clients");
@@ -47,8 +47,8 @@
                     </option> <%
                  }
              } %>
-           </select>
-           
+           </select></td></tr>
+
            <tr>
                <td id="tdsession1"> Description:</td>
                
@@ -61,6 +61,8 @@
         </form>
            </table></center>
  <h3 id="formarg">Sujets déjà existants :</h3>
+ <br>
+           <br>
        <ol> <%
             @SuppressWarnings("unchecked") 
             List<Subject> subjects = (List<Subject>)request.getAttribute("subjects");

@@ -172,3 +172,8 @@ td {
      vertical-align: middle;
      width:500px;
 }
+
+.tdteam{
+    width : 18%;
+    text-align: center;
+}

@@ -34,7 +34,7 @@
         
         <h2>EQUIPE BORDEAUX</h2><br><br>
         <div class="alert alert-danger alert-dismissable fade in" style="width: 94%; margin-left: 30px">
-            <h4 align="center"><i class="icon icon-times-circle icon-lg"></i>Amélioration de la gestion des projets de spécification de Génie Logiciel</h4><br>
+            <h4><i class="icon icon-times-circle icon-lg"></i>Amélioration de la gestion des projets de spécification de Génie Logiciel</h4><br>
             <textarea name="textarea" rows="10" cols="160">Chaque année, les élèves du module Génie Logiciel consacrent quelques semaines à la rédaction d’un dossier de spécification suite à des entretiens avec un client attitré. L’objectif de ce projet est de fournir une plateforme de gestion de ces entretiens depuis la constitution des équipes jusqu’à la restitution des documents exigés par le client en passant par les prises de Rdv.
 Cette plateforme permettra à chaque client de rédiger un ou plusieurs sujets et de les assigner à des équipes. Un client aura la possibilité de lister les fonctionnalités de son projet et de les classer par priorité.
 Le client peut faire plusieurs réunions avec une équipe donnée, mais ces réunions ne doivent pas dépasser une certaine durée. Durant chaque réunion, le client note ses appréciations sur chaque équipe et coche les fonctionnalités qu’elle aura identifiées. Il peut également ajouter les fonctionnalités supplémentaires proposées par chaque équipe.
