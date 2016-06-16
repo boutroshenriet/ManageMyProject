@@ -13,15 +13,18 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>
+        <br>
+        <h3 id="formarg">Assigner des groupes et sujets aux équipes :</h3>
+        <br>
         <form method="POST" action="team?actionTeam=chooseTeamGroup">
-            <center><table> <%
+            <center><table><%
                 @SuppressWarnings("unchecked") 
                 List<Team> teams = (List<Team>)request.getAttribute("teams");
                 List<Groups> groups = (List<Groups>)request.getAttribute("groups");
                 List<Subject> subjects = (List<Subject>)request.getAttribute("subjects");
                 if (teams != null) {
                     for (Team team : teams) { %>
-                    <td class="tdteam">
+                    <tr><td class="tdteam">
                         <%= team %>
                     </td>   
                     <td class="tdteam">Groupe : </td>
@@ -45,13 +48,12 @@
                                 <%= sub %>
                             </option>
                         <%} %>
-                    </select></td>
+                    </select></td></tr> 
                     <%}%>
                 <%}%>
-                <td>
-                    <input class="btn btn-primary" type="submit" value="Ajouter"/>
-                </td>
-            </table></center>           
+                </table></center>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Ajouter" style="margin-left:70%"/>
         </form>
      </body>
  </html>

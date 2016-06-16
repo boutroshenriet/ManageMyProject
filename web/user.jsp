@@ -13,17 +13,23 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>
+        <br>
+        <h3 id="formarg">Créer un nouveau compte :</h3><br>
         <form method="POST" action="user?actionUser=ajouter">
-            Pseudo: <input type="text" name="pseudo" />
-            Password: <input type="text" name="password" />
-            type: 
-            <select name="type">
+            <center><table>
+                    <tr><td>Pseudo :</td>
+                    <td><input type="text" name="pseudo" /></td>
+            <td>Password :</td>
+                    <td><input type="password" name="password" /></td>
+            <td>Type :<td>
+            <td><select name="type">
                 <option value=1>Professeur</option>
                 <option value=2>Client</option>
                 <option value=3>Elève</option>
                 <option value=4>Tuteur</option>
-            </select>
-            Session: <select name="session">
+            </select></td>
+            <td>Session :</td>
+                    <td><select name="session">
                 <%
             @SuppressWarnings("unchecked") 
             List<Session> sessions = (List<Session>)request.getAttribute("sessions");
@@ -35,10 +41,14 @@
                     </option> <%
                 }
             } %>
-           </select>
-            <input type="submit" value="Ajouter" />
-        </form>
-        <form method="POST" action="user?actionUser=modifier">   
+           </select></td>
+           <td><input type="submit" value="Ajouter" /></td></tr>
+                </table></form></center><br>
+                <h3 id="formarg">Comptes déjà créés :</h3>
+                <br>
+                
+        <form method="POST" action="user?actionUser=modifier">
+            
             <table> <%
                 @SuppressWarnings("unchecked") 
                 List<User> guests = (List<User>)request.getAttribute("users");
