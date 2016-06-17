@@ -28,11 +28,11 @@
 
             <h2>EQUIPE BORDEAUX</h2><br><br>
 
-            <div class="panel panel-info" style="width: 17%; height: 70%; margin-left: 30px; background: #d9edf7; float:left">
+            <div class="panel panel-info" style="width: 32%; height: 70%; margin-left: 30px; background: #d9edf7; float:left">
                 <div class="panel-heading">
                     <h3 class="panel-title"> SESSION 1</h3>
                 </div>  
-                <textarea name="textarea" rows="33" cols="23" style="background-color: #d9edf7">
+                <textarea name="textarea" rows="33" cols="53" style="background-color: #d9edf7">
                     <%
                         @SuppressWarnings(  "unchecked")
                         int teamSize = (Integer) request.getAttribute("teamSize");
