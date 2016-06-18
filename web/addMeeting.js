@@ -11,7 +11,7 @@
 }*/
     var nextRow = 2;
 
-$('#add').on('click', function() {   
+$('#add').on('click', function() {
 
     $('#reu').append( 
         [
@@ -108,8 +108,6 @@ $('table').on('click', '#remove', function() {
    
    $this.closest('tr').remove();
    
-   
-
    
 });
 
