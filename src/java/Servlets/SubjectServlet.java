@@ -52,6 +52,9 @@ public class SubjectServlet extends HttpServlet {
 
             request.setAttribute("subjects", subjectDao.getAllSubjects());
             request.setAttribute("clients", userDao.getAllClients());
+            request.setAttribute("year", 
+                    yearDao.getYearById((String)request.getSession()
+                            .getAttribute("year")).get(0).getYearNumber());
             request.getRequestDispatcher("/subject.jsp").forward(request, response);
         }
         

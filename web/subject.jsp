@@ -1,5 +1,6 @@
 <%@page import="java.util.*,Entity.Subject"%>
  <%@page import="java.util.*,Entity.User"%>
+  <%@page import="java.util.*,DAO.YearDAO"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
  
@@ -20,10 +21,11 @@
         <br>
         <%@include file="search3.jsp" %>
                     <% 
+                        
 			if(request.getSession().getAttribute("year") != null)
 			{
-				String yearNumber23 = request.getSession().getAttribute("year").toString();
-				out.println("Vous avez sélectionné l'année " + yearNumber23);
+				String year = request.getAttribute("year").toString();
+				out.println("Vous avez sélectionné l'année " + year);
 			}
 			%>
         
