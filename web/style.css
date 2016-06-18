@@ -174,7 +174,22 @@ td {
 }
 
 .tdteam{
-    width : 18%;
+    width : 90px;
     text-align: center;
     height: 50px;
+}
+
+.tduser{
+    width : 90px;
+    text-align: center;
+}
+
+.tduser2{
+    width : 350px;
+    text-align: center;
+    height: 40px;
+}
+
+#bou{
+    margin-left: 70%;
 }

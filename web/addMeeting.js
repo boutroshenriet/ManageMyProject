@@ -10,13 +10,14 @@
     console.log(r);
 }*/
     var nextRow = 2;
+    var now = new Date();
 
 $('#add').on('click', function() {
 
     $('#reu').append( 
         [
             '<tr>',
-                '<td><input class="tableau" type="date" name="date'+nextRow+'"></td>',
+                '<td><input class="tableau" type="date" value="'+now+'" name="date'+nextRow+'"></td>',
                 '<td><span id="h1'+nextRow+'">00</span>:<span id="m1'+nextRow+'">00</span>:<span id="s1'+nextRow+'">00</span></td>',
                 '<td><textarea id="text1" class="tableau" name="dcomm"></textarea></td>',
                 '<td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start1'+nextRow+'" class="btn btn-success">Début</button></td>',

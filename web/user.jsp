@@ -6,7 +6,13 @@
 <html>
     <head>
         <title>JPA Guest Book Web Application Tutorial</title>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
+        <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
   
     <body>
@@ -17,19 +23,19 @@
         <h3 id="formarg">Créer un nouveau compte :</h3><br>
         <form method="POST" action="user?actionUser=ajouter">
             <center><table>
-                    <tr><td>Pseudo :</td>
-                    <td><input type="text" name="pseudo" /></td>
-            <td>Password :</td>
-                    <td><input type="password" name="password" /></td>
-            <td>Type :<td>
-            <td><select name="type">
+                    <tr><td class="tduser">Pseudo :</td>
+                    <td class="tduser"><input type="text" name="pseudo" class="form-control"/></td>
+            <td class="tduser">Password :</td>
+                    <td class="tduser"><input type="password" name="password" class="form-control"/></td>
+            <td class="tduser">Type :<td>
+            <td class="tduser"><select name="type" class="selectpicker">
                 <option value=1>Professeur</option>
                 <option value=2>Client</option>
                 <option value=3>Elève</option>
                 <option value=4>Tuteur</option>
             </select></td>
-            <td>Session :</td>
-                    <td><select name="session">
+            <td class="tduser">Session :</td>
+                    <td><select name="session" class="selectpicker">
                 <%
             @SuppressWarnings("unchecked") 
             List<Session> sessions = (List<Session>)request.getAttribute("sessions");
@@ -42,24 +48,24 @@
                 }
             } %>
            </select></td>
-           <td><input type="submit" value="Ajouter" /></td></tr>
+           <td><input type="submit" value="Ajouter" class="btn btn-primary" /></td></tr>
                 </table></form></center><br>
                 <h3 id="formarg">Comptes déjà créés :</h3>
                 <br>
                 
         <form method="POST" action="user?actionUser=modifier">
             
-            <table> <%
+            <center><table> <%
                 @SuppressWarnings("unchecked") 
                 List<User> guests = (List<User>)request.getAttribute("users");
                 if (guests != null) {
                     for (User guest : guests) { %>
                     <tr>
-                        <td>
+                        <td class="tduser2">
                             <% out.print(guest.toString2()); %>
                         </td>   
                         <% if(guest.getType() == 3){ %>
-                            <td> Session: <select name="session_<% out.print(guest.getId().toString()); %>">
+                            <td class="tduser2"> Session: <select class="selectpicker" name="session_<% out.print(guest.getId().toString()); %>">
                                     %> <option value="0">...</option> <% 
                                 if (sessions != null) {
                                     for (Session ses : sessions) { 
@@ -90,8 +96,11 @@
                         <% } %>
                     <% } 
                 } %>
-            </table>
-            <input type="submit" value="Modifier" />
+            </table></center>
+            <br>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Modifier" id="bou" />
+            <br>
         </form>
      </body>
  </html>

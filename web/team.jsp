@@ -7,6 +7,13 @@
 <html>
     <head>
         <title>JPA Guest Book Web Application Tutorial</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
+        <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
   
     <body>
@@ -28,7 +35,7 @@
                         <%= team %>
                     </td>   
                     <td class="tdteam">Groupe : </td>
-                    <td class="tdteam"><select class="form-control" name="group_<%= team.getId()%>">
+                    <td class="tdteam"><select class="selectpicker" name="group_<%= team.getId()%>">
                             <option value="0">...</option>
                         <% for (Groups group : groups) {%>
                             <option value="<%= group.getId()%>"
@@ -39,7 +46,7 @@
                         <%} %>
                     </select></td>
                     <td class="tdteam">Sujet :</td>
-                    <td class="tdteam"><select class="form-control" name="subject_<%= team.getId()%>">
+                    <td class="tdteam"><select class="selectpicker" name="subject_<%= team.getId()%>">
                         <option value="0">...</option>
                         <% for (Subject sub : subjects) {%>
                             <option value="<%= sub.getId()%>"
@@ -53,7 +60,7 @@
                 <%}%>
                 </table></center>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Ajouter" style="margin-left:70%"/>
+                <input class="btn btn-primary" type="submit" value="Ajouter" id="bou"/>
         </form>
      </body>
  </html>

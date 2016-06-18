@@ -24,7 +24,7 @@
                     <img src="Images/logoISEP.png" class="logo2" alt=""/>
                 </div>
                 <div class="col-sm-9" style="text-align:right">
-                    <img class="photo2" src="Images/Photo_identité.jpg" alt="Photo d'identité"/><br/>
+                    <img class="photo2" src="Images/avatar.png" alt="Photo d'identité"/><br/>
                     <div class="user">
                         <p>Florian CHARRIEAU</p>
                         <a href="connexion?actionConnexion=deconnecter">Déconnexion</a> <!-- ng-onclick -->
