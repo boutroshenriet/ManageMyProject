@@ -9,18 +9,25 @@
     var r = element.parentNode.parentNode.rowIndex;
     console.log(r);
 }*/
+
+
+
     var nextRow = 2;
-    var now = new Date();
+    var now2 = new Date();
+    var annee2 = now2.getFullYear();
+    var mois2 = now2.getMonth() + 1;
+    var jour2 = now2.getDate();
+    document.getElementById('affichedate2').innerHTML = jour2+"/"+mois2+"/"+annee2;
 
 $('#add').on('click', function() {
 
     $('#reu').append( 
         [
             '<tr>',
-                '<td><input class="tableau" type="date" value="'+now+'" name="date'+nextRow+'"></td>',
+                '<td><div id="affichedate2" class="tableau" type="date" name="date'+nextRow+'"></div></td>',
                 '<td><span id="h1'+nextRow+'">00</span>:<span id="m1'+nextRow+'">00</span>:<span id="s1'+nextRow+'">00</span></td>',
                 '<td><textarea id="text1" class="tableau" name="dcomm"></textarea></td>',
-                '<td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start1'+nextRow+'" class="btn btn-success">Début</button></td>',
+                '<td class="tableButton"><button id="bluebut" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start1'+nextRow+'" class="btn btn-success">Début</button></td>',
                 '<td class="tableButton"><button id="remove" class="btn btn-primary">Supprimer</button><button style="margin-top:20px" id="pause1'+nextRow+'" class="btn btn-danger">Fin</button></td>',
             '</tr>'
             

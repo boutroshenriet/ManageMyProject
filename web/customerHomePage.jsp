@@ -34,7 +34,7 @@
                         <h3 class="panel-title"> <%= sujet.getNameSubject() %></h3>
                     </div>
                     <div class="panel-body"><%= sujet.getDescription()%></div>
-                    <p><a href="team?subject=<%= sujet.getId() %>" class="btn btn-primary">Accéder</a></p>
+                    <p><a id="bluebut" href="team?subject=<%= sujet.getId() %>" class="btn btn-primary">Accéder</a></p>
                     </div>
             <%}
             }%>

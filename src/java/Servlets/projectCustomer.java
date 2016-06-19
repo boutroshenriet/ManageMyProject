@@ -89,7 +89,7 @@ public class projectCustomer extends HttpServlet {
             }
         }
         
-        doGet(request,response);
+        /*doGet(request,response);*/
     }
 
 }
