@@ -60,7 +60,7 @@
                 <%}%>
                 </table></center>
                 <br>
-                <input class="btn btn-primary" type="submit" value="Ajouter" id="bou"/>
+                <input class="btn btn-primary" type="submit" value="Valider" id="bou"/>
         </form>
      </body>
  </html>
