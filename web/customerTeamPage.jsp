@@ -6,6 +6,7 @@
 <%@page import="java.util.*,Entity.Subject"%>
 <%@page import="java.util.*,Entity.Team"%>
 <%@page import="java.util.*,Entity.User"%>
+<%@page import="java.util.*,Entity.Feature"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -92,6 +93,43 @@
   </div>
   
 </div>
+  
+<%
+    @SuppressWarnings("unchecked") 
+    List<Feature> features = (List<Feature>)request.getAttribute("features");
+    for(Feature f : features){
+    %>
+<!--<form method="POST" action="projectCustomer?actionProject=addFeatureA">-->
+        <div class="container">
+            <table class="table table-striped" id="fonct">
+                <thead>
+                    <tr>
+                        <th class="firstColumn">Thème</th>
+                        <th class="firstColumn">Fonctionnalité</th>
+                        <th class="firstColumn">Priorité</th>
+                        <th class="firstColumn">État</th>
+                        <th class="firstColumn">Date</th>
+                        <th>Commentaires</th>
+                        <th class="tableButton" style="border-bottom:4px solid white"><button class="btn btn-primary" style="background-color: white; border-color: white">Valider</button></th>
+                        <th class="tableButton" style="border-bottom:4px solid white"><button class="btn btn-primary" style="background-color: white; border-color: white">Supprimer</button></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><select class="tableau"><option value="theme1">Thème1</option><option value="thème2">Thème 2</option></select></td>
+                    <td><input class="tableau" type="text" name="f"></td>
+                    <td><select class="tableau"><option value="theme3">Thème1</option><option value="thème4">Thème 2</option></select></td>
+                    <td><input class="tableau" type="checkbox" style="vertical-align:middle"></td>
+                    <td><input class="tableau" type="date" name="date"></td>
+                    <td><textarea id="text2" class="tableau" name="dcomm"></textarea></td>
+                    <td class="tableButton"><button id="" class="btn btn-primary">Valider</button></td>
+                    <td class="tableButton"><button id="remove2" class="btn btn-primary">Supprimer</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <script src="addFonctionnality.js" type="text/javascript"></script>
+<!-- </form> -->
+<%} %>
 <form method="POST" action="projectCustomer?actionProject=addFeatureE">
         <div class="container">
             <table class="table table-striped" id="fonct">

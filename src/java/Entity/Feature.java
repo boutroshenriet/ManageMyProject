@@ -178,5 +178,47 @@ public class Feature implements Serializable {
     public void setPrio(int prio) {
         this.prio = prio;
     }
+
+    /**
+     * @return the team
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * @param team the team to set
+     */
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    /**
+     * @return the dateAdd
+     */
+    public Date getDateAdd() {
+        return dateAdd;
+    }
+
+    /**
+     * @param dateAdd the dateAdd to set
+     */
+    public void setDateAdd(Date dateAdd) {
+        this.dateAdd = dateAdd;
+    }
+
+    /**
+     * @return the theme
+     */
+    public Theme getTheme() {
+        return theme;
+    }
+
+    /**
+     * @param theme the theme to set
+     */
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
     
 }

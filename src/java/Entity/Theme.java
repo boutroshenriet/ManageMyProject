@@ -38,7 +38,7 @@ public class Theme implements Serializable {
     
     @Override
     public String toString() {
-        return "Entity.Features[ id=" + id + " ]";
+        return name;
     }
 
     /**

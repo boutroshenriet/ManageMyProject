@@ -37,6 +37,8 @@ public class projectCustomer extends HttpServlet {
     @EJB
     ParametresDAO paramDao;
     
+    @EJB
+    FeatureDAO featureDao;
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -52,8 +54,18 @@ public class projectCustomer extends HttpServlet {
         String param = request.getParameter("teamSujet");
         Subject sujet = subjectDao.getSubId(param.split("_")[1]).get(0);
         Team team = teamDao.getTeamById(param.split("_")[0]).get(0);
+        List<Feature> features = featureDao.getAllFeatures();
+        for(Feature f : features){
+            if(!f.getSubject().equals(sujet)){
+                features.remove(f);
+            }
+            else if(!f.getTeam().equals(team)){
+                features.remove(f);
+            }
+        }
         request.setAttribute("sujet", sujet);
         request.setAttribute("team", team);
+        request.setAttribute("features", features);
         request.getRequestDispatcher("/customerTeamPage.jsp?teamSujet=" + param).forward(request, response);
     }
 
@@ -71,7 +83,7 @@ public class projectCustomer extends HttpServlet {
         String teamSujet = request.getParameter("teamSujet");
         if(request.getParameter("actionProject") != null){
             String link = request.getParameter("actionProject");
-            if(link.equals("addFeatureE"))
+            if(link.equals("addFeatureA"))
             {
                 
             }

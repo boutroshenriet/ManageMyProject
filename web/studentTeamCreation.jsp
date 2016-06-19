@@ -26,18 +26,19 @@
 
         <form name="myForm" onsubmit="return validateMyForm()" method="post" action="team?actionTeam=create">
 
-            <h2>EQUIPE BORDEAUX</h2><br><br>
-
             <div class="panel panel-info" style="width: 32%; height: 70%; margin-left: 30px; background: #d9edf7; float:left">
                 <div class="panel-heading">
-                    <h3 class="panel-title"> SESSION 1</h3>
+                    <h3 class="panel-title">
+                        <%
+                        User me = (User) request.getAttribute("me");
+                        out.print(me.getSession().getSessionName().toString());
+                        %> </h3>
                 </div>  
                 <textarea name="textarea" rows="33" cols="53" style="background-color: #d9edf7">
                     <%
                         @SuppressWarnings(  "unchecked")
                         int teamSize = (Integer) request.getAttribute("teamSize");
                         List<User> students = (List<User>) request.getAttribute("studentsToAdd");
-                        User me = (User) request.getAttribute("me");
                         if (students != null) {
                             for (User student : students) {%>
                     <%= student%><%
