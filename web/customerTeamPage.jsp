@@ -24,6 +24,7 @@
             Subject sujet = (Subject)request.getAttribute("sujet");
             Team team = (Team)request.getAttribute("team");
             %>
+            
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search2.jsp" %>
@@ -34,7 +35,7 @@
             <textarea name="textarea" rows="10" cols="160"><%= sujet.getDescription() %></textarea>  
             <br>
         </div><br>
-        <form method="POST" action="projectCustomer?teamSujet=<%= request.getParameter("teamSujet") %>">
+        
         <h3 style="margin-left: 30px">Réunions :</h3>
         <button id="add" class="btn btn-primary" style="margin-left: 30px">Ajouter une réunion</button>
 
@@ -91,7 +92,7 @@
   </div>
   
 </div>
-
+<form method="POST" action="projectCustomer?actionProject=addFeatureE">
         <div class="container">
             <table class="table table-striped" id="fonct">
                 <thead>
@@ -120,12 +121,12 @@
         </div>
 
         <script src="addFonctionnality.js" type="text/javascript"></script>
-
+</form>
 
         <h3 style="margin-left: 30px">Fonctionnalités proposées par l'équipe :</h3>
         
         <button id="add3" class="btn btn-primary" style="margin-left: 30px">Ajouter une fonctionnalité</button>
-        
+           
         <!-- Trigger the modal with a button -->
   <button class="btn btn-primary" style="margin-left: 30px" data-toggle="modal" data-target="#myModal">Ajouter un thème</button>
         
@@ -155,9 +156,9 @@
                 </tr>
             </table>
         </div>
-
+    
         <script src="addStudentFonctionnality.js" type="text/javascript"></script>
-        
+
         
         <h3 style="margin-left: 30px">Trombinoscope :</h3>
 
@@ -174,7 +175,7 @@
            <% }%>
 <h3 style="margin-left: 30px">Documents :</h3>
 
-    </form>
+    
     </body>
 </html>
 

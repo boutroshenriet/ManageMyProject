@@ -68,6 +68,14 @@ public class projectCustomer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String teamSujet = request.getParameter("teamSujet");
+        if(request.getParameter("actionProject") != null){
+            String link = request.getParameter("actionProject");
+            if(link.equals("addFeatureE"))
+            {
+                
+            }
+        }
         
         doGet(request,response);
     }
