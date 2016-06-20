@@ -5,13 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*,Entity.User"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>ManageMyProject</title>
     </head>
     <body>
         
@@ -26,7 +28,7 @@
                 <div class="col-sm-9" style="text-align:right">
                     <img class="photo2" src="Images/avatar.png" alt="Photo d'identité"/><br/>
                     <div class="user">
-                        <p>Florian CHARRIEAU</p>
+                        <p><%= (User)session.getAttribute("currentUser") %></p>
                         <a href="connexion?actionConnexion=deconnecter">Déconnexion</a> <!-- ng-onclick -->
                     </div>
                 </div>

@@ -96,6 +96,19 @@ private static final long serialVersionUID = 1L;
     // String Representation:
     @Override
     public String toString() {
+        if(getName() != null) {
+            if(getLastname() != null) {
+                return getName() + ' ' + getLastname();
+            }
+            else {
+                return getName();
+            }
+        }
+        else {
+            if(getLastname() != null) {
+                return getLastname();
+            }
+        }
         return getPseudo();
     }
     

@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>ManageMyProject</title>
     </head>
     <body>
         <div class="form-group" style="width: 30%; margin-left: 68%">

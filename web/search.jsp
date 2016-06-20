@@ -14,7 +14,7 @@
         <script src="test.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <title>JSP Page</title>
+        <title>ManageMyProject</title>
     </head>
     <body>
         <p style="margin-left: 75%; float: left">Recherche :<p>

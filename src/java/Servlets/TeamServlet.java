@@ -20,19 +20,20 @@ import Entity.Team;
 import Entity.User;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.annotation.WebListener;
 
 @WebServlet(name = "TeamServlet", urlPatterns = {"/team"})
 public class TeamServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
+    
     // Injected DAO EJB:
     @EJB
     TeamDAO teamDao;
     // Injected DAO EJB:
     @EJB
     UserDAO userDao;
-
+    
     @EJB
     SubjectDAO subjectDao;
 
@@ -59,7 +60,6 @@ public class TeamServlet extends HttpServlet {
                     for (User student : students) {
                         if(student.getSession() != null) {
                             if (student.getSession().getId().equals(me.getSession().getId())) {
-                                System.out.println("student name : " + student.getName());
                                 if (!student.getId().equals(me.getId())) {
                                     if (student.getTeam() == null) {
                                         sameSessionStudents.add(student);
