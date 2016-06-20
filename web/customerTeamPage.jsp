@@ -17,7 +17,7 @@
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
 
-        <title>Equipe</title>
+       
     </head>
     <body>
         <%

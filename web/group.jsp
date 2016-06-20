@@ -5,11 +5,13 @@
  
 <html>
     <head>
-        <title>JPA Guest Book Web Application Tutorial</title>
+        
+        
         <link href="style.css" rel="stylesheet" type="text/css"/>
     </head>
   
     <body>
+        
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search3.jsp" %>

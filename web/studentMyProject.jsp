@@ -19,7 +19,7 @@
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="angular.js" type="text/javascript"></script>
         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-        <title>studentMyProject</title>
+        
     </head>
     <body>
         <head>
@@ -33,7 +33,7 @@
         
         <%@include file="header.jsp" %>
         <br>
-        <%@include file="search4.jsp" %>
+        
         <%
             @SuppressWarnings("unchecked") 
             Subject sujet = (Subject)request.getAttribute("sujet");
@@ -60,7 +60,7 @@
                     <div class="thumbnail">
                         <img src="Images/avatar.png" alt="avatar"/>
                         <div class="caption">
-                            <h4><% out.print(user.getName() + " " + user.getLastname()); %></h4>
+                            <h6><%= user%></h6>
                         </div>
                     </div>
                 </div>

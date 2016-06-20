@@ -12,7 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/i18n/defaults-*.min.js"></script>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+       
     </head>
     <body>
         <%@include file="header.jsp" %>

@@ -15,7 +15,7 @@
         <link href="style.css" rel="stylesheet" type="text/css"/>
         
     <a href="confirmation.js"></a>
-        <title>Sujet</title>
+        
     </head>
 <%@include file="header.jsp" %>
 <br>

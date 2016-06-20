@@ -13,7 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-        <title>ManageMyProject</title>
+        <link href="Images/ManageLogo.png" rel="shortcut icon" >
+        <title>Manage My Project</title>
     </head>
     <body>
         

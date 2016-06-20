@@ -1,7 +1,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Student Module</title>
+        <link href="Images/ManageLogo.png" rel="shortcut icon" >
+        <title>Manage My Project</title>
         <link type="text/css" rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="css/custom.css">
         <link href="style.css" rel="stylesheet" type="text/css"/>

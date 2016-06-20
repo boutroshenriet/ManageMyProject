@@ -5030,6 +5030,7 @@ a.badge:focus {
   border: 1px solid #ddd;
   border-radius: 4px;
   float:right;
+  width : 150px;
   -webkit-transition: border .2s ease-in-out;
        -o-transition: border .2s ease-in-out;
           transition: border .2s ease-in-out;

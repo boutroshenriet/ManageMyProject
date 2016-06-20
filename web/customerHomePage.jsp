@@ -17,7 +17,7 @@
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="angular.js" type="text/javascript"></script>
         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-        <title>Page d'accueil Client</title>
+        
     </head>
     <body>
         <%@include file="header.jsp" %>

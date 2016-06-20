@@ -16,13 +16,13 @@
         <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
-        <title>ManageMyProject</title>
+        
     </head>
     <body>
 
         <%@include file="header.jsp" %>
         <br>
-        <%@include file="search4.jsp" %>
+        
 <br>
         <form name="myForm" onsubmit="return validateMyForm()" method="post" action="team?actionTeam=create">
 
