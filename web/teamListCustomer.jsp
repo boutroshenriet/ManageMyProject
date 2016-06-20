@@ -28,7 +28,7 @@
             for (Team team : teams) { %>
             <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><a href="projectCustomer?teamSujet=<%= team.getId() %>_<%= request.getAttribute("sujet") %>">Equipe <%= team %></a></h3>
+                <h3 class="panel-title"><a href="projectCustomer?teamSujet=<%= team.getId() %>_<%= request.getAttribute("sujet") %>"><%= team %></a></h3>
             </div>
             <div class="panel-body">
                 <div class="searchButton">

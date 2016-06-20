@@ -99,7 +99,7 @@
             </table></center>
             <br>
             <br>
-            <input type="submit" class="btn btn-primary" value="Modifier" id="bou" />
+            <input type="submit" class="btn btn-primary" value="Appliquer la modification" id="bou" />
             <br>
         </form>
             <%@include file="footer.jsp" %>

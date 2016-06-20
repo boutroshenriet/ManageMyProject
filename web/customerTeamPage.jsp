@@ -29,7 +29,7 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search2.jsp" %>
-        <h2>Equipe <%= team.getAttribute() %></h2><br>
+        <h2><%= team.getAttribute() %></h2><br>
         <h3 style="margin-left: 30px">Sujet:</h3>
         <div class="alert alert-danger alert-dismissable fade in" style="width: 94%; margin-left: 30px">
             <h4><i class="icon icon-times-circle icon-lg"></i><%= sujet.getNameSubject()%></h4>
@@ -206,7 +206,7 @@
                     <div class="thumbnail">
                         <img src="Images/avatar.png" alt="avatar"/>
                         <div class="caption">
-                            <h4><% out.print(user.getName() + " " + user.getLastname()); %></h4>
+                            <h6><%= user %></h6>
                         </div>
                     </div>
                 </div>
