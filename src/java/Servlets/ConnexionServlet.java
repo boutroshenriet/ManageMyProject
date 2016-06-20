@@ -141,8 +141,7 @@ private static final long serialVersionUID = 1L;
                         if(user.getPseudo().equals(pseudo)){ //C1 == A1 ?
                             //if(user.getPassword().equals(password)){ //C2 == A2 ?
                                 /* Récupération de la session depuis la requête */
-                                if(parametresDao.getNbParam() == 0)
-                                    initParamTable();
+                                
                                 //Ajout de l'utilisateur dans la session
                                 session.setAttribute("sessionUser", user.getId());
                                 session.setAttribute("sessionType", user.getType());
@@ -159,12 +158,36 @@ private static final long serialVersionUID = 1L;
                         session.setAttribute("sessionType", newUser.getType());
                         session.setAttribute("currentUser", newUser);
                     }
-                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);        
-                    //request.getRequestDispatcher("/user.jsp").forward(request, response);
+                    if(parametresDao.getNbParam() == 0)
+                        initParamTable();
+                    request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+                    
                 } catch (NamingException e) {
                     System.out.println("Connexion au serveur : ECHEC DE L'IDENTIFICATION LDAP");
                     System.out.println("Identification sans LDAP");
                     System.err.println(e.getMessage());
+                    
+                    List<User> usersList = userDao.getAllUsers();
+
+                    HttpSession session = null;
+                    session = request.getSession();
+                    for (User user : usersList) {
+                        if(user.getPseudo().equals(pseudo)){
+                            if(user.getPassword().equals(password)){
+                                /* Récupération de la session depuis la requête */
+                                if(parametresDao.getNbParam() == 0)
+                                    initParamTable();
+                                //Ajout de l'utilisateur dans la session
+                                session.setAttribute("sessionUser", user.getId());
+                                session.setAttribute("sessionType", user.getType());
+                                session.setAttribute("currentUser", user);
+                                
+                                request.getRequestDispatcher("/HomePageServlet").forward(request, response);
+                            }
+                        }
+                    }
+                    //si le pseudo et le mot de passe ne sont pas connus dans la base
+                    doGet(request, response);
                     
                     e.printStackTrace();
                 } 
