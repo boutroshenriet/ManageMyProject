@@ -20,10 +20,10 @@
     <div class="col-md-12">
     <div class="row">
         
-        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="year?action=addYear">Années  </a></div>
-        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="subject?action=addSuject">Sujets</a></div>
-        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="user?action=addUsers">Utilisateurs</a></div>
-        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="document?action=documents">Documents</a></div>
+        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="year">Années</a></div>
+        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="subject">Sujets</a></div>
+        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="user">Utilisateurs</a></div>
+        <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="document">Documents</a></div>
         <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="session">Sessions</a></div>
         <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="group">Groupes</a></div>
         <div class="col-lg-1"><a class="btn btn-primary" id="taillB" href="team">Equipes</a></div>
