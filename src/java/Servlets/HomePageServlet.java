@@ -46,7 +46,7 @@ public class HomePageServlet extends HttpServlet {
         if (session.getAttribute("sessionUser") != null) {
             int type = (Integer) session.getAttribute("sessionType");
             if (type == 1) {//Professeur
-                request.getRequestDispatcher("/year?actionYear=addYear").forward(request, response);
+                request.getRequestDispatcher("/year").forward(request, response);
             } else if (type == 2) {//Client
                 request.getRequestDispatcher("/subject").forward(request, response);
             } else if (type == 3) {//Etudiant

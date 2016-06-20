@@ -37,7 +37,7 @@ public class YearServlet extends HttpServlet {
             throws ServletException, IOException {
         if(request.getParameter("actionYear") != null){
             String link = request.getParameter("actionYear");
-            if(link.equals("add"))
+            if(link.equals("addYear"))
             {
                 Integer annee = Integer.parseInt(request.getParameter("year"));
                 yearDao.persist(new Year(annee));
