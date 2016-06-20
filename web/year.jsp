@@ -21,79 +21,86 @@
         <ol>
             <form method="POST" action="year?actionYear=choose">
                 <br>      
-            <h3>Séléctionner une année :</h3>
-            <br>
-                Années disponibles: 
-                <select name="yearList" class="selectpicker">
-                    <%
-                        @SuppressWarnings(  "unchecked")
-                        //if(request.getAttribute("yearmessage")){
-                        //    String yearmessage = request.getAttribute("yearmessage").toString();
-                        //    if( yearmessage != null){
-                        //        out.print(yearmessage);
-                        //    }  
-                        //}
-                        
-                        
-                        List<Year> years = (List<Year>) request.getAttribute("years");
+                <h3 id="formargb">Séléctionner une année :</h3>
 
-                        HttpSession sessionCurrent = null;
-                        sessionCurrent = request.getSession();
-                        String currentYear = null;
-                        if (sessionCurrent.getAttribute("year") != null) {
-                            currentYear = sessionCurrent.getAttribute("year").toString();
-                        }
-                        String currentYearNumber = "";
-                        if (years != null) {
-                            for (Year year : years) {
-                                if (year.getId().toString().equals(currentYear)) {
-                                    currentYearNumber = year.getYearNumber().toString();
-                    %> <option value="<% out.print(year.getId().toString());%>" selected> 
-                    <b> <%= year%> </b> 
-                    </option> <%
-                    } else {
-                    %> <option value="<% out.print(year.getId().toString());%>"> 
-                        <%= year%>
-                    </option> <%
-                                    }
+                <br>
+
+                <center><table>
+                        <tr>
+                            <td id="tdsession1">Années disponibles :</td>
+                            <td id="tdsession2b"><select name="yearList" class="selectpicker">
+                                    <%
+                                        @SuppressWarnings(  "unchecked")
+                                        //if(request.getAttribute("yearmessage")){
+                                        //    String yearmessage = request.getAttribute("yearmessage").toString();
+                                        //    if( yearmessage != null){
+                                        //        out.print(yearmessage);
+                                        //    }  
+                                        //}
+
+                                        List<Year> years = (List<Year>) request.getAttribute("years");
+
+                                        HttpSession sessionCurrent = null;
+                                        sessionCurrent = request.getSession();
+                                        String currentYear = null;
+                                        if (sessionCurrent.getAttribute("year") != null) {
+                                            currentYear = sessionCurrent.getAttribute("year").toString();
+                                        }
+                                        String currentYearNumber = "";
+                                        if (years != null) {
+                                            for (Year year : years) {
+                                                if (year.getId().toString().equals(currentYear)) {
+                                                    currentYearNumber = year.getYearNumber().toString();
+                                    %> <option value="<% out.print(year.getId().toString());%>" selected> 
+                                    <b> <%= year%> </b> 
+                                    </option> <%
+                                    } else {
+                                    %> <option value="<% out.print(year.getId().toString());%>"> 
+                                        <%= year%>
+                                    </option> <%
                                 }
-                            }%>
-                </select>
-                <!-- <% out.print(currentYearNumber);%> -->
-                <input type="submit" value="Selectionner" class="btn btn-primary" />
-                
+                            }
+                        }%>
+                                </select></td>
+                            <!-- <% out.print(currentYearNumber);%> -->
+                            <td id="tdsession1"><input type="submit" value="Selectionner" class="btn btn-primary" /></td>
+                        </tr>
+                    </table></center>
+
             </form>
         </ol>
-                <form method="POST" action="year?actionYear=addYear">
+        <form method="POST" action="year?actionYear=addYear">
+            <br><br>
+            <h3 id="formarg">Ajouter une année :</h3>
             <br>
-            <h3 style="margin-left: 30px">Ajouter une année :</h3>
-            <br>
-           
+
             <!-- Année: <input type="year" name="year" /> -->
-            <div class="form-group" style="width: 20%; margin-left: 30px">
-            <div class="input-group input-group-md icon-addon addon-md">
-                <input placeholder="Saisir une année" type="year" name="year" id="schbox" class="form-control">
-                <span class="input-group-btn">
-            <input type="submit" value="Ajouter" class="btn btn-primary" />
-            
-            </div>
-                </div>
-                </span>
-                <!-- <div id="test"></div>
-                <script>
-                    $('#clic').on('click', function(e) {
-                        e.preventDefault();
+            <center><div class="form-group" style="width: 20%; margin-left: 30px">
+                    <div class="input-group input-group-md icon-addon addon-md">
+                        <input placeholder="Saisir une année" type="year" name="year" id="schbox" class="form-control">
+                        <span class="input-group-btn">
+                            <input type="submit" value="Ajouter" class="btn btn-primary" />
+
+                    </div>
+                </div></center>
+        </span>
+        <!-- <div id="test"></div>
+        <script>
+            $('#clic').on('click', function(e) {
+                e.preventDefault();
 
 $('#test').append('<div class="alert alert-success alert-dismissable fade in">',
-  '<i class="icon icon-check-circle icon-lg"></i>',
-  '<strong>Succès !</strong> message de reussite.',
+'<i class="icon icon-check-circle icon-lg"></i>',
+'<strong>Succès !</strong> message de reussite.',
 '</div>');
-                    });
-                    
-                </script> -->
-                
- 
-        </form>
+            });
+            
+        </script> -->
 
-    </body>
+
+    </form>
+                            
+                            <%@include file="footer.jsp" %>
+
+</body>
 </html>

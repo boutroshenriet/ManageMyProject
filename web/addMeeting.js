@@ -17,7 +17,7 @@
     var annee2 = now2.getFullYear();
     var mois2 = now2.getMonth() + 1;
     var jour2 = now2.getDate();
-    document.getElementById('affichedate2').innerHTML = jour2+"/"+mois2+"/"+annee2;
+    
 
 $('#add').on('click', function() {
 
@@ -35,6 +35,7 @@ $('#add').on('click', function() {
         
     );  
 
+document.getElementById('affichedate2').innerHTML = jour2+"/"+mois2+"/"+annee2;
 
 window['h1' + nextRow] = 0;
 

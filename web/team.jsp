@@ -62,5 +62,6 @@
                 <br>
                 <input class="btn btn-primary" type="submit" value="Valider" id="bou"/>
         </form>
+                <%@include file="footer.jsp" %>
      </body>
  </html>

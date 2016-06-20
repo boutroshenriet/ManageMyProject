@@ -17,7 +17,7 @@
         <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="style.css" rel="stylesheet" type="text/css"/>
 
-        <title>Equipe Bordeaux</title>
+        <title>Equipe</title>
     </head>
     <body>
         <%
@@ -33,11 +33,11 @@
         <h3 style="margin-left: 30px">Sujet:</h3>
         <div class="alert alert-danger alert-dismissable fade in" style="width: 94%; margin-left: 30px">
             <h4><i class="icon icon-times-circle icon-lg"></i><%= sujet.getNameSubject()%></h4>
-            <textarea name="textarea" rows="10" cols="160"><%= sujet.getDescription() %></textarea>  
+            <div name="textarea"><%= sujet.getDescription() %></div>  
             <br>
         </div><br>
         
-        <h3 style="margin-left: 30px">Réunions :</h3>
+        <h3 style="margin-left: 30px">Réunions :</h3><br>
         <button id="add" class="btn btn-primary" style="margin-left: 30px">Ajouter une réunion</button>
 
         <div class="container">
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tr>
-                    <td><input class="tableau" type="date" name="date"></td>
+                    <td><div id="affichedate" class="tableau" name="date"></div></td>
                     <td><span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span></td>
                     <td><textarea id="text1" class="tableau" name="dcomm"></textarea></td>
                     <td class="tableButton"><button id="" class="btn btn-primary">Valider</button><button style="margin-top:20px" id="start" class="btn btn-success">Début</button></td>
@@ -63,7 +63,7 @@
 
         <script src="addMeeting.js" type="text/javascript"></script>
         
-        <h3 style="margin-left: 30px">Fonctionnalités attendues par le professeur :</h3>
+        <h3 style="margin-left: 30px">Fonctionnalités attendues par le professeur :</h3><br>
 
         <button id="add2" class="btn btn-primary" style="margin-left: 30px">Ajouter une fonctionnalité</button>
 
@@ -161,7 +161,7 @@
         <script src="addFonctionnality.js" type="text/javascript"></script>
 </form>
 
-        <h3 style="margin-left: 30px">Fonctionnalités proposées par l'équipe :</h3>
+        <h3 style="margin-left: 30px">Fonctionnalités proposées par l'équipe :</h3><br>
         
         <button id="add3" class="btn btn-primary" style="margin-left: 30px">Ajouter une fonctionnalité</button>
            
@@ -213,11 +213,18 @@
            <% }%>
 <h3 style="margin-left: 30px">Documents :</h3>
 
+<%@include file="footer.jsp" %>
     
     </body>
 </html>
 
 <script>
+    var now = new Date();
+    var annee = now.getFullYear();
+    var mois = now.getMonth() + 1;
+    var jour = now.getDate();
+    document.getElementById('affichedate').innerHTML = jour+"/"+mois+"/"+annee;
+    
 var h = 0; // Heure
 var m = 0; // Minute
 var s = 0; // Seconde

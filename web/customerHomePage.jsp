@@ -23,7 +23,7 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search2.jsp" %>
-        <HR>
+        
         <%
             @SuppressWarnings("unchecked") 
             List<Subject> sujets = (List<Subject>)request.getAttribute("sujets");
@@ -38,5 +38,7 @@
                     </div>
             <%}
             }%>
+            <HR style="border-top: white">
+            <%@include file="footer.jsp" %>
     </body>
 </html>

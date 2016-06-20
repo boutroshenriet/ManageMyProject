@@ -78,6 +78,7 @@ Chaque équipe aura la possibilité de rajouter des comptes rendus à la suite d
     <a style="margin-left: 30px" href="PDF/tpicha5.pdf"> Interview </a> <br/>
     </p>
 
+    <%@include file="footer.jsp" %>
 
     </body>
 </html>

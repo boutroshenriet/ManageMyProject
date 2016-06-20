@@ -23,7 +23,7 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search4.jsp" %>
-
+<br>
         <form name="myForm" onsubmit="return validateMyForm()" method="post" action="team?actionTeam=create">
 
             <div class="panel panel-info" style="width: 32%; height: 70%; margin-left: 30px; background: #d9edf7; float:left">
@@ -34,17 +34,19 @@
                         out.print(me.getSession().getSessionName().toString());
                         %> </h3>
                 </div>  
-                <textarea name="textarea" rows="33" cols="53" style="background-color: #d9edf7">
+                <br>
+                <div name="textarea" rows="33" cols="53" style="background-color: #d9edf7">
                     <%
                         @SuppressWarnings(  "unchecked")
                         int teamSize = (Integer) request.getAttribute("teamSize");
                         List<User> students = (List<User>) request.getAttribute("studentsToAdd");
                         if (students != null) {
                             for (User student : students) {%>
-                    <%= student%><%
+                            <div style="margin-left:30px"><%= student%><br></div><%
                                         }
                                     } %>
-                </textarea> 
+                <br>
+                </div> 
             </div>
             <center><table>
 
@@ -89,9 +91,9 @@
 
                 </table></center>
 
+                    <HR style="border-top: white">
 
-
-
+<%@include file="footer.jsp" %>
 
     </body>
 </html>

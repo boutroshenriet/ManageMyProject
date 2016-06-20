@@ -28,5 +28,6 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Attention !</strong> Vous ne faites actuellement pas partie d'une session. Veuillez attendre que le professeur vous en attribue une.
         </div>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

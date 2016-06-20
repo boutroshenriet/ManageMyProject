@@ -133,7 +133,7 @@ td {
 }
 
 .docs{
-    margin-left: 30px;
+    margin-left: 10%;
 }
 
 #head{
@@ -142,6 +142,7 @@ td {
 
 #navbtn{
     margin-left: 35px;
+    
 }
 
 #connectlogo{
@@ -154,7 +155,11 @@ td {
 }
 
 #formarg{
-    margin-left: 30px;
+    margin-left: 6%;
+}
+
+#formargb{
+    margin-left: 3%;
 }
 
 #tdsession1{
@@ -192,4 +197,45 @@ td {
 
 #bou{
     margin-left: 70%;
+}
+#taillB{
+    width: 100%;
+    margin: 5px;
+}
+
+/*[class*="col-"], footer {
+  background-color: lightgreen;
+  border: 2px solid black;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}*/
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#bluebut{
+    margin-left: 15px;
+}
+
+#remove{
+    margin-left: 15px;
+}
+
+#face{
+    margin-top: 8px;
+}
+
+#tdsession2b{
+    vertical-align: middle;
+    width:45%;
+    text-align: center;
+}
+
+#foot{
+    margin-left: -30px;
 }

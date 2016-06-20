@@ -18,6 +18,7 @@
   
     <body>
         <%@include file="header.jsp" %>
+        
         <br>
         <%@include file="search3.jsp" %>
                     <% 
@@ -25,12 +26,15 @@
 			if(request.getSession().getAttribute("year") != null)
 			{
 				String year = request.getAttribute("year").toString();
-				out.println("Vous avez sélectionné l'année " + year);
+                    %> <center><h3>Vous avez sélectionné l'année <%=year%> </h3></center>
+                                <%
 			}
 			%>
         
         <form method="POST" action="subject" style="margin-left: 30px">
+            <br>
             <h3 id="formarg">Ajouter un sujet :</h3>
+            <br>
                     <center><table style="height:400px; vertical-align: middle">
                 
                             <tr><td id="tdsession1">Intitulé du sujet :</td>
@@ -62,10 +66,11 @@
             </tr>
         </form>
            </table></center>
+           
  <h3 id="formarg">Sujets déjà existants :</h3>
  <br>
            <br>
-       <ol> <%
+       <ol class="docs"> <%
             @SuppressWarnings("unchecked") 
             List<Subject> subjects = (List<Subject>)request.getAttribute("subjects");
             if (subjects != null) {
@@ -74,5 +79,8 @@
                 }
             } %>
         </ol>
+        
      </body>
+     <div id="foot">
+          <%@include file="footer.jsp" %></div>
  </html>

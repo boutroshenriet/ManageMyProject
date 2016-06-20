@@ -20,7 +20,7 @@
         <br>
         <%@include file="search3.jsp" %>
         <br>
-        <h3 id="formarg">Créer un nouveau compte :</h3><br>
+        <h3 id="formarg">Créer un nouveau compte :</h3><br><br>
         <form method="POST" action="user?actionUser=ajouter">
             <center><table>
                     <tr><td class="tduser">Pseudo :</td>
@@ -49,8 +49,8 @@
             } %>
            </select></td>
            <td><input type="submit" value="Ajouter" class="btn btn-primary" /></td></tr>
-                </table></form></center><br>
-                <h3 id="formarg">Comptes déjà créés :</h3>
+                </table></form></center><br><br>
+                <h3 id="formarg">Comptes déjà créés :</h3><br>
                 <br>
                 
         <form method="POST" action="user?actionUser=modifier">
@@ -102,5 +102,6 @@
             <input type="submit" class="btn btn-primary" value="Modifier" id="bou" />
             <br>
         </form>
+            <%@include file="footer.jsp" %>
      </body>
  </html>
