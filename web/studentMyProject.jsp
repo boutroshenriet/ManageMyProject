@@ -44,9 +44,9 @@
             <h4><i class="icon icon-times-circle icon-lg"></i>
             <%= sujet.getNameSubject() %>
             </h4><br>
-            <textarea name="textarea" rows="10" cols="160">
+            <div name="textarea">
             <%= sujet.getDescription() %>
-            </textarea>
+            </div>
 
             
         </div><br>
