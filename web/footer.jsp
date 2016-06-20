@@ -30,10 +30,10 @@
 
 			<div class="footer-right">
 
-				<a href="#"><i id="face" class="fa fa-facebook"></i></a>
-				<a href="#"><i id="face" class="fa fa-twitter"></i></a>
+				<a href="https://www.facebook.com/Managemyproject-287470058269183/?skip_nax_wizard=true&__mref=message_bubble" target="_blank"><i id="face" class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/?request_context=signup" target="_blank"><i id="face" class="fa fa-twitter"></i></a>
 				<a href="#"><i id="face" class="fa fa-linkedin"></i></a>
-				<a href="#"><i id="face" class="fa fa-github"></i></a>
+				<a href="https://github.com/boutroshenriet/ManageMyProject" target="_blank"><i id="face" class="fa fa-github"></i></a>
 
 			</div>
 
@@ -42,10 +42,9 @@
 				<p class="footer-links">
 					<a href="http://www.isep.fr/">ISEP</a>
 					·
-					<a href="#">Mentions légales</a>
+					<a href="mentionslegales.jsp">Mentions légales</a>
 					·
 					<a href="http://educ.isep.fr/moodle/course/view.php?id=190">Moodle Génie Logiciel</a>
-					
 					·
 					<a href="#">Haut de la page</a>
 				</p>

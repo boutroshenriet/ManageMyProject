@@ -23,7 +23,7 @@
         <%@include file="header.jsp" %>
         <br>
         <%@include file="search2.jsp" %>
-        
+        <br>
         <%
             @SuppressWarnings("unchecked") 
             List<Subject> sujets = (List<Subject>)request.getAttribute("sujets");
