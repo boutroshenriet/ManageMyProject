@@ -32,9 +32,19 @@
             </div>
             <div class="panel-body">
                 <div class="searchButton">
-                    <p>Année : 2015-2016</p>
-                    <p>Sujet 1 : Amélioration de la gestion des projets de spécification en Génie Logiciel</p>
-                    <p>Client : Mme Kazi-Aoul</p>
+                    <p>Année : <% 
+                        if(team.getSubject() != null)
+                            if(team.getSubject().getYear() != null)
+                                out.print(team.getSubject().getYear().getYearNumber().toString()); %> </p>
+                    <p>Sujet : <%
+                        if(team.getSubject() != null)
+                            out.print(team.getSubject().getNameSubject().toString());
+                        %></p>
+                    <p>Client : <%
+                        if(team.getSubject() != null)
+                            out.print(team.getSubject().getClient().toString());
+                    %>
+                    </p>
                 </div>
                 <p><a href="projectCustomer?teamSujet=<%= team.getId() %>_<%= request.getAttribute("sujet") %>" class="btn btn-primary" style="float: right">Accéder</a></p>
             </div>
