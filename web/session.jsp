@@ -21,20 +21,22 @@
         <br>
         <%@include file="search3.jsp" %>
         <br>
-<h3 style="margin-left: 30px">Ajouter une session :</h3>
+        
+        
+<h3 id="formarg">Ajouter une session :</h3>
         <form method="POST" action="session?actionSession=add">
             <br>
             <center><table>
 
                     <tr>
-                        <td id="tdsession1">Session:</td>
+                        <td id="tdsession1"><div style="margin-left:15px">Session:</div></td>
                         <td id="tdsession2"><input type="text" name="sessionName" placeholder="Saisir le nom de la session" class="form-control"/></td>
-                        <td id="td3"><input type="submit" value="Ajouter" class="btn btn-primary"/></td>
+                        <td id="td3"><input style="margin-right: 15px" type="submit" value="Ajouter" class="btn btn-primary"/></td>
                     </tr>
                 </table></center>
         </form>
 <br>
-<h3 style="margin-left: 30px">Sessions déja créées :</h3><br>
+<h3 id="formarg">Sessions déjà créées :</h3><br>
         <ol class="docs"> <%
             @SuppressWarnings(  "unchecked")
             List<Session> sessions = (List<Session>) request.getAttribute("sessions");
