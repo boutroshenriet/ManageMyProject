@@ -166,10 +166,7 @@ private static final long serialVersionUID = 1L;
                     System.out.println("Connexion au serveur : ECHEC DE L'IDENTIFICATION LDAP");
                     System.out.println("Identification sans LDAP");
                     System.err.println(e.getMessage());
-                    
-                    List<User> usersList = userDao.getAllUsers();
 
-                    HttpSession session = null;
                     session = request.getSession();
                     for (User user : usersList) {
                         if(user.getPseudo().equals(pseudo)){
